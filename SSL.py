@@ -6,7 +6,7 @@ from dash import Dash, dcc, html, Input, Output
 import dash_bootstrap_components as dbc
 
 
-PRESENÇA_MINIMA = 10
+PRESENÇA_MINIMA = 1
 
 lista_jogos_df = pd.read_csv(
     "./SSL_Jogos.csv", encoding="UTF-8", sep="\;", engine="python"
@@ -136,11 +136,11 @@ line_classificação = px.line(
     y="Posição",
     color="Jogador",
     template="none",
-    title="Classificação",
+    # title="Classificação",
 )
 line_classificação.update_traces(x0=1)
 line_classificação.update_yaxes(autorange="reversed")
-line_classificação.update_layout(template="none")
+line_classificação.update_layout(showlegend=False, template="none", yaxis={"title": ""})
 for i, d in enumerate(line_classificação.data):
     line_classificação.add_scatter(
         x=[d.x[-1]],
@@ -171,8 +171,8 @@ bar_pontos.update_layout(
     yaxis={
         "categoryorder": "total ascending",
         "title": "",
-        "side": "right"
-        # "automargin": "width",
+        "side": "right",
+        "automargin": "width",
     },
     xaxis={"title": ""},
 )
@@ -258,28 +258,34 @@ app.layout = dbc.Container(
                 dbc.Col(
                     html.Div(
                         dbc.Table.from_dataframe(
-                            tabela, size="sm", hover=True, style={"width": "100%"}
-                        )
+                            tabela,
+                            size="sm",
+                            hover=True,
+                            style={"width": "100%", "height": "90vh"},
+                        ),
+                        style={"max-height": "90vh", "overflow": "auto"},
                     ),
                     width=4,
                 ),
                 dbc.Col(
-                    html.Div(dcc.Graph(figure=bar_pontos, style={"height": "95vh"})),
-                    width=4,
-                ),
-                dbc.Col(
-                    html.Div(dcc.Graph(figure=bar_gols, style={"height": "95vh"})),
-                    width=4,
+                    html.Div(
+                        dcc.Graph(figure=line_classificação, style={"height": "100vh"})
+                    ),
+                    width=8,
                 ),
             ]
         ),
         dbc.Row(
-            dbc.Col(
-                html.Div(
-                    dcc.Graph(figure=line_classificação, style={"height": "100vh"})
+            [
+                dbc.Col(
+                    html.Div(dcc.Graph(figure=bar_pontos, style={"height": "95vh"})),
+                    width=6,
                 ),
-                width=12,
-            )
+                dbc.Col(
+                    html.Div(dcc.Graph(figure=bar_gols, style={"height": "95vh"})),
+                    width=6,
+                ),
+            ]
         ),
     ],
     fluid=True,

@@ -5,9 +5,6 @@ import plotly.express as px
 from dash import Dash, dcc, html, Input, Output, callback
 import dash_bootstrap_components as dbc
 
-
-PRESENÇA_MINIMA = 1
-
 lista_jogos_df = pd.read_csv(
     "./SSL_Jogos.csv", encoding="UTF-8", sep="\;", engine="python"
 )

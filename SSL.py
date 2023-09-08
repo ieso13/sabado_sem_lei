@@ -4,6 +4,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 from dash import Dash, dcc, html, Input, Output, callback
 import dash_bootstrap_components as dbc
+from itertools import combinations
 
 lista_jogos_df = pd.read_csv(
     "./SSL_Jogos.csv", encoding="UTF-8", sep="\;", engine="python"
@@ -12,6 +13,29 @@ lista_jogos_df = pd.read_csv(
 # Consolidar votos destaques
 lista_jogos_df["Destaques"] = (lista_jogos_df["Destaques"] >= 3).astype(int)
 
+
+# Estatísticas dos jogadores combinados - Dupla
+
+times_df = (
+    lista_jogos_df.groupby(["Rodada", "Time"])["Jogador"].apply(list).reset_index()
+)
+
+times_df["Combinações"] = times_df["Jogador"].apply(lambda x: list(combinations(x, 2)))
+
+times_df = times_df.explode("Combinações")
+
+filtro = "Adriel Zanatta"
+
+if filtro:
+    times_df["Combinações"] = times_df["Combinações"].apply(lambda x: filtro in x)
+else:
+    times_df["Combinações"] = times_df["Combinações"].apply(lambda x: True)
+
+times_df = times_df[["Rodada", "Combinações"]]
+
+times_df = times_df.loc[times_df["Combinações"] == True].drop_duplicates()
+
+print(times_df)
 # Dados únicos dos Jogos
 num_jogos = lista_jogos_df["Rodada"].max()
 

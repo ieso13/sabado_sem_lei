@@ -21,26 +21,21 @@ jogadores_df = lista_jogos_df.groupby("Jogador")[["Pontos", "Gols", "Destaques"]
 jogadores_df["Presença"] = (
     lista_jogos_df.groupby("Jogador")["Rodada"].count().astype(int)
 )
-
 jogadores_df["Presença%"] = ((jogadores_df["Presença"] / num_jogos) * 100).map(
     "{:,.1f}%".format
 )
-
 jogadores_df["Gols/Jogo"] = (jogadores_df["Gols"] / jogadores_df["Presença"]).map(
     "{:,.1f}".format
 )
-
 jogadores_df["Aproveitamento%"] = (
     jogadores_df["Pontos"] / (jogadores_df["Presença"] * 3) * 100
 ).map("{:,.1f}%".format)
-
 jogadores_df["Vitórias"] = (
     lista_jogos_df.loc[lista_jogos_df["Pontos"] == 3]
     .groupby("Jogador")["Pontos"]
     .size()
     .astype(int)
 )
-
 jogadores_df["Empates"] = (
     lista_jogos_df.loc[lista_jogos_df["Pontos"] == 1]
     .groupby("Jogador")["Pontos"]
@@ -58,6 +53,37 @@ jogadores_df["Derrotas"] = (
 
 jogadores_df = jogadores_df.replace(np.nan, 0)
 
+# Estatísticas dos escaladores
+escaladores_df = lista_jogos_df.loc[
+    lista_jogos_df["Escalador"] == lista_jogos_df["Jogador"]
+]
+
+tabela_escaladores = escaladores_df.groupby("Jogador")[
+    ["Pontos", "Gols", "Destaques"]
+].sum()
+
+tabela_escaladores["Presença"] = (
+    escaladores_df.groupby("Jogador")["Rodada"].count().astype(int)
+)
+
+tabela_escaladores["Aproveitamento%"] = (
+    tabela_escaladores["Pontos"] / (tabela_escaladores["Presença"] * 3) * 100
+).map("{:,.1f}%".format)
+
+tabela_escaladores = tabela_escaladores.reset_index().sort_values(
+    by=["Presença"], ascending=False
+)
+
+tabela_escaladores = tabela_escaladores.rename(
+    columns={
+        "Jogador": "JOGADOR",
+        "Pontos": "PTS",
+        "Aproveitamento%": "APRV",
+        "Gols": "GOLS",
+        "Presença": "PJ",
+        "Destaques": "S+",
+    }
+)
 
 # Classificação ao longo do tempo
 lista_jogos_completa_df = lista_jogos_df[["Rodada", "Jogador", "Pontos", "Gols"]]
@@ -119,49 +145,6 @@ tabela = tabela.rename(
     }
 )
 
-# gráficos
-bar_pontos = px.bar(
-    lista_jogos_completa_df,
-    x="Pontos Acc",
-    y="Jogador",
-    color="Jogador",
-    animation_frame="Rodada",
-    orientation="h",
-    text="Posição",
-    template="none",
-    title="Classificação",
-)
-bar_pontos.update_layout(
-    showlegend=False,
-    yaxis={
-        "categoryorder": "total ascending",
-        "title": "",
-        "side": "right",
-        "automargin": "width",
-    },
-    xaxis={"title": ""},
-)
-bar_pontos.update_yaxes(ticklabelposition="inside")
-bar_pontos.add_vline(x=0)
-
-bar_gols = px.bar(
-    lista_jogos_completa_df,
-    x="Gols Acc",
-    y="Jogador",
-    color="Jogador",
-    animation_frame="Rodada",
-    orientation="h",
-    text="Gols Acc",
-    template="none",
-    title="Gols Acumudalos",
-)
-bar_gols.update_layout(
-    showlegend=False,
-    yaxis={"categoryorder": "total ascending", "side": "right", "title": ""},
-    xaxis={"title": ""},
-)
-bar_gols.update_yaxes(ticklabelposition="inside")
-bar_gols.add_vline(x=0)
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
@@ -214,12 +197,27 @@ app.layout = dbc.Container(
         dbc.Row(
             [
                 dbc.Col(
+                    html.Div(
+                        id="table2",
+                        children=[
+                            dbc.Table.from_dataframe(
+                                tabela_escaladores,
+                                size="sm",
+                                hover=True,
+                                style={"width": "100%"},
+                            )
+                        ],
+                        style={"max-height": "100vh", "overflow": "auto"},
+                    ),
+                    width=4,
+                ),
+                dbc.Col(
                     html.Div(id="graph2", children=[]),
-                    width=6,
+                    width=4,
                 ),
                 dbc.Col(
                     html.Div(id="graph3", children=[]),
-                    width=6,
+                    width=4,
                 ),
             ]
         ),
@@ -278,8 +276,66 @@ def create_table1(value):
         dff,
         size="sm",
         hover=True,
-        style={"width": "100%", "height": "90vh"},
+        style={
+            "width": "100%",
+        },
     )
+
+
+@callback(Output("graph2", "children"), Input("store-data", "data"))
+def create_graph2(data):
+    dff = pd.DataFrame(data)
+    bar_pontos = px.bar(
+        dff,
+        x="Pontos Acc",
+        y="Jogador",
+        color="Jogador",
+        animation_frame="Rodada",
+        orientation="h",
+        text="Posição",
+        template="none",
+        title="Classificação",
+    )
+    bar_pontos.update_layout(
+        showlegend=False,
+        yaxis={
+            "categoryorder": "total ascending",
+            "title": "",
+            "side": "right",
+            "automargin": "width",
+        },
+        xaxis={"title": ""},
+    )
+    bar_pontos.update_yaxes(ticklabelposition="inside")
+    bar_pontos.add_vline(x=0)
+
+    return dcc.Graph(figure=bar_pontos, style={"height": "100vh"})
+
+
+@callback(Output("graph3", "children"), Input("store-data", "data"))
+def create_graph3(data):
+    dff = pd.DataFrame(data)
+    bar_gols = px.bar(
+        dff,
+        x="Gols Acc",
+        y="Jogador",
+        color="Jogador",
+        animation_frame="Rodada",
+        orientation="h",
+        text="Gols Acc",
+        template="none",
+        title="Gols Acumudalos",
+    )
+    bar_gols.update_layout(
+        showlegend=False,
+        yaxis={"categoryorder": "total ascending", "side": "right", "title": ""},
+        xaxis={"title": ""},
+    )
+
+    bar_gols.update_yaxes(ticklabelposition="inside")
+    bar_gols.add_vline(x=0)
+
+    return dcc.Graph(figure=bar_gols, style={"height": "100vh"})
 
 
 if __name__ == "__main__":

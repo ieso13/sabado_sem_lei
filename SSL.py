@@ -121,11 +121,12 @@ app.layout = dbc.Container(
                 dbc.Col(
                     html.Div(
                         [
-                            html.P("Escolha o Jogador Para Análisar na Tabela"),
+                            html.P("Presença Mínima"),
                             dcc.Input(
                                 id="min_pj",
                                 type="number",
                                 placeholder="Número Mínimo de Rodadas",
+                                value=0,
                             ),
                         ]
                     ),
@@ -147,7 +148,6 @@ app.layout = dbc.Container(
                     html.Div(
                         id="graph1",
                         children=[],
-                        style={"height": "100vh"},
                     ),
                     width=8,
                 ),
@@ -180,7 +180,7 @@ app.layout = dbc.Container(
                 ),
             ]
         ),
-        dcc.Store(id="store-data", data=[], storage_type="memory"),
+        dcc.Store(id="memory-output"),
     ],
     fluid=True,
 )
@@ -188,6 +188,7 @@ app.layout = dbc.Container(
 
 @callback(
     Output("table1", "children"),
+    Output("memory-output", "data"),
     Input("filtro_jogador", "value"),
     Input("min_pj", "value"),
 )
@@ -246,8 +247,10 @@ def create_table1(jogador, pj_min):
 
     jogadores_df = jogadores_df.reset_index()
     jogadores_df = jogadores_df.sort_values(by=["Pontos"], ascending=False)
+    jogadores_df.insert(0, "#", range(1, len(jogadores_df) + 1, 1))
     jogadores_df = jogadores_df[
         [
+            "#",
             "Jogador",
             "Pontos",
             "Aproveitamento%",
@@ -284,6 +287,7 @@ def create_table1(jogador, pj_min):
         id="datatable-interactivity",
         data=jogadores_df.to_dict("records"),
         columns=[
+            dict(id="#", name="#"),
             dict(id="JOGADOR", name="JOGADOR"),
             dict(id="PTS", name="PTS"),
             dict(id="APRV", name="APRV", type="numeric", format=percentage),
@@ -301,12 +305,12 @@ def create_table1(jogador, pj_min):
         sort_mode="single",
         style_as_list_view=True,
         row_selectable="multi",
-        selected_row_ids=[],
+        derived_virtual_selected_rows=[],
         style_data={
             "whiteSpace": "normal",
             "height": "auto",
         },
-    )
+    ), jogadores_df.to_dict("records")
 
     # @callback(Output("graph2", "children"), Input("store-data", "data"))
     # def create_graph2(data):
@@ -364,27 +368,32 @@ def create_table1(jogador, pj_min):
 
 
 @callback(
-    Output("graph1", "children"), Input("datatable-interactivity", "selected_row")
+    Output("graph1", "children"),
+    Input("datatable-interactivity", "derived_virtual_selected_rows"),
+    Input("memory-output", "data"),
 )
-def criar_graph1(selecionados):
+def criar_graph1(selecionados, data):
     df = lista_jogos_completa_df
 
-    if selecionados == 0:
+    dff = pd.DataFrame(data)
+
+    jog_selecionados = [dff["JOGADOR"][x] for x in selecionados]
+
+    if len(selecionados) == 0:
         pass
     else:
-        df = df.loc[df["Jogador"].isin(selecionados)]
+        df = df[df["Jogador"].isin(jog_selecionados)]
 
-    print(selecionados)
     line_classificação = px.line(
         df,
         x="Rodada",
         y="Posição",
         range_x=[1, num_jogos + 10],
+        range_y=[20, 0],
         color="Jogador",
         template="none",
     )
 
-    line_classificação.update_yaxes(autorange="reversed")
     line_classificação.update_layout(
         showlegend=False, template="none", yaxis={"title": ""}
     )
@@ -399,8 +408,8 @@ def criar_graph1(selecionados):
             marker=dict(color=d.line.color, size=12),
             legendgroup=d.name,
             showlegend=False,
-        ),
-    return line_classificação
+        )
+    return dcc.Graph(figure=line_classificação, style={"height": "90vh"})
 
 
 if __name__ == "__main__":

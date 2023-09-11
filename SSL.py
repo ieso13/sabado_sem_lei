@@ -3,8 +3,10 @@ import numpy as np
 import plotly.graph_objects as go
 import plotly.express as px
 from dash import Dash, dcc, html, Input, Output, callback
+from dash.dash_table import DataTable, FormatTemplate
 import dash_bootstrap_components as dbc
 from itertools import combinations
+
 
 lista_jogos_df = pd.read_csv(
     "./SSL_Jogos.csv", encoding="UTF-8", sep="\;", engine="python"
@@ -15,7 +17,6 @@ lista_jogos_df["Destaques"] = (lista_jogos_df["Destaques"] >= 3).astype(int)
 
 
 # Estatísticas dos jogadores combinados - Dupla
-
 times_df = (
     lista_jogos_df.groupby(["Rodada", "Time"])["Jogador"].apply(list).reset_index()
 )
@@ -24,58 +25,8 @@ times_df["Combinações"] = times_df["Jogador"].apply(lambda x: list(combination
 
 times_df = times_df.explode("Combinações")
 
-filtro = "Adriel Zanatta"
-
-if filtro:
-    times_df["Combinações"] = times_df["Combinações"].apply(lambda x: filtro in x)
-else:
-    times_df["Combinações"] = times_df["Combinações"].apply(lambda x: True)
-
-times_df = times_df[["Rodada", "Combinações"]]
-
-times_df = times_df.loc[times_df["Combinações"] == True].drop_duplicates()
-
-print(times_df)
 # Dados únicos dos Jogos
 num_jogos = lista_jogos_df["Rodada"].max()
-
-# Dados individuais dos jogadores
-jogadores_df = lista_jogos_df.groupby("Jogador")[["Pontos", "Gols", "Destaques"]].sum()
-
-jogadores_df["Presença"] = (
-    lista_jogos_df.groupby("Jogador")["Rodada"].count().astype(int)
-)
-jogadores_df["Presença%"] = ((jogadores_df["Presença"] / num_jogos) * 100).map(
-    "{:,.1f}%".format
-)
-jogadores_df["Gols/Jogo"] = (jogadores_df["Gols"] / jogadores_df["Presença"]).map(
-    "{:,.1f}".format
-)
-jogadores_df["Aproveitamento%"] = (
-    jogadores_df["Pontos"] / (jogadores_df["Presença"] * 3) * 100
-).map("{:,.1f}%".format)
-jogadores_df["Vitórias"] = (
-    lista_jogos_df.loc[lista_jogos_df["Pontos"] == 3]
-    .groupby("Jogador")["Pontos"]
-    .size()
-    .astype(int)
-)
-jogadores_df["Empates"] = (
-    lista_jogos_df.loc[lista_jogos_df["Pontos"] == 1]
-    .groupby("Jogador")["Pontos"]
-    .size()
-    .astype(int)
-)
-
-
-jogadores_df["Derrotas"] = (
-    lista_jogos_df.loc[lista_jogos_df["Pontos"] == 0]
-    .groupby("Jogador")["Pontos"]
-    .size()
-    .astype(int)
-)
-
-jogadores_df = jogadores_df.replace(np.nan, 0)
 
 # Estatísticas dos escaladores
 escaladores_df = lista_jogos_df.loc[
@@ -135,43 +86,14 @@ lista_jogos_completa_df["Posição"] = (
     .add(1)
 )
 
-# Tabela de classificação final
-tabela = jogadores_df.copy().reset_index()
-tabela = tabela.sort_values(by=["Pontos"], ascending=False)
-tabela = tabela[
-    [
-        "Jogador",
-        "Pontos",
-        "Aproveitamento%",
-        "Gols",
-        "Gols/Jogo",
-        "Presença",
-        "Presença%",
-        "Destaques",
-        "Vitórias",
-        "Empates",
-        "Derrotas",
-    ]
-]
-tabela = tabela.rename(
-    columns={
-        "Jogador": "JOGADOR",
-        "Pontos": "PTS",
-        "Aproveitamento%": "APRV",
-        "Gols": "GOLS",
-        "Gols/Jogo": "MÉDIA",
-        "Presença": "PJ",
-        "Presença%": "FREQ",
-        "Destaques": "S+",
-        "Vitórias": "V",
-        "Empates": "E",
-        "Derrotas": "D",
-    }
+app = Dash(
+    __name__,
+    external_stylesheets=[dbc.themes.BOOTSTRAP],
+    suppress_callback_exceptions=True,
 )
 
-
-app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
-
+# graph
+line_classificação = {}
 
 app.layout = dbc.Container(
     [
@@ -182,25 +104,34 @@ app.layout = dbc.Container(
                         "Sábado Sem Lei - 2022",
                         style={"textAlign": "center"},
                     ),
-                    width=3,
+                    width=4,
                 ),
                 dbc.Col(
                     html.Div(
                         [
-                            html.P("Presença Mínima"),
-                            dbc.Input(
-                                id="filtro_presença",
-                                type="number",
-                                min=1,
-                                max=num_jogos,
-                                step=1,
-                                value=num_jogos // 2,
+                            html.P("Escolha o Jogador Para Análisar na Tabela"),
+                            dcc.Dropdown(
+                                lista_jogos_df["Jogador"].unique(),
+                                id="filtro_jogador",
                             ),
                         ]
                     ),
-                    width=1,
+                    width=2,
                 ),
-            ]
+                dbc.Col(
+                    html.Div(
+                        [
+                            html.P("Escolha o Jogador Para Análisar na Tabela"),
+                            dcc.Input(
+                                id="min_pj",
+                                type="number",
+                                placeholder="Número Mínimo de Rodadas",
+                            ),
+                        ]
+                    ),
+                    width=3,
+                ),
+            ],
         ),
         dbc.Row(
             [
@@ -213,7 +144,11 @@ app.layout = dbc.Container(
                     width=4,
                 ),
                 dbc.Col(
-                    html.Div(id="graph1", children=[]),
+                    html.Div(
+                        id="graph1",
+                        children=[],
+                        style={"height": "100vh"},
+                    ),
                     width=8,
                 ),
             ]
@@ -251,63 +186,130 @@ app.layout = dbc.Container(
 )
 
 
-@callback(Output("store-data", "data"), Input("filtro_presença", "value"))
-def store_data(value):
-    linha_de_corte = jogadores_df.loc[jogadores_df["Presença"] >= value].index
-    lista_filtrada = lista_jogos_completa_df[
-        lista_jogos_completa_df["Jogador"].isin(linha_de_corte)
-    ].reset_index()
-    data = lista_filtrada.to_dict("records")
-    return data
+@callback(
+    Output("table1", "children"),
+    Input("filtro_jogador", "value"),
+    Input("min_pj", "value"),
+)
+def create_table1(jogador, pj_min):
+    t_df = times_df.copy()
 
+    if jogador:
+        t_df["Combinações"] = t_df["Combinações"].apply(lambda x: jogador in x)
+    else:
+        t_df["Combinações"] = t_df["Combinações"].apply(lambda x: True)
 
-@callback(Output("graph1", "children"), Input("store-data", "data"))
-def create_graph1(data):
-    dff = pd.DataFrame(data)
-    line_classificação = px.line(
-        dff,
-        x="Rodada",
-        y="Posição",
-        range_x=[1, num_jogos + 10],
-        color="Jogador",
-        template="none",
+    t_df["Rodada-Time"] = t_df.Rodada.astype(str) + "-" + t_df.Time.astype(str)
+
+    t_df = t_df[["Rodada-Time", "Combinações"]]
+
+    t_df = t_df.loc[t_df["Combinações"] == True].drop_duplicates()
+
+    lista_jogos_df["Rodada-Time"] = (
+        lista_jogos_df.Rodada.astype(str) + "-" + lista_jogos_df.Time.astype(str)
     )
 
-    line_classificação.update_yaxes(autorange="reversed")
-    line_classificação.update_layout(
-        showlegend=False, template="none", yaxis={"title": ""}
+    lista_jogos_filtrada_df = lista_jogos_df.loc[
+        lista_jogos_df["Rodada-Time"].isin(t_df["Rodada-Time"])
+    ]
+    jogadores_df = lista_jogos_filtrada_df.groupby("Jogador")[
+        ["Pontos", "Gols", "Destaques"]
+    ].sum()
+    jogadores_df["Presença"] = (
+        lista_jogos_filtrada_df.groupby("Jogador")["Rodada"].count().astype(int)
     )
-    for i, d in enumerate(line_classificação.data):
-        line_classificação.add_scatter(
-            x=[d.x[-1]],
-            y=[d.y[-1]],
-            mode="markers+text",
-            text=str(d.y[-1]) + "-" + d.name,
-            textfont=dict(color=d.line.color),
-            textposition="middle right",
-            marker=dict(color=d.line.color, size=12),
-            legendgroup=d.name,
-            showlegend=False,
-        )
+    jogadores_df["Presença%"] = jogadores_df["Presença"] / num_jogos
+    jogadores_df["Gols/Jogo"] = jogadores_df["Gols"] / jogadores_df["Presença"]
+    jogadores_df["Aproveitamento%"] = jogadores_df["Pontos"] / (
+        jogadores_df["Presença"] * 3
+    )
 
-    return dcc.Graph(figure=line_classificação, style={"height": "100vh"})
+    jogadores_df["Vitórias"] = (
+        lista_jogos_filtrada_df.loc[lista_jogos_filtrada_df["Pontos"] == 3]
+        .groupby("Jogador")["Pontos"]
+        .size()
+        .astype(int)
+    )
+    jogadores_df["Empates"] = (
+        lista_jogos_filtrada_df.loc[lista_jogos_filtrada_df["Pontos"] == 1]
+        .groupby("Jogador")["Pontos"]
+        .size()
+        .astype(int)
+    )
+    jogadores_df["Derrotas"] = (
+        lista_jogos_filtrada_df.loc[lista_jogos_filtrada_df["Pontos"] == 0]
+        .groupby("Jogador")["Pontos"]
+        .size()
+        .astype(int)
+    )
+    jogadores_df = jogadores_df.replace(np.nan, 0)
 
+    jogadores_df = jogadores_df.reset_index()
+    jogadores_df = jogadores_df.sort_values(by=["Pontos"], ascending=False)
+    jogadores_df = jogadores_df[
+        [
+            "Jogador",
+            "Pontos",
+            "Aproveitamento%",
+            "Gols",
+            "Gols/Jogo",
+            "Presença",
+            "Presença%",
+            "Destaques",
+            "Vitórias",
+            "Empates",
+            "Derrotas",
+        ]
+    ]
+    jogadores_df = jogadores_df.rename(
+        columns={
+            "Jogador": "JOGADOR",
+            "Pontos": "PTS",
+            "Aproveitamento%": "APRV",
+            "Gols": "GOLS",
+            "Gols/Jogo": "MÉDIA",
+            "Presença": "PJ",
+            "Presença%": "FREQ",
+            "Destaques": "S+",
+            "Vitórias": "V",
+            "Empates": "E",
+            "Derrotas": "D",
+        }
+    )
 
-@callback(Output("table1", "children"), Input("filtro_presença", "value"))
-def create_table1(value):
-    dff = tabela.loc[tabela["PJ"] >= value]
-    return dbc.Table.from_dataframe(
-        dff,
-        size="sm",
-        hover=True,
-        style={
-            "width": "100%",
+    jogadores_df = jogadores_df.loc[jogadores_df["PJ"] >= pj_min]
+    percentage = FormatTemplate.percentage(1)
+
+    return DataTable(
+        id="datatable-interactivity",
+        data=jogadores_df.to_dict("records"),
+        columns=[
+            dict(id="JOGADOR", name="JOGADOR"),
+            dict(id="PTS", name="PTS"),
+            dict(id="APRV", name="APRV", type="numeric", format=percentage),
+            dict(id="GOLS", name="GOLS"),
+            dict(id="MÉDIA", name="MÉDIA", type="numeric", format={"specifier": ".1f"}),
+            dict(id="PJ", name="PJ"),
+            dict(id="FREQ", name="FREQ", type="numeric", format=percentage),
+            dict(id="S+", name="S+"),
+            dict(id="V", name="V"),
+            dict(id="E", name="E"),
+            dict(id="D", name="D"),
+        ],
+        style_cell_conditional=[{"if": {"column_id": "JOGADOR"}, "textAlign": "left"}],
+        sort_action="native",
+        sort_mode="single",
+        style_as_list_view=True,
+        row_selectable="multi",
+        selected_row_ids=[],
+        style_data={
+            "whiteSpace": "normal",
+            "height": "auto",
         },
     )
 
-
-@callback(Output("graph2", "children"), Input("store-data", "data"))
-def create_graph2(data):
+    # @callback(Output("graph2", "children"), Input("store-data", "data"))
+    # def create_graph2(data):
     dff = pd.DataFrame(data)
     bar_pontos = px.bar(
         dff,
@@ -335,9 +337,8 @@ def create_graph2(data):
 
     return dcc.Graph(figure=bar_pontos, style={"height": "100vh"})
 
-
-@callback(Output("graph3", "children"), Input("store-data", "data"))
-def create_graph3(data):
+    # @callback(Output("graph3", "children"), Input("store-data", "data"))
+    # def create_graph3(data):
     dff = pd.DataFrame(data)
     bar_gols = px.bar(
         dff,
@@ -360,6 +361,46 @@ def create_graph3(data):
     bar_gols.add_vline(x=0)
 
     return dcc.Graph(figure=bar_gols, style={"height": "100vh"})
+
+
+@callback(
+    Output("graph1", "children"), Input("datatable-interactivity", "selected_row")
+)
+def criar_graph1(selecionados):
+    df = lista_jogos_completa_df
+
+    if selecionados == 0:
+        pass
+    else:
+        df = df.loc[df["Jogador"].isin(selecionados)]
+
+    print(selecionados)
+    line_classificação = px.line(
+        df,
+        x="Rodada",
+        y="Posição",
+        range_x=[1, num_jogos + 10],
+        color="Jogador",
+        template="none",
+    )
+
+    line_classificação.update_yaxes(autorange="reversed")
+    line_classificação.update_layout(
+        showlegend=False, template="none", yaxis={"title": ""}
+    )
+    for i, d in enumerate(line_classificação.data):
+        line_classificação.add_scatter(
+            x=[d.x[-1]],
+            y=[d.y[-1]],
+            mode="markers+text",
+            text=str(d.y[-1]) + "-" + d.name,
+            textfont=dict(color=d.line.color),
+            textposition="middle right",
+            marker=dict(color=d.line.color, size=12),
+            legendgroup=d.name,
+            showlegend=False,
+        ),
+    return line_classificação
 
 
 if __name__ == "__main__":

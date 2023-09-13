@@ -95,11 +95,8 @@ app = Dash(
 # components
 
 escudo = dbc.Card(
-    dbc.CardImg(
-        src="./assets/Escudo.jpg",
-        style={"height": "75px", "width": "75px"},
-    ),
-    class_name="text-center",
+    dbc.CardImg(src="./assets/Escudo.jpg"),
+    class_name="center mx-2 my-1 align-middle",
 )
 
 card_pj = (
@@ -170,7 +167,8 @@ card_temporada = (
 )
 
 card_titulo = dbc.Card(
-    dbc.Card(html.H1("Sábado sem Lei")), class_name="text-center mx-2 my-1"
+    dbc.CardBody(html.H1("Sábado sem Lei")),
+    class_name="text-center mx-2 my-1 align-middle",
 )
 
 card_pjmin = (

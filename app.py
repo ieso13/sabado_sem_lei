@@ -26,6 +26,7 @@ times_df = times_df.explode("Combinações")
 
 # Dados únicos dos Jogos
 num_jogos = lista_jogos_df["Rodada"].max()
+num_gols = lista_jogos_df["Gols"].sum()
 
 # Estatísticas dos escaladores
 escaladores_df = lista_jogos_df.loc[
@@ -87,95 +88,198 @@ lista_jogos_completa_df["Posição"] = (
 
 app = Dash(
     __name__,
-    external_stylesheets=[dbc.themes.BOOTSTRAP],
+    external_stylesheets=[dbc.themes.FLATLY],
     suppress_callback_exceptions=True,
 )
 
-# graph
-line_classificação = {}
+# components
+
+escudo = dbc.Card(
+    dbc.CardImg(
+        src="./assets/Escudo.jpg",
+        style={"height": "75px", "width": "75px"},
+    ),
+    class_name="text-center",
+)
+
+card_pj = (
+    dbc.Card(
+        [
+            dbc.CardBody(
+                [
+                    html.H6("Partidas Jogadas"),
+                    html.H4(num_jogos),
+                ],
+            ),
+        ],
+        class_name="text-center mx-2 my-1",
+    ),
+)
+
+card_ngols = (
+    dbc.Card(
+        dbc.CardBody(
+            [
+                html.H6("Número de Gols"),
+                html.H4(num_gols),
+            ],
+        ),
+        class_name="text-center mx-2 my-1",
+    ),
+)
+
+card_mediagols = (
+    dbc.Card(
+        dbc.CardBody(
+            [
+                html.H6("Média de Gols/Partida"),
+                html.H4(num_gols // num_jogos),
+            ],
+        ),
+        class_name="text-center mx-2 my-1",
+    ),
+)
+
+card_temporada = (
+    dbc.Card(
+        dbc.CardBody(
+            [
+                html.H6("Temporada"),
+                dcc.Dropdown(
+                    [
+                        2011,
+                        2012,
+                        2013,
+                        2014,
+                        2015,
+                        2016,
+                        2017,
+                        2018,
+                        2019,
+                        2020,
+                        2021,
+                        2022,
+                        2023,
+                    ],
+                    2023,
+                ),
+            ],
+        ),
+        class_name="text-center mx-2 my-1",
+    ),
+)
+
+card_titulo = dbc.Card(
+    dbc.Card(html.H1("Sábado sem Lei")), class_name="text-center mx-2 my-1"
+)
+
+card_pjmin = (
+    dbc.Card(
+        dbc.CardBody(
+            [
+                html.H6("Presença Mínima"),
+                dcc.Input(
+                    id="min_pj",
+                    type="number",
+                    placeholder="Número Mínimo de Rodadas",
+                    value=0,
+                ),
+            ],
+        ),
+        class_name="mx-2 my-1",
+    ),
+)
+
+card_selec_jog = (
+    dbc.Card(
+        dbc.CardBody(
+            [
+                html.H6("Escolha o Jogador Para Análisar"),
+                dcc.Dropdown(
+                    lista_jogos_df["Jogador"].unique(),
+                    id="filtro_jogador",
+                ),
+            ],
+        ),
+        class_name="mx-2",
+    ),
+)
+
+tabela_classificação = (
+    html.Div(
+        id="table1",
+        children=[],
+        style={"max-height": "70vh", "overflow": "auto"},
+    ),
+)
+
+grafico_classificação = (
+    html.Div(
+        id="graph1",
+        children=[],
+    ),
+)
 
 app.layout = dbc.Container(
     [
         dbc.Row(
             [
                 dbc.Col(
-                    html.H1(
-                        "Sábado Sem Lei - 2022",
-                        style={"textAlign": "center"},
-                    ),
-                    width=4,
+                    escudo,
+                    width=1,
                 ),
                 dbc.Col(
-                    html.Div(
-                        [
-                            html.P("Escolha o Jogador Para Análisar na Tabela"),
-                            dcc.Dropdown(
-                                lista_jogos_df["Jogador"].unique(),
-                                id="filtro_jogador",
-                            ),
-                        ]
-                    ),
+                    card_titulo,
+                    width=3,
+                ),
+                dbc.Col(
+                    card_temporada,
                     width=2,
                 ),
                 dbc.Col(
-                    html.Div(
-                        [
-                            html.P("Presença Mínima"),
-                            dcc.Input(
-                                id="min_pj",
-                                type="number",
-                                placeholder="Número Mínimo de Rodadas",
-                                value=0,
-                            ),
-                        ]
-                    ),
-                    width=3,
+                    card_pj,
+                    width=2,
+                ),
+                dbc.Col(
+                    card_ngols,
+                    width=2,
+                ),
+                dbc.Col(
+                    card_mediagols,
+                    width=2,
                 ),
             ],
         ),
         dbc.Row(
             [
                 dbc.Col(
-                    html.Div(
-                        id="table1",
-                        children=[],
-                        style={"max-height": "90vh", "overflow": "auto"},
-                    ),
+                    [
+                        dbc.Row(
+                            [
+                                dbc.Col(
+                                    card_pjmin,
+                                    width=6,
+                                ),
+                                dbc.Col(
+                                    card_selec_jog,
+                                    width=6,
+                                ),
+                            ]
+                        ),
+                        dbc.Row(
+                            [
+                                dbc.Col(
+                                    tabela_classificação,
+                                    width=12,
+                                ),
+                            ]
+                        ),
+                    ],
                     width=4,
                 ),
                 dbc.Col(
-                    html.Div(
-                        id="graph1",
-                        children=[],
-                    ),
+                    grafico_classificação,
                     width=8,
-                ),
-            ]
-        ),
-        dbc.Row(
-            [
-                dbc.Col(
-                    html.Div(
-                        id="table2",
-                        children=[
-                            dbc.Table.from_dataframe(
-                                tabela_escaladores,
-                                size="sm",
-                                hover=True,
-                                style={"width": "100%"},
-                            )
-                        ],
-                        style={"max-height": "100vh", "overflow": "auto"},
-                    ),
-                    width=4,
-                ),
-                dbc.Col(
-                    html.Div(id="graph2", children=[]),
-                    width=4,
-                ),
-                dbc.Col(
-                    html.Div(id="graph3", children=[]),
-                    width=4,
                 ),
             ]
         ),
@@ -390,11 +494,12 @@ def criar_graph1(selecionados, data):
         range_x=[1, num_jogos + 10],
         range_y=[20, 0],
         color="Jogador",
+        title="Corrida do Título",
         template="none",
     )
 
     line_classificação.update_layout(
-        showlegend=False, template="none", yaxis={"title": ""}
+        showlegend=False, template="none", yaxis={"title": ""}, xaxis={"title": ""}
     )
     for i, d in enumerate(line_classificação.data):
         line_classificação.add_scatter(
@@ -408,7 +513,7 @@ def criar_graph1(selecionados, data):
             legendgroup=d.name,
             showlegend=False,
         )
-    return dcc.Graph(figure=line_classificação, style={"height": "90vh"})
+    return dcc.Graph(figure=line_classificação, style={"height": "85vh"})
 
 
 if __name__ == "__main__":

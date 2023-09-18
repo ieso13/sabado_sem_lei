@@ -5,7 +5,7 @@ from dash import Dash, dcc, html, Input, Output, callback
 from dash.dash_table import DataTable, FormatTemplate
 import dash_bootstrap_components as dbc
 from itertools import combinations
-
+from dfs import tabela_escaladores
 
 lista_jogos_df = pd.read_csv(
     "./assets/SSL_Jogos.csv", encoding="UTF-8", sep="\;", engine="python"
@@ -28,37 +28,6 @@ times_df = times_df.explode("Combinações")
 num_jogos = lista_jogos_df["Rodada"].max()
 num_gols = lista_jogos_df["Gols"].sum()
 
-# Estatísticas dos escaladores
-escaladores_df = lista_jogos_df.loc[
-    lista_jogos_df["Escalador"] == lista_jogos_df["Jogador"]
-]
-
-tabela_escaladores = escaladores_df.groupby("Jogador")[
-    ["Pontos", "Gols", "Destaques"]
-].sum()
-
-tabela_escaladores["Presença"] = (
-    escaladores_df.groupby("Jogador")["Rodada"].count().astype(int)
-)
-
-tabela_escaladores["Aproveitamento%"] = (
-    tabela_escaladores["Pontos"] / (tabela_escaladores["Presença"] * 3) * 100
-).map("{:,.1f}%".format)
-
-tabela_escaladores = tabela_escaladores.reset_index().sort_values(
-    by=["Presença"], ascending=False
-)
-
-tabela_escaladores = tabela_escaladores.rename(
-    columns={
-        "Jogador": "JOGADOR",
-        "Pontos": "PTS",
-        "Aproveitamento%": "APRV",
-        "Gols": "GOLS",
-        "Presença": "PJ",
-        "Destaques": "S+",
-    }
-)
 
 # Classificação ao longo do tempo
 lista_jogos_completa_df = lista_jogos_df[["Rodada", "Jogador", "Pontos", "Gols"]]
@@ -412,60 +381,6 @@ def create_table1(jogador, pj_min):
             "height": "auto",
         },
     ), jogadores_df.to_dict("records")
-
-    # @callback(Output("graph2", "children"), Input("store-data", "data"))
-    # def create_graph2(data):
-    dff = pd.DataFrame(data)
-    bar_pontos = px.bar(
-        dff,
-        x="Pontos Acc",
-        y="Jogador",
-        color="Jogador",
-        animation_frame="Rodada",
-        orientation="h",
-        text="Posição",
-        template="none",
-        title="Classificação",
-    )
-    bar_pontos.update_layout(
-        showlegend=False,
-        yaxis={
-            "categoryorder": "total ascending",
-            "title": "",
-            "side": "right",
-            "automargin": "width",
-        },
-        xaxis={"title": ""},
-    )
-    bar_pontos.update_yaxes(ticklabelposition="inside")
-    bar_pontos.add_vline(x=0)
-
-    return dcc.Graph(figure=bar_pontos, style={"height": "100vh"})
-
-    # @callback(Output("graph3", "children"), Input("store-data", "data"))
-    # def create_graph3(data):
-    dff = pd.DataFrame(data)
-    bar_gols = px.bar(
-        dff,
-        x="Gols Acc",
-        y="Jogador",
-        color="Jogador",
-        animation_frame="Rodada",
-        orientation="h",
-        text="Gols Acc",
-        template="none",
-        title="Gols Acumudalos",
-    )
-    bar_gols.update_layout(
-        showlegend=False,
-        yaxis={"categoryorder": "total ascending", "side": "right", "title": ""},
-        xaxis={"title": ""},
-    )
-
-    bar_gols.update_yaxes(ticklabelposition="inside")
-    bar_gols.add_vline(x=0)
-
-    return dcc.Graph(figure=bar_gols, style={"height": "100vh"})
 
 
 @callback(

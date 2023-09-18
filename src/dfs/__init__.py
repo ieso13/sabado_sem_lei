@@ -1,0 +1,1 @@
+from escaladores import tabela_escaladores

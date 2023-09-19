@@ -4,55 +4,13 @@ import plotly.express as px
 from dash import Dash, dcc, html, Input, Output, callback
 from dash.dash_table import DataTable, FormatTemplate
 import dash_bootstrap_components as dbc
-from itertools import combinations
-from dfs import tabela_escaladores
-
-lista_jogos_df = pd.read_csv(
-    "./assets/SSL_Jogos.csv", encoding="UTF-8", sep="\;", engine="python"
-)
-
-# Consolidar votos destaques
-lista_jogos_df["Destaques"] = (lista_jogos_df["Destaques"] >= 3).astype(int)
-
-
-# Estatísticas dos jogadores combinados - Dupla
-times_df = (
-    lista_jogos_df.groupby(["Rodada", "Time"])["Jogador"].apply(list).reset_index()
-)
-
-times_df["Combinações"] = times_df["Jogador"].apply(lambda x: list(combinations(x, 2)))
-
-times_df = times_df.explode("Combinações")
-
-# Dados únicos dos Jogos
-num_jogos = lista_jogos_df["Rodada"].max()
-num_gols = lista_jogos_df["Gols"].sum()
-
-
-# Classificação ao longo do tempo
-lista_jogos_completa_df = lista_jogos_df[["Rodada", "Jogador", "Pontos", "Gols"]]
-
-lista_jogos_completa_df = (
-    lista_jogos_completa_df.groupby(["Rodada", "Jogador"])
-    .sum()
-    .unstack(fill_value=0)
-    .stack()
-    .reset_index()
-)
-
-lista_jogos_completa_df["Pontos Acc"] = lista_jogos_completa_df.groupby("Jogador")[
-    "Pontos"
-].cumsum()
-
-lista_jogos_completa_df["Gols Acc"] = lista_jogos_completa_df.groupby("Jogador")[
-    "Gols"
-].cumsum()
-
-lista_jogos_completa_df["Posição"] = (
-    lista_jogos_completa_df.sort_values(["Pontos Acc", "Gols Acc"], ascending=False)
-    .groupby("Rodada")
-    .cumcount()
-    .add(1)
+from dfs import lista_jogos_df
+from components import (
+    filtro_temporada,
+    frequencia_minima,
+    temporada_gols,
+    temporada_media_gols,
+    temporada_partidas_jogadas,
 )
 
 app = Dash(
@@ -61,114 +19,10 @@ app = Dash(
     suppress_callback_exceptions=True,
 )
 
-# components
-
-escudo = dbc.Card(
-    dbc.CardImg(src="./assets/Escudo.jpg"),
-    class_name="center mx-2 my-1 align-middle",
-)
-
-card_pj = (
-    dbc.Card(
-        [
-            dbc.CardBody(
-                [
-                    html.H6("Partidas Jogadas"),
-                    html.H4(num_jogos),
-                ],
-            ),
-        ],
-        class_name="text-center mx-2 my-1",
-    ),
-)
-
-card_ngols = (
-    dbc.Card(
-        dbc.CardBody(
-            [
-                html.H6("Número de Gols"),
-                html.H4(num_gols),
-            ],
-        ),
-        class_name="text-center mx-2 my-1",
-    ),
-)
-
-card_mediagols = (
-    dbc.Card(
-        dbc.CardBody(
-            [
-                html.H6("Média de Gols/Partida"),
-                html.H4(num_gols // num_jogos),
-            ],
-        ),
-        class_name="text-center mx-2 my-1",
-    ),
-)
-
-card_temporada = (
-    dbc.Card(
-        dbc.CardBody(
-            [
-                html.H6("Temporada"),
-                dcc.Dropdown(
-                    [
-                        2011,
-                        2012,
-                        2013,
-                        2014,
-                        2015,
-                        2016,
-                        2017,
-                        2018,
-                        2019,
-                        2020,
-                        2021,
-                        2022,
-                        2023,
-                    ],
-                    2023,
-                ),
-            ],
-        ),
-        class_name="text-center mx-2 my-1",
-    ),
-)
-
-card_titulo = dbc.Card(
-    dbc.CardBody(html.H1("Sábado sem Lei")),
-    class_name="text-center mx-2 my-1 align-middle",
-)
-
-card_pjmin = (
-    dbc.Card(
-        dbc.CardBody(
-            [
-                html.H6("Presença Mínima"),
-                dcc.Input(
-                    id="min_pj",
-                    type="number",
-                    placeholder="Número Mínimo de Rodadas",
-                    value=0,
-                ),
-            ],
-        ),
-        class_name="mx-2 my-1",
-    ),
-)
-
-card_selec_jog = (
-    dbc.Card(
-        dbc.CardBody(
-            [
-                html.H6("Escolha o Jogador Para Análisar"),
-                dcc.Dropdown(
-                    lista_jogos_df["Jogador"].unique(),
-                    id="filtro_jogador",
-                ),
-            ],
-        ),
-        class_name="mx-2",
+grafico_classificação = (
+    html.Div(
+        id="graph1",
+        children=[],
     ),
 )
 
@@ -180,40 +34,42 @@ tabela_classificação = (
     ),
 )
 
-grafico_classificação = (
-    html.Div(
-        id="graph1",
-        children=[],
-    ),
-)
-
 app.layout = dbc.Container(
     [
         dbc.Row(
             [
                 dbc.Col(
-                    escudo,
+                    dbc.Card(
+                        dbc.CardImg(src="./assets/Escudo.jpg"),
+                        class_name="center mx-1 my-1 align-middle",
+                    ),
                     width=1,
                 ),
                 dbc.Col(
-                    card_titulo,
+                    html.H1(
+                        "Sábado sem Lei",
+                    ),
                     width=3,
                 ),
                 dbc.Col(
-                    card_temporada,
+                    filtro_temporada,
                     width=2,
                 ),
                 dbc.Col(
-                    card_pj,
+                    frequencia_minima,
                     width=2,
                 ),
                 dbc.Col(
-                    card_ngols,
+                    temporada_partidas_jogadas,
                     width=2,
                 ),
                 dbc.Col(
-                    card_mediagols,
-                    width=2,
+                    temporada_gols,
+                    width=1,
+                ),
+                dbc.Col(
+                    temporada_media_gols,
+                    width=1,
                 ),
             ],
         ),
@@ -221,18 +77,6 @@ app.layout = dbc.Container(
             [
                 dbc.Col(
                     [
-                        dbc.Row(
-                            [
-                                dbc.Col(
-                                    card_pjmin,
-                                    width=6,
-                                ),
-                                dbc.Col(
-                                    card_selec_jog,
-                                    width=6,
-                                ),
-                            ]
-                        ),
                         dbc.Row(
                             [
                                 dbc.Col(
@@ -250,74 +94,66 @@ app.layout = dbc.Container(
                 ),
             ]
         ),
-        dcc.Store(id="memory-output"),
+        dcc.Store(id="linhas_selecionadas"),
+        dcc.Sotre(id="temporada_selecionada"),
     ],
     fluid=True,
 )
 
 
+@callback(Output("temporada_selecionada", "data"), Input("temporada_dpdn", "value"))
+def filtrar_lista_jogos(temporada):
+    df = lista_jogos_df
+    df = df.loc[df["Ano"] == temporada]
+
+    return df.to_dict("records")
+
+
 @callback(
     Output("table1", "children"),
-    Output("memory-output", "data"),
-    Input("filtro_jogador", "value"),
+    Output("linhas_selecionadas", "data"),
     Input("min_pj", "value"),
+    Input("temporada_selecionada", "data"),
 )
-def create_table1(jogador, pj_min):
-    t_df = times_df.copy()
+def create_table1(pj_min, lista_jogos_filtrada):
+    df = pd.DataFrame(lista_jogos_filtrada)
 
-    if jogador:
-        t_df["Combinações"] = t_df["Combinações"].apply(lambda x: jogador in x)
-    else:
-        t_df["Combinações"] = t_df["Combinações"].apply(lambda x: True)
+    jogadores_df = df.groupby("Jogador")[["Pontos", "Gols", "Destaques"]].sum()
 
-    t_df["Rodada-Time"] = t_df.Rodada.astype(str) + "-" + t_df.Time.astype(str)
+    jogadores_df["Presença"] = df.groupby("Jogador")["Rodada"].count().astype(int)
 
-    t_df = t_df[["Rodada-Time", "Combinações"]]
+    num_jogos = df["Rodada"].max
 
-    t_df = t_df.loc[t_df["Combinações"] == True].drop_duplicates()
+    print(num_jogos)
 
-    lista_jogos_df["Rodada-Time"] = (
-        lista_jogos_df.Rodada.astype(str) + "-" + lista_jogos_df.Time.astype(str)
-    )
-
-    lista_jogos_filtrada_df = lista_jogos_df.loc[
-        lista_jogos_df["Rodada-Time"].isin(t_df["Rodada-Time"])
-    ]
-    jogadores_df = lista_jogos_filtrada_df.groupby("Jogador")[
-        ["Pontos", "Gols", "Destaques"]
-    ].sum()
-    jogadores_df["Presença"] = (
-        lista_jogos_filtrada_df.groupby("Jogador")["Rodada"].count().astype(int)
-    )
     jogadores_df["Presença%"] = jogadores_df["Presença"] / num_jogos
+
     jogadores_df["Gols/Jogo"] = jogadores_df["Gols"] / jogadores_df["Presença"]
+
     jogadores_df["Aproveitamento%"] = jogadores_df["Pontos"] / (
         jogadores_df["Presença"] * 3
     )
 
     jogadores_df["Vitórias"] = (
-        lista_jogos_filtrada_df.loc[lista_jogos_filtrada_df["Pontos"] == 3]
-        .groupby("Jogador")["Pontos"]
-        .size()
-        .astype(int)
+        df.loc[df["Pontos"] == 3].groupby("Jogador")["Pontos"].size().astype(int)
     )
+
     jogadores_df["Empates"] = (
-        lista_jogos_filtrada_df.loc[lista_jogos_filtrada_df["Pontos"] == 1]
-        .groupby("Jogador")["Pontos"]
-        .size()
-        .astype(int)
+        df.loc[df["Pontos"] == 1].groupby("Jogador")["Pontos"].size().astype(int)
     )
+
     jogadores_df["Derrotas"] = (
-        lista_jogos_filtrada_df.loc[lista_jogos_filtrada_df["Pontos"] == 0]
-        .groupby("Jogador")["Pontos"]
-        .size()
-        .astype(int)
+        df.loc[df["Pontos"] == 0].groupby("Jogador")["Pontos"].size().astype(int)
     )
+
     jogadores_df = jogadores_df.replace(np.nan, 0)
 
     jogadores_df = jogadores_df.reset_index()
+
     jogadores_df = jogadores_df.sort_values(by=["Pontos"], ascending=False)
+
     jogadores_df.insert(0, "#", range(1, len(jogadores_df) + 1, 1))
+
     jogadores_df = jogadores_df[
         [
             "#",
@@ -351,9 +187,10 @@ def create_table1(jogador, pj_min):
     )
 
     jogadores_df = jogadores_df.loc[jogadores_df["PJ"] >= pj_min]
+
     percentage = FormatTemplate.percentage(1)
 
-    return DataTable(
+    DataTable(
         id="datatable-interactivity",
         data=jogadores_df.to_dict("records"),
         columns=[
@@ -380,28 +217,55 @@ def create_table1(jogador, pj_min):
             "whiteSpace": "normal",
             "height": "auto",
         },
-    ), jogadores_df.to_dict("records")
+    )
+
+    return DataTable, jogadores_df.to_dict("records")
 
 
 @callback(
     Output("graph1", "children"),
     Input("datatable-interactivity", "derived_virtual_selected_rows"),
-    Input("memory-output", "data"),
+    Input("linhas_selecionadas", "data"),
 )
 def criar_graph1(selecionados, data):
-    df = lista_jogos_completa_df
+    lista_jogos_completa_df = lista_jogos_df[["Rodada", "Jogador", "Pontos", "Gols"]]
 
-    dff = pd.DataFrame(data)
+    lista_jogos_completa_df = (
+        lista_jogos_completa_df.groupby(["Rodada", "Jogador"])
+        .sum()
+        .unstack(fill_value=0)
+        .stack()
+        .reset_index()
+    )
 
-    jog_selecionados = [dff["JOGADOR"][x] for x in selecionados]
+    lista_jogos_completa_df["Pontos Acc"] = lista_jogos_completa_df.groupby("Jogador")[
+        "Pontos"
+    ].cumsum()
+
+    lista_jogos_completa_df["Gols Acc"] = lista_jogos_completa_df.groupby("Jogador")[
+        "Gols"
+    ].cumsum()
+
+    lista_jogos_completa_df["Posição"] = (
+        lista_jogos_completa_df.sort_values(["Pontos Acc", "Gols Acc"], ascending=False)
+        .groupby("Rodada")
+        .cumcount()
+        .add(1)
+    )
+
+    df = pd.DataFrame(data)
+
+    jog_selecionados = [df["JOGADOR"][x] for x in selecionados]
 
     if len(selecionados) == 0:
         pass
     else:
-        df = df[df["Jogador"].isin(jog_selecionados)]
+        lista_jogos_completa_df = lista_jogos_completa_df[
+            lista_jogos_completa_df["Jogador"].isin(jog_selecionados)
+        ]
 
     line_classificação = px.line(
-        df,
+        lista_jogos_completa_df,
         x="Rodada",
         y="Posição",
         range_x=[1, num_jogos + 10],

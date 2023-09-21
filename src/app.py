@@ -106,7 +106,10 @@ app.layout = dbc.Container(
             [
                 dbc.Col(
                     dbc.Card(
-                        dbc.CardImg(src="./assets/Escudo.jpg"),
+                        dbc.CardImg(
+                            src="./assets/Escudo.jpg",
+                            style={"height": "75px", "width": "75px"},
+                        ),
                         class_name="center mx-1 my-1 align-middle",
                     ),
                     width=1,
@@ -160,7 +163,10 @@ app.layout = dbc.Container(
                 ),
             ]
         ),
-        dbc.Row(dbc.Col(grafico_mediagols_mediapontos, width=12)),
+        # dbc.Row(
+        #     [dbc.Col(slicer_temporada, width=6), dbc.Col(selecao_jogador, width=4)]
+        # ),
+        # dbc.Row(dbc.Col(grafico_mediagols_mediapontos, width=12)),
         dcc.Store(id="linhas_selecionadas"),
         dcc.Store(id="temporada_selecionada"),
     ],
@@ -335,12 +341,16 @@ def criar_graph1(selecionados, data, num_jogos, jogos_filtrados):
         .add(1)
     )
 
-    df = pd.DataFrame(data)
+    dff = pd.DataFrame(data)
 
-    jog_selecionados = [df["JOGADOR"][x] for x in selecionados]
+    jog_selecionados = [dff["JOGADOR"][x] for x in selecionados]
+
+    jog_filtrados_df = dff["JOGADOR"].unique()
 
     if len(selecionados) == 0:
-        pass
+        lista_jogos_completa_df = lista_jogos_completa_df[
+            lista_jogos_completa_df["Jogador"].isin(jog_filtrados_df)
+        ]
     else:
         lista_jogos_completa_df = lista_jogos_completa_df[
             lista_jogos_completa_df["Jogador"].isin(jog_selecionados)

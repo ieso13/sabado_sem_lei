@@ -1,1 +1,0 @@
-from lista_jogos import lista_jogos_df

@@ -1,7 +1,3 @@
-from dash import dcc, html
-import dash_bootstrap_components as dbc
-from src.dfs.lista_jogos_temporada import lista_jogos_df
-
 card_selec_jog = (
     dbc.Card(
         dbc.CardBody(

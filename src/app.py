@@ -4,21 +4,81 @@ import plotly.express as px
 from dash import Dash, dcc, html, Input, Output, callback
 from dash.dash_table import DataTable, FormatTemplate
 import dash_bootstrap_components as dbc
-from dfs import lista_jogos_df
-from components import (
-    filtro_temporada,
-    frequencia_minima,
-    temporada_gols,
-    temporada_media_gols,
-    temporada_partidas_jogadas,
+from dfs.lista_jogos import lista_jogos_df
+
+# COMPONENTS OF THE LAYOUT
+
+filtro_temporada = (
+    dbc.Card(
+        dbc.CardBody(
+            [
+                html.H6("Temporada"),
+                dcc.Dropdown(
+                    [{"label": c, "value": c} for c in lista_jogos_df["Ano"].unique()],
+                    value=lista_jogos_df["Ano"].unique().max(),
+                    id="temporada_dpdn",
+                ),
+            ],
+        ),
+        class_name="text-center mx-1 my-1",
+    ),
 )
 
-app = Dash(
-    __name__,
-    external_stylesheets=[dbc.themes.FLATLY],
-    suppress_callback_exceptions=True,
+frequencia_minima = (
+    dbc.Card(
+        dbc.CardBody(
+            [
+                html.H6("Presença Mínima"),
+                dcc.Input(
+                    id="min_pj",
+                    type="number",
+                    placeholder="Número Mínimo de Rodadas",
+                    value=0,
+                ),
+            ],
+        ),
+        id="frequencia_minima",
+        class_name="mx-1 my-1",
+    ),
 )
 
+temporada_partidas_jogadas = (
+    dbc.Card(
+        [
+            dbc.CardBody(
+                [
+                    html.H6("Partidas Jogadas"),
+                    html.H4(children=[], id="temporada_partidas_jogadas"),
+                ],
+            ),
+        ],
+        class_name="text-center mx-1 my-1",
+    ),
+)
+
+temporada_gols = (
+    dbc.Card(
+        dbc.CardBody(
+            [
+                html.H6("Gols"),
+                html.H4(children=[], id="temporada_gols"),
+            ],
+        ),
+        class_name="text-center mx-1 my-1",
+    ),
+)
+
+temporada_media_gols = (
+    dbc.Card(
+        dbc.CardBody(
+            [
+                html.H6("Gols/Partida"),
+                html.H4(children=[], id="temporada_media_gols"),
+            ],
+        ),
+        class_name="text-center mx-1 my-1",
+    ),
+)
 grafico_classificação = (
     html.Div(
         id="graph1",
@@ -32,6 +92,12 @@ tabela_classificação = (
         children=[],
         style={"max-height": "70vh", "overflow": "auto"},
     ),
+)
+
+app = Dash(
+    __name__,
+    external_stylesheets=[dbc.themes.FLATLY],
+    suppress_callback_exceptions=True,
 )
 
 app.layout = dbc.Container(
@@ -95,7 +161,7 @@ app.layout = dbc.Container(
             ]
         ),
         dcc.Store(id="linhas_selecionadas"),
-        dcc.Sotre(id="temporada_selecionada"),
+        dcc.Store(id="temporada_selecionada"),
     ],
     fluid=True,
 )
@@ -112,19 +178,24 @@ def filtrar_lista_jogos(temporada):
 @callback(
     Output("table1", "children"),
     Output("linhas_selecionadas", "data"),
+    Output("temporada_partidas_jogadas", "children"),
+    Output("temporada_gols", "children"),
+    Output("temporada_media_gols", "children"),
     Input("min_pj", "value"),
     Input("temporada_selecionada", "data"),
 )
 def create_table1(pj_min, lista_jogos_filtrada):
     df = pd.DataFrame(lista_jogos_filtrada)
 
+    num_jogos = df["Rodada"].max()
+
+    num_gols = df["Gols"].sum()
+
+    media_gols_partida = num_gols // num_jogos
+
     jogadores_df = df.groupby("Jogador")[["Pontos", "Gols", "Destaques"]].sum()
 
     jogadores_df["Presença"] = df.groupby("Jogador")["Rodada"].count().astype(int)
-
-    num_jogos = df["Rodada"].max
-
-    print(num_jogos)
 
     jogadores_df["Presença%"] = jogadores_df["Presença"] / num_jogos
 
@@ -190,7 +261,7 @@ def create_table1(pj_min, lista_jogos_filtrada):
 
     percentage = FormatTemplate.percentage(1)
 
-    DataTable(
+    tabela = DataTable(
         id="datatable-interactivity",
         data=jogadores_df.to_dict("records"),
         columns=[
@@ -219,16 +290,26 @@ def create_table1(pj_min, lista_jogos_filtrada):
         },
     )
 
-    return DataTable, jogadores_df.to_dict("records")
+    return (
+        tabela,
+        jogadores_df.to_dict("records"),
+        num_jogos,
+        num_gols,
+        media_gols_partida,
+    )
 
 
 @callback(
     Output("graph1", "children"),
     Input("datatable-interactivity", "derived_virtual_selected_rows"),
     Input("linhas_selecionadas", "data"),
+    Input("temporada_partidas_jogadas", "children"),
+    Input("temporada_selecionada", "data"),
 )
-def criar_graph1(selecionados, data):
-    lista_jogos_completa_df = lista_jogos_df[["Rodada", "Jogador", "Pontos", "Gols"]]
+def criar_graph1(selecionados, data, num_jogos, jogos_filtrados):
+    df = pd.DataFrame(jogos_filtrados)
+
+    lista_jogos_completa_df = df[["Rodada", "Jogador", "Pontos", "Gols"]]
 
     lista_jogos_completa_df = (
         lista_jogos_completa_df.groupby(["Rodada", "Jogador"])

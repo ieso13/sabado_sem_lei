@@ -8,77 +8,69 @@ from dfs.lista_jogos import lista_jogos_df
 
 # COMPONENTS OF THE LAYOUT
 
-filtro_temporada = (
-    dbc.Card(
-        dbc.CardBody(
-            [
-                html.H6("Temporada"),
-                dcc.Dropdown(
-                    [{"label": c, "value": c} for c in lista_jogos_df["Ano"].unique()],
-                    value=lista_jogos_df["Ano"].unique().max(),
-                    id="temporada_dpdn",
-                ),
-            ],
-        ),
-        class_name="text-center mx-1 my-1",
-    ),
-)
-
-frequencia_minima = (
-    dbc.Card(
-        dbc.CardBody(
-            [
-                html.H6("Presença Mínima"),
-                dcc.Input(
-                    id="min_pj",
-                    type="number",
-                    placeholder="Número Mínimo de Rodadas",
-                    value=0,
-                ),
-            ],
-        ),
-        id="frequencia_minima",
-        class_name="mx-1 my-1",
-    ),
-)
-
-temporada_partidas_jogadas = (
-    dbc.Card(
+filtro_temporada = dbc.Card(
+    dbc.CardBody(
         [
-            dbc.CardBody(
-                [
-                    html.H6("Partidas Jogadas"),
-                    html.H4(children=[], id="temporada_partidas_jogadas"),
-                ],
+            html.H6("Temporada"),
+            dcc.Dropdown(
+                [{"label": c, "value": c} for c in lista_jogos_df["Ano"].unique()],
+                value=lista_jogos_df["Ano"].unique().max(),
+                id="temporada_dpdn",
             ),
         ],
-        class_name="text-center mx-1 my-1",
     ),
+    class_name="text-center mx-1 my-1",
 )
 
-temporada_gols = (
-    dbc.Card(
-        dbc.CardBody(
-            [
-                html.H6("Gols"),
-                html.H4(children=[], id="temporada_gols"),
-            ],
-        ),
-        class_name="text-center mx-1 my-1",
+frequencia_minima = dbc.Card(
+    dbc.CardBody(
+        [
+            html.H6("Presença Mínima"),
+            dcc.Input(
+                id="min_pj",
+                type="number",
+                placeholder="Número Mínimo de Rodadas",
+                value=0,
+            ),
+        ],
     ),
+    id="frequencia_minima",
+    class_name="mx-1 my-1",
 )
 
-temporada_media_gols = (
-    dbc.Card(
+temporada_partidas_jogadas = dbc.Card(
+    [
         dbc.CardBody(
             [
-                html.H6("Gols/Partida"),
-                html.H4(children=[], id="temporada_media_gols"),
+                html.H6("Partidas Jogadas"),
+                html.H4(children=[], id="temporada_partidas_jogadas"),
             ],
         ),
-        class_name="text-center mx-1 my-1",
-    ),
+    ],
+    class_name="text-center mx-1 my-1",
 )
+
+temporada_gols = dbc.Card(
+    dbc.CardBody(
+        [
+            html.H6("Gols"),
+            html.H4(children=[], id="temporada_gols"),
+        ],
+    ),
+    class_name="text-center mx-1 my-1",
+)
+
+
+temporada_media_gols = dbc.Card(
+    dbc.CardBody(
+        [
+            html.H6("Gols/Partida"),
+            html.H4(children=[], id="temporada_media_gols"),
+        ],
+    ),
+    class_name="text-center mx-1 my-1",
+)
+
 grafico_classificação = (
     html.Div(
         id="graph1",
@@ -86,13 +78,21 @@ grafico_classificação = (
     ),
 )
 
-tabela_classificação = (
+
+tabela_classificação = html.Div(
+    id="table1",
+    children=[],
+    style={"max-height": "70vh", "overflow": "auto"},
+)
+
+
+grafico_mediagols_mediapontos = (
     html.Div(
-        id="table1",
+        id="graph2",
         children=[],
-        style={"max-height": "70vh", "overflow": "auto"},
     ),
 )
+
 
 app = Dash(
     __name__,
@@ -160,6 +160,7 @@ app.layout = dbc.Container(
                 ),
             ]
         ),
+        dbc.Row(dbc.Col(grafico_mediagols_mediapontos, width=12)),
         dcc.Store(id="linhas_selecionadas"),
         dcc.Store(id="temporada_selecionada"),
     ],
@@ -373,6 +374,8 @@ def criar_graph1(selecionados, data, num_jogos, jogos_filtrados):
         )
     return dcc.Graph(figure=line_classificação, style={"height": "85vh"})
 
+
+## Criar DF para análise de todas as temporadas
 
 if __name__ == "__main__":
     app.run_server(debug=True)

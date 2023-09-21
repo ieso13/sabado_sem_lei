@@ -82,7 +82,7 @@ grafico_classificação = (
 tabela_classificação = html.Div(
     id="table1",
     children=[],
-    style={"max-height": "70vh", "overflow": "auto"},
+    style={"max-height": "85vh", "overflow": "auto"},
 )
 
 
@@ -93,6 +93,28 @@ grafico_mediagols_mediapontos = (
     ),
 )
 
+slicer_temporadas = html.Div(
+    [
+        dcc.RangeSlider(
+            min=lista_jogos_df["Ano"].unique().min(),
+            max=lista_jogos_df["Ano"].unique().max(),
+            step=1,
+            value=[
+                lista_jogos_df["Ano"].unique().min(),
+                lista_jogos_df["Ano"].unique().max(),
+            ],
+            id="my-range-slider",
+            marks={
+                i: "{}".format(i)
+                for i in range(
+                    lista_jogos_df["Ano"].unique().min(),
+                    lista_jogos_df["Ano"].unique().max() + 1,
+                    1,
+                )
+            },
+        ),
+    ]
+)
 
 app = Dash(
     __name__,
@@ -163,10 +185,8 @@ app.layout = dbc.Container(
                 ),
             ]
         ),
-        # dbc.Row(
-        #     [dbc.Col(slicer_temporada, width=6), dbc.Col(selecao_jogador, width=4)]
-        # ),
-        # dbc.Row(dbc.Col(grafico_mediagols_mediapontos, width=12)),
+        dbc.Row(dbc.Col(slicer_temporadas, width=6)),
+        dbc.Row(dbc.Col(grafico_mediagols_mediapontos, width=12)),
         dcc.Store(id="linhas_selecionadas"),
         dcc.Store(id="temporada_selecionada"),
     ],
@@ -198,7 +218,7 @@ def create_table1(pj_min, lista_jogos_filtrada):
 
     num_gols = df["Gols"].sum()
 
-    media_gols_partida = num_gols // num_jogos
+    media_gols_partida = float("{:.1f}".format(num_gols / num_jogos))
 
     jogadores_df = df.groupby("Jogador")[["Pontos", "Gols", "Destaques"]].sum()
 
@@ -382,10 +402,22 @@ def criar_graph1(selecionados, data, num_jogos, jogos_filtrados):
             legendgroup=d.name,
             showlegend=False,
         )
-    return dcc.Graph(figure=line_classificação, style={"height": "85vh"})
+
+    return dcc.Graph(figure=line_classificação, style={"height": "95vh"})
 
 
-## Criar DF para análise de todas as temporadas
+@callback(Output("graph2", "children"), Input("my-range-slider", "value"))
+def criar_graph2(temporadas):
+    temporadas_selecionadas = range(temporadas[0], temporadas[1], 1)
+    df = lista_jogos_df.loc[lista_jogos_df["Ano"].isin(temporadas_selecionadas)]
+
+    dff = df.groupby("Jogador")[["Pontos", "Gols"]].sum()
+    dff["PJ"] = df.groupby("Jogador")["Rodada"].count()
+    dff["Gols/PJ"] = dff["Gols"] / dff["PJ"]
+    dff["Pontos/PJ"] = dff["Pontos"] / dff["PJ"]
+    print(temporadas)
+    print(dff.head(5))
+
 
 if __name__ == "__main__":
     app.run_server(debug=True)

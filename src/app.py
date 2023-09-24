@@ -5,6 +5,7 @@ from dash import Dash, dcc, html, Input, Output, callback
 from dash.dash_table import DataTable, FormatTemplate
 import dash_bootstrap_components as dbc
 from dfs.lista_jogos import lista_jogos_df
+from PIL import Image
 
 # COMPONENTS OF THE LAYOUT
 
@@ -93,27 +94,40 @@ grafico_mediagols_mediapontos = (
     ),
 )
 
+grafico_gols_pontos = (
+    html.Div(
+        id="graph3",
+        children=[],
+    ),
+)
+
 slicer_temporadas = html.Div(
-    [
-        dcc.RangeSlider(
-            min=lista_jogos_df["Ano"].unique().min(),
-            max=lista_jogos_df["Ano"].unique().max(),
-            step=1,
-            value=[
+    dcc.RangeSlider(
+        min=lista_jogos_df["Ano"].unique().min(),
+        max=lista_jogos_df["Ano"].unique().max(),
+        step=1,
+        value=[
+            lista_jogos_df["Ano"].unique().min(),
+            lista_jogos_df["Ano"].unique().max(),
+        ],
+        id="my-range-slider",
+        marks={
+            i: "{}".format(i)
+            for i in range(
                 lista_jogos_df["Ano"].unique().min(),
-                lista_jogos_df["Ano"].unique().max(),
-            ],
-            id="my-range-slider",
-            marks={
-                i: "{}".format(i)
-                for i in range(
-                    lista_jogos_df["Ano"].unique().min(),
-                    lista_jogos_df["Ano"].unique().max() + 1,
-                    1,
-                )
-            },
-        ),
-    ]
+                lista_jogos_df["Ano"].unique().max() + 1,
+                1,
+            )
+        },
+    ),
+)
+
+check_filtro_jogadores = html.Div(
+    dcc.RadioItems(
+        options=["Sim", "Não"],
+        value="Não",
+        id="ativar_filtro_jogadores",
+    )
 )
 
 app = Dash(
@@ -185,8 +199,18 @@ app.layout = dbc.Container(
                 ),
             ]
         ),
-        dbc.Row(dbc.Col(slicer_temporadas, width=6)),
-        dbc.Row(dbc.Col(grafico_mediagols_mediapontos, width=12)),
+        dbc.Row(
+            [
+                dbc.Col(slicer_temporadas, width=6),
+                dbc.Col(check_filtro_jogadores, width=2),
+            ]
+        ),
+        dbc.Row(
+            [
+                dbc.Col(grafico_gols_pontos, width=6),
+                dbc.Col(grafico_mediagols_mediapontos, width=6),
+            ]
+        ),
         dcc.Store(id="linhas_selecionadas"),
         dcc.Store(id="temporada_selecionada"),
     ],
@@ -406,17 +430,103 @@ def criar_graph1(selecionados, data, num_jogos, jogos_filtrados):
     return dcc.Graph(figure=line_classificação, style={"height": "95vh"})
 
 
-@callback(Output("graph2", "children"), Input("my-range-slider", "value"))
-def criar_graph2(temporadas):
-    temporadas_selecionadas = range(temporadas[0], temporadas[1], 1)
+@callback(
+    Output("graph2", "children"),
+    Output("graph3", "children"),
+    Input("my-range-slider", "value"),
+    Input("ativar_filtro_jogadores", "value"),
+    Input("linhas_selecionadas", "data"),
+)
+def criar_graph2(temporadas, ativar_filtro_jogadores, jogadores_tabela):
+    if len(temporadas) == 1:
+        temporadas_selecionadas = temporadas
+    else:
+        temporadas_selecionadas = range(temporadas[0], temporadas[1] + 1, 1)
+
     df = lista_jogos_df.loc[lista_jogos_df["Ano"].isin(temporadas_selecionadas)]
+
+    tabela_df = pd.DataFrame(jogadores_tabela)
+
+    if ativar_filtro_jogadores == "Sim":
+        df = df.loc[df["Jogador"].isin(tabela_df["JOGADOR"])]
+    else:
+        pass
 
     dff = df.groupby("Jogador")[["Pontos", "Gols"]].sum()
     dff["PJ"] = df.groupby("Jogador")["Rodada"].count()
     dff["Gols/PJ"] = dff["Gols"] / dff["PJ"]
     dff["Pontos/PJ"] = dff["Pontos"] / dff["PJ"]
-    print(temporadas)
-    print(dff.head(5))
+    # dff = dff.reset_index()
+
+    grafico_mediagols_mediapontos = px.scatter(
+        data_frame=dff,
+        x="Pontos/PJ",
+        y="Gols/PJ",
+        color=dff.index,
+        size_max=50,
+        # text=dff.index,
+    )
+
+    grafico_mediagols_mediapontos.update_layout(showlegend=False, template="none")
+    grafico_mediagols_mediapontos.update_traces(
+        textposition="middle right", marker_color="rgba(0,0,0,0)"
+    )
+
+    for i, row in dff.iterrows():
+        jogador = i.replace(" ", "-")
+        grafico_mediagols_mediapontos.add_layout_image(
+            dict(
+                source=Image.open(f"src/assets/fotos/{jogador}.png"),
+                xref="x",
+                yref="y",
+                xanchor="center",
+                yanchor="middle",
+                x=row["Pontos/PJ"],
+                y=row["Gols/PJ"],
+                sizex=0.5,
+                sizey=0.5,
+                opacity=0.9,
+                sizing="contain",
+                layer="above",
+            )
+        )
+
+    grafico_gols_pontos = px.scatter(
+        data_frame=dff,
+        x="Pontos",
+        y="Gols",
+        size="PJ",
+        color=dff.index,
+        size_max=50,
+        # text=dff.index,
+    )
+
+    grafico_gols_pontos.update_layout(showlegend=False, template="none")
+    grafico_gols_pontos.update_traces(
+        textposition="middle right", marker_color="rgba(0,0,0,0)"
+    )
+
+    for i, row in dff.iterrows():
+        jogador = i.replace(" ", "-")
+        grafico_gols_pontos.add_layout_image(
+            dict(
+                source=Image.open(f"src/assets/fotos/{jogador}.png"),
+                xref="x",
+                yref="y",
+                xanchor="center",
+                yanchor="middle",
+                x=row["Pontos"],
+                y=row["Gols"],
+                sizex=int(row["PJ"] * 0.35),
+                sizey=int(row["PJ"] * 0.35),
+                sizing="contain",
+                layer="above",
+            )
+        )
+
+    return dcc.Graph(
+        figure=grafico_mediagols_mediapontos, style={"height": "95vh"}
+    ), dcc.Graph(figure=grafico_gols_pontos, style={"height": "95vh"})
 
 
 if __name__ == "__main__":

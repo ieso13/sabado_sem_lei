@@ -6,6 +6,8 @@ from dash.dash_table import DataTable, FormatTemplate
 import dash_bootstrap_components as dbc
 from dfs.lista_jogos import lista_jogos_df
 from PIL import Image
+import dash_ag_grid as dag
+
 
 # COMPONENTS OF THE LAYOUT
 
@@ -72,10 +74,15 @@ temporada_media_gols = dbc.Card(
     class_name="text-center mx-1 my-1",
 )
 
-grafico_classificação = (
-    html.Div(
-        id="graph1",
-        children=[],
+grafico_classificação = html.Div(
+    dcc.Graph(figure={}, style={"height": "80vh"}, id="graph1"),
+)
+
+slicer_rodadas_selecionadas = (
+    (
+        html.Div(
+            id="slicer-rodadas",
+        )
     ),
 )
 
@@ -87,47 +94,130 @@ tabela_classificação = html.Div(
 )
 
 
-grafico_mediagols_mediapontos = (
-    html.Div(
-        id="graph2",
-        children=[],
-    ),
-)
-
 grafico_gols_pontos = (
     html.Div(
-        id="graph3",
-        children=[],
+        dcc.Graph(figure={}, style={"height": "80vh"}, id="graph2"),
     ),
 )
 
+
+grafico_mediagols_mediapontos = html.Div(
+    dcc.Graph(figure={}, style={"height": "80vh"}, id="graph3"),
+)
+
+
 slicer_temporadas = html.Div(
-    dcc.RangeSlider(
-        min=lista_jogos_df["Ano"].unique().min(),
-        max=lista_jogos_df["Ano"].unique().max(),
-        step=1,
-        value=[
-            lista_jogos_df["Ano"].unique().min(),
-            lista_jogos_df["Ano"].unique().max(),
-        ],
-        id="my-range-slider",
-        marks={
-            i: "{}".format(i)
-            for i in range(
+    [
+        html.H6("Selecionar Temporadas para Analisar"),
+        dcc.RangeSlider(
+            min=lista_jogos_df["Ano"].unique().min(),
+            max=lista_jogos_df["Ano"].unique().max(),
+            step=1,
+            value=[
                 lista_jogos_df["Ano"].unique().min(),
-                lista_jogos_df["Ano"].unique().max() + 1,
-                1,
-            )
-        },
-    ),
+                lista_jogos_df["Ano"].unique().max(),
+            ],
+            id="my-range-slider",
+            marks={
+                i: "{}".format(i)
+                for i in range(
+                    lista_jogos_df["Ano"].unique().min(),
+                    lista_jogos_df["Ano"].unique().max() + 1,
+                    1,
+                )
+            },
+        ),
+    ]
 )
 
 check_filtro_jogadores = html.Div(
-    dcc.RadioItems(
-        options=["Sim", "Não"],
-        value="Não",
-        id="ativar_filtro_jogadores",
-    )
+    [
+        html.H6("Filtrar Jogadores Igual Acima"),
+        dcc.Dropdown(
+            options=["Sim", "Não"],
+            value="Não",
+            id="ativar_filtro_jogadores",
+        ),
+    ]
+)
+
+tabela_historica = dag.AgGrid(
+    id="tabela_historica",
+    columnDefs=[
+        {
+            "field": "#",
+            "resizable": True,
+            "type": "numericColumn",
+            "width": 30,
+            "sortable": True,
+        },
+        {"field": "JOGADOR", "resizable": True, "width": 200},
+        {
+            "field": "PTS",
+            "resizable": True,
+            "width": 75,
+            "sortable": True,
+        },
+        {
+            "field": "APRV",
+            "resizable": True,
+            "width": 90,
+            "sortable": True,
+            "valueFormatter": {"function": 'd3.format(".1%")(params.value)'},
+        },
+        {
+            "field": "GOLS",
+            "resizable": True,
+            "width": 75,
+            "sortable": True,
+        },
+        {
+            "field": "MÉDIA",
+            "resizable": True,
+            "width": 90,
+            "sortable": True,
+            "valueFormatter": {"function": 'd3.format(".2f")(params.value)'},
+        },
+        {
+            "field": "PJ",
+            "resizable": True,
+            "width": 50,
+            "sortable": True,
+        },
+        {
+            "field": "FREQ",
+            "resizable": True,
+            "width": 90,
+            "sortable": True,
+            "valueFormatter": {"function": 'd3.format(".1%")(params.value)'},
+        },
+        {
+            "field": "S+",
+            "resizable": True,
+            "width": 50,
+            "sortable": True,
+        },
+        {
+            "field": "V",
+            "resizable": True,
+            "width": 50,
+            "sortable": True,
+        },
+        {
+            "field": "E",
+            "resizable": True,
+            "width": 50,
+            "sortable": True,
+        },
+        {
+            "field": "D",
+            "resizable": True,
+            "width": 50,
+            "sortable": True,
+        },
+    ],
+    dashGridOptions={"animateRows": True},
+    style={"height": 850, "width": "100%"},
 )
 
 app = Dash(
@@ -178,6 +268,7 @@ app.layout = dbc.Container(
                 ),
             ],
         ),
+        dbc.Row(html.Hr()),
         dbc.Row(
             [
                 dbc.Col(
@@ -186,7 +277,6 @@ app.layout = dbc.Container(
                             [
                                 dbc.Col(
                                     tabela_classificação,
-                                    width=12,
                                 ),
                             ]
                         ),
@@ -194,21 +284,32 @@ app.layout = dbc.Container(
                     width=4,
                 ),
                 dbc.Col(
-                    grafico_classificação,
+                    [
+                        dbc.Row(
+                            grafico_classificação,
+                        ),
+                        dbc.Row(slicer_rodadas_selecionadas),
+                    ],
                     width=8,
                 ),
             ]
         ),
+        dbc.Row(html.Hr()),
         dbc.Row(
             [
-                dbc.Col(slicer_temporadas, width=6),
+                dbc.Col(
+                    html.H1(
+                        "Dados Históricos",
+                    ),
+                ),
                 dbc.Col(check_filtro_jogadores, width=2),
+                dbc.Col(slicer_temporadas, width=6),
             ]
         ),
         dbc.Row(
             [
+                dbc.Col(tabela_historica, width=6),
                 dbc.Col(grafico_gols_pontos, width=6),
-                dbc.Col(grafico_mediagols_mediapontos, width=6),
             ]
         ),
         dcc.Store(id="linhas_selecionadas"),
@@ -350,36 +451,59 @@ def create_table1(pj_min, lista_jogos_filtrada):
     )
 
 
+@callback(Output("slicer-rodadas", "children"), Input("temporada_dpdn", "value"))
+def slicer_rodadas(temporada):
+    df = lista_jogos_df
+    df = df.loc[df["Ano"] == temporada]
+
+    slider = dcc.RangeSlider(
+        id="rodadas_selecionadas",
+        min=lista_jogos_df["Rodada"].unique().min(),
+        max=lista_jogos_df["Rodada"].unique().max(),
+        step=1,
+        value=[
+            lista_jogos_df["Rodada"].unique().min(),
+            lista_jogos_df["Rodada"].unique().max(),
+        ],
+    )
+
+    return slider
+
+
 @callback(
-    Output("graph1", "children"),
+    Output("graph1", "figure"),
     Input("datatable-interactivity", "derived_virtual_selected_rows"),
     Input("linhas_selecionadas", "data"),
     Input("temporada_partidas_jogadas", "children"),
     Input("temporada_selecionada", "data"),
+    Input("rodadas_selecionadas", "value"),
 )
-def criar_graph1(selecionados, data, num_jogos, jogos_filtrados):
+def criar_graph1(selecionados, data, num_jogos, jogos_filtrados, rodadas):
     df = pd.DataFrame(jogos_filtrados)
 
-    lista_jogos_completa_df = df[["Rodada", "Jogador", "Pontos", "Gols"]]
+    df = df[["Rodada", "Jogador", "Pontos", "Gols"]]
 
-    lista_jogos_completa_df = (
-        lista_jogos_completa_df.groupby(["Rodada", "Jogador"])
+    if len(rodadas) == 1:
+        rodadas_selecionadas = rodadas
+    else:
+        rodadas_selecionadas = range(rodadas[0], rodadas[1] + 1, 1)
+
+    df = df.loc[df["Rodada"].isin(rodadas_selecionadas)]
+
+    df = (
+        df.groupby(["Rodada", "Jogador"])
         .sum()
         .unstack(fill_value=0)
         .stack()
         .reset_index()
     )
 
-    lista_jogos_completa_df["Pontos Acc"] = lista_jogos_completa_df.groupby("Jogador")[
-        "Pontos"
-    ].cumsum()
+    df["Pontos Acc"] = df.groupby("Jogador")["Pontos"].cumsum()
 
-    lista_jogos_completa_df["Gols Acc"] = lista_jogos_completa_df.groupby("Jogador")[
-        "Gols"
-    ].cumsum()
+    df["Gols Acc"] = df.groupby("Jogador")["Gols"].cumsum()
 
-    lista_jogos_completa_df["Posição"] = (
-        lista_jogos_completa_df.sort_values(["Pontos Acc", "Gols Acc"], ascending=False)
+    df["Posição"] = (
+        df.sort_values(["Pontos Acc", "Gols Acc"], ascending=False)
         .groupby("Rodada")
         .cumcount()
         .add(1)
@@ -392,28 +516,25 @@ def criar_graph1(selecionados, data, num_jogos, jogos_filtrados):
     jog_filtrados_df = dff["JOGADOR"].unique()
 
     if len(selecionados) == 0:
-        lista_jogos_completa_df = lista_jogos_completa_df[
-            lista_jogos_completa_df["Jogador"].isin(jog_filtrados_df)
-        ]
+        df = df[df["Jogador"].isin(jog_filtrados_df)]
     else:
-        lista_jogos_completa_df = lista_jogos_completa_df[
-            lista_jogos_completa_df["Jogador"].isin(jog_selecionados)
-        ]
+        df = df[df["Jogador"].isin(jog_selecionados)]
 
     line_classificação = px.line(
-        lista_jogos_completa_df,
+        df,
         x="Rodada",
         y="Posição",
         range_x=[1, num_jogos + 10],
         range_y=[20, 0],
         color="Jogador",
-        title="Corrida do Título",
         template="none",
     )
 
+    line_classificação.update_traces(line_width=5, opacity=0.6)
     line_classificação.update_layout(
         showlegend=False, template="none", yaxis={"title": ""}, xaxis={"title": ""}
     )
+
     for i, d in enumerate(line_classificação.data):
         line_classificação.add_scatter(
             x=[d.x[-1]],
@@ -427,12 +548,12 @@ def criar_graph1(selecionados, data, num_jogos, jogos_filtrados):
             showlegend=False,
         )
 
-    return dcc.Graph(figure=line_classificação, style={"height": "95vh"})
+    return line_classificação
 
 
 @callback(
-    Output("graph2", "children"),
-    Output("graph3", "children"),
+    Output("graph2", "figure"),
+    # Output("graph3", "children"),
     Input("my-range-slider", "value"),
     Input("ativar_filtro_jogadores", "value"),
     Input("linhas_selecionadas", "data"),
@@ -458,38 +579,38 @@ def criar_graph2(temporadas, ativar_filtro_jogadores, jogadores_tabela):
     dff["Pontos/PJ"] = dff["Pontos"] / dff["PJ"]
     # dff = dff.reset_index()
 
-    grafico_mediagols_mediapontos = px.scatter(
-        data_frame=dff,
-        x="Pontos/PJ",
-        y="Gols/PJ",
-        color=dff.index,
-        size_max=50,
-        # text=dff.index,
-    )
+    # grafico_mediagols_mediapontos = px.scatter(
+    #     data_frame=dff,
+    #     x="Pontos/PJ",
+    #     y="Gols/PJ",
+    #     color=dff.index,
+    #     size_max=50,
+    #     # text=dff.index,
+    # )
 
-    grafico_mediagols_mediapontos.update_layout(showlegend=False, template="none")
-    grafico_mediagols_mediapontos.update_traces(
-        textposition="middle right", marker_color="rgba(0,0,0,0)"
-    )
+    # grafico_mediagols_mediapontos.update_layout(showlegend=False, template="none")
+    # grafico_mediagols_mediapontos.update_traces(
+    #     textposition="middle right", marker_color="rgba(0,0,0,0)"
+    # )P
 
-    for i, row in dff.iterrows():
-        jogador = i.replace(" ", "-")
-        grafico_mediagols_mediapontos.add_layout_image(
-            dict(
-                source=Image.open(f"src/assets/fotos/{jogador}.png"),
-                xref="x",
-                yref="y",
-                xanchor="center",
-                yanchor="middle",
-                x=row["Pontos/PJ"],
-                y=row["Gols/PJ"],
-                sizex=0.5,
-                sizey=0.5,
-                opacity=0.9,
-                sizing="contain",
-                layer="above",
-            )
-        )
+    # for i, row in dff.iterrows():
+    #     jogador = i.replace(" ", "-")
+    #     grafico_mediagols_mediapontos.add_layout_image(
+    #         dict(
+    #             source=Image.open(f"src/assets/fotos/{jogador}.png"),
+    #             xref="x",
+    #             yref="y",
+    #             xanchor="center",
+    #             yanchor="middle",
+    #             x=row["Pontos/PJ"],
+    #             y=row["Gols/PJ"],
+    #             sizex=0.5,
+    #             sizey=0.5,
+    #             opacity=0.9,
+    #             sizing="contain",
+    #             layer="above",
+    #         )
+    #     )
 
     grafico_gols_pontos = px.scatter(
         data_frame=dff,
@@ -524,9 +645,103 @@ def criar_graph2(temporadas, ativar_filtro_jogadores, jogadores_tabela):
             )
         )
 
-    return dcc.Graph(
-        figure=grafico_mediagols_mediapontos, style={"height": "95vh"}
-    ), dcc.Graph(figure=grafico_gols_pontos, style={"height": "95vh"})
+    return grafico_gols_pontos
+
+
+@callback(
+    Output("tabela_historica", "rowData"),
+    Input("my-range-slider", "value"),
+    Input("ativar_filtro_jogadores", "value"),
+    Input("linhas_selecionadas", "data"),
+)
+def criar_tabela_historica(temporadas, ativar_filtro_jogadores, jogadores_tabela):
+    if len(temporadas) == 1:
+        temporadas_selecionadas = temporadas
+    else:
+        temporadas_selecionadas = range(temporadas[0], temporadas[1] + 1, 1)
+
+    df = lista_jogos_df.loc[lista_jogos_df["Ano"].isin(temporadas_selecionadas)]
+
+    jogadores_selecionados_df = pd.DataFrame(jogadores_tabela)
+
+    if ativar_filtro_jogadores == "Sim":
+        df = df.loc[df["Jogador"].isin(jogadores_selecionados_df["JOGADOR"])]
+    else:
+        pass
+
+    num_jogos_hist = df.groupby("Ano")["Rodada"].max().sum()
+
+    num_gols_hist = df["Gols"].sum()
+
+    media_gols_partida_hist = float("{:.1f}".format(num_gols_hist))
+
+    jogadores_df = df.groupby("Jogador")[["Pontos", "Gols", "Destaques"]].sum()
+
+    jogadores_df["Presença"] = df.groupby("Jogador")["Rodada"].count().astype(int)
+
+    jogadores_df["Presença%"] = jogadores_df["Presença"] / num_jogos_hist
+
+    jogadores_df["Gols/Jogo"] = jogadores_df["Gols"] / jogadores_df["Presença"]
+
+    jogadores_df["Aproveitamento%"] = jogadores_df["Pontos"] / (
+        jogadores_df["Presença"] * 3
+    )
+
+    jogadores_df["Vitórias"] = (
+        df.loc[df["Pontos"] == 3].groupby("Jogador")["Pontos"].size().astype(int)
+    )
+
+    jogadores_df["Empates"] = (
+        df.loc[df["Pontos"] == 1].groupby("Jogador")["Pontos"].size().astype(int)
+    )
+
+    jogadores_df["Derrotas"] = (
+        df.loc[df["Pontos"] == 0].groupby("Jogador")["Pontos"].size().astype(int)
+    )
+
+    jogadores_df = jogadores_df.replace(np.nan, 0)
+
+    jogadores_df = jogadores_df.reset_index()
+
+    jogadores_df = jogadores_df.sort_values(by=["Pontos"], ascending=False)
+
+    jogadores_df.insert(0, "#", range(1, len(jogadores_df) + 1, 1))
+
+    jogadores_df = jogadores_df[
+        [
+            "#",
+            "Jogador",
+            "Pontos",
+            "Aproveitamento%",
+            "Gols",
+            "Gols/Jogo",
+            "Presença",
+            "Presença%",
+            "Destaques",
+            "Vitórias",
+            "Empates",
+            "Derrotas",
+        ]
+    ]
+    jogadores_df = jogadores_df.rename(
+        columns={
+            "Jogador": "JOGADOR",
+            "Pontos": "PTS",
+            "Aproveitamento%": "APRV",
+            "Gols": "GOLS",
+            "Gols/Jogo": "MÉDIA",
+            "Presença": "PJ",
+            "Presença%": "FREQ",
+            "Destaques": "S+",
+            "Vitórias": "V",
+            "Empates": "E",
+            "Derrotas": "D",
+        }
+    )
+
+    row_data = jogadores_df.to_dict("records")
+
+    return row_data
 
 
 if __name__ == "__main__":

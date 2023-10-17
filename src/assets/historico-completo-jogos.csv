@@ -1,5 +1,5 @@
 ﻿Ano;Rodada;Escalador;Time;Jogador;Gols;Pontos;Votos Destaque
-2014;1;-;1;André Junges;2;3;0
+2014;1;-;1;André Junges;2;3;00
 2014;1;-;1;Douglas Dias;3;3;0
 2014;1;-;1;Ismael Ferreira;0;3;0
 2014;1;-;1;Nikolas Weber;0;3;0
@@ -7,13 +7,13 @@
 2014;1;-;2;Alexandre Junges;0;0;0
 2014;1;-;2;Cristian Zaparoli;0;0;0
 2014;1;-;2;Matheus Webler;0;0;0
-2014;1;-;2;samuel Weber;0;0;0
+2014;1;-;2;Samuel Weber;0;0;0
 2014;1;-;2;Vitor Bittencourt;2;0;0
 2014;1;-;2;Werner Hansen;2;0;0
 2014;2;-;1;Ismael Ferreira;0;0;0
 2014;2;-;1;Rafael Muller;1;0;0
 2014;2;-;1;Rafael Nunes;1;0;0
-2014;2;-;1;samuel Weber;3;0;0
+2014;2;-;1;Samuel Weber;3;0;0
 2014;2;-;1;Vitor Bittencourt;4;0;0
 2014;2;-;2;André Junges;3;3;0
 2014;2;-;2;Cristian Zaparoli;0;3;0
@@ -27,7 +27,7 @@
 2014;3;-;1;Gabriel;2;0;0
 2014;3;-;1;Matheus Webler;1;0;0
 2014;3;-;1;Nikolas Weber;0;0;0
-2014;3;-;1;samuel Weber;1;0;0
+2014;3;-;1;Samuel Weber;1;0;0
 2014;3;-;2;Alexandre Junges;3;3;0
 2014;3;-;2;Douglas Dias;2;3;0
 2014;3;-;2;Ismael Ferreira;0;3;0
@@ -40,13 +40,13 @@
 2014;4;-;1;Werner Hansen;2;3;0
 2014;4;-;2;Douglas Dias;0;0;0
 2014;4;-;2;Rafael Muller;2;0;0
-2014;4;-;2;samuel Weber;2;0;0
+2014;4;-;2;Samuel Weber;2;0;0
 2014;4;-;2;Vitor Bittencourt;6;0;0
 2014;5;-;1;Alexandre Junges;2;0;0
 2014;5;-;1;Cristian Zaparoli;0;0;0
 2014;5;-;1;Douglas Dias;6;0;0
 2014;5;-;1;Rafael Nunes;2;0;0
-2014;5;-;1;samuel Weber;0;0;0
+2014;5;-;1;Samuel Weber;0;0;0
 2014;5;-;1;Werner Hansen;0;0;0
 2014;5;-;2;André Junges;5;3;0
 2014;5;-;2;André Sewald;3;3;0
@@ -57,7 +57,7 @@
 2014;6;-;1;Alexandre Junges;7;1;0
 2014;6;-;1;Rafael Muller;0;1;0
 2014;6;-;1;Rafael Nunes;2;1;0
-2014;6;-;1;samuel Weber;1;1;0
+2014;6;-;1;Samuel Weber;1;1;0
 2014;6;-;1;Werner Hansen;2;1;0
 2014;6;-;2;André Junges;3;1;0
 2014;6;-;2;André Sewald;2;1;0
@@ -75,7 +75,7 @@
 2014;7;-;2;Douglas Dias;1;3;0
 2014;7;-;2;Matheus Valle;0;3;0
 2014;7;-;2;Matheus Webler;3;3;0
-2014;7;-;2;samuel Weber;1;3;0
+2014;7;-;2;Samuel Weber;1;3;0
 2014;7;-;2;Werner Hansen;1;3;0
 2014;8;-;1;Alexandre Junges;4;3;0
 2014;8;-;1;Douglas Dias;1;3;0
@@ -87,7 +87,7 @@
 2014;8;-;2;André Sewald;1;0;0
 2014;8;-;2;Nikolas Weber;2;0;0
 2014;8;-;2;Rafael Muller;3;0;0
-2014;8;-;2;samuel Weber;0;0;0
+2014;8;-;2;Samuel Weber;0;0;0
 2014;9;-;1;André Junges;3;0;0
 2014;9;-;1;Ismael Ferreira;0;0;0
 2014;9;-;1;Nikolas Weber;1;0;0
@@ -97,7 +97,7 @@
 2014;9;-;2;Matheus Valle;1;3;0
 2014;9;-;2;Rafael Muller;2;3;0
 2014;9;-;2;Rafael Nunes;1;3;0
-2014;9;-;2;samuel Weber;1;3;0
+2014;9;-;2;Samuel Weber;1;3;0
 2014;10;-;1;Alexandre Junges;3;3;0
 2014;10;-;1;Cristian Hanses;3;3;0
 2014;10;-;1;Douglas Dias;3;3;0
@@ -108,12 +108,12 @@
 2014;10;-;2;Nikolas Weber;2;0;0
 2014;10;-;2;Rafael Muller;4;0;0
 2014;10;-;2;Rafael Nunes;1;0;0
-2014;10;-;2;samuel Weber;3;0;0
+2014;10;-;2;Samuel Weber;3;0;0
 2014;11;-;1;Alexandre Junges;2;0;0
 2014;11;-;1;Cristian Hanses;1;0;0
 2014;11;-;1;Matheus Valle;1;0;0
 2014;11;-;1;Matheus Webler;0;0;0
-2014;11;-;1;samuel Weber;2;0;0
+2014;11;-;1;Samuel Weber;2;0;0
 2014;11;-;1;Werner Hansen;1;0;0
 2014;11;-;2;Anderson;0;3;0
 2014;11;-;2;André Junges;5;3;0
@@ -148,7 +148,7 @@
 2014;14;-;2;André Junges;2;0;0
 2014;14;-;2;André Sewald;0;0;0
 2014;14;-;2;Rafael Muller;2;0;0
-2014;14;-;2;samuel Weber;0;0;0
+2014;14;-;2;Samuel Weber;0;0;0
 2014;15;-;1;Anderson;0;3;0
 2014;15;-;1;André Junges;2;3;0
 2014;15;-;1;Felipe Gomes;4;3;0
@@ -158,13 +158,13 @@
 2014;15;-;2;Alexandre Junges;5;0;0
 2014;15;-;2;Rafael Muller;2;0;0
 2014;15;-;2;Roviel Koch;0;0;0
-2014;15;-;2;samuel Weber;0;0;0
+2014;15;-;2;Samuel Weber;0;0;0
 2014;15;-;2;Werner Hansen;1;0;0
 2014;16;-;1;Anderson;0;1;0
 2014;16;-;1;André Junges;1;1;0
 2014;16;-;1;Gustavo Boufleur;2;1;0
 2014;16;-;1;Matheus Valle;3;1;0
-2014;16;-;1;samuel Weber;1;1;0
+2014;16;-;1;Samuel Weber;1;1;0
 2014;16;-;1;Werner Hansen;4;1;0
 2014;16;-;2;Adriel Zanatta;0;1;0
 2014;16;-;2;Alexandre Junges;2;1;0
@@ -177,7 +177,7 @@
 2014;17;-;1;André Junges;5;3;0
 2014;17;-;1;Felipe Gomes;3;3;0
 2014;17;-;1;Nikolas Weber;4;3;0
-2014;17;-;1;samuel Weber;7;3;0
+2014;17;-;1;Samuel Weber;7;3;0
 2014;17;-;2;Gustavo Boufleur;2;0;0
 2014;17;-;2;Matheus Valle;2;0;0
 2014;17;-;2;Matheus Webler;2;0;0
@@ -195,14 +195,14 @@
 2014;18;-;2;Gabriel;2;0;0
 2014;18;-;2;Rafael Muller;0;0;0
 2014;18;-;2;Roviel Koch;0;0;0
-2014;18;-;2;samuel Weber;2;0;0
+2014;18;-;2;Samuel Weber;2;0;0
 2014;18;-;2;Werner Hansen;0;0;0
 2014;19;-;1;Anderson;0;3;0
 2014;19;-;1;André Junges;3;3;0
 2014;19;-;1;Gustavo Boufleur;2;3;0
 2014;19;-;1;Matheus Webler;0;3;0
 2014;19;-;1;Rafael Nunes;3;3;0
-2014;19;-;1;samuel Weber;1;3;0
+2014;19;-;1;Samuel Weber;1;3;0
 2014;19;-;2;Alexandre Junges;4;0;0
 2014;19;-;2;Cristian Hanses;2;0;0
 2014;19;-;2;Nikolas Weber;2;0;0
@@ -232,7 +232,7 @@
 2014;21;-;2;Felipe Gomes;0;3;0
 2014;21;-;2;Matheus Valle;3;3;0
 2014;21;-;2;Rafael Nunes;5;3;0
-2014;21;-;2;samuel Weber;3;3;0
+2014;21;-;2;Samuel Weber;3;3;0
 2014;22;-;1;Alexandre Junges;3;0;0
 2014;22;-;1;Felipe Gomes;1;0;0
 2014;22;-;1;Nikolas Weber;2;0;0
@@ -242,7 +242,7 @@
 2014;22;-;2;Gustavo Boufleur;5;3;0
 2014;22;-;2;Matheus Valle;4;3;0
 2014;22;-;2;Rafael Nunes;4;3;0
-2014;22;-;2;samuel Weber;1;3;0
+2014;22;-;2;Samuel Weber;1;3;0
 2014;22;-;2;Werner Hansen;3;3;0
 2014;23;-;1;Alexandre Junges;1;0;0
 2014;23;-;1;Cristian Zaparoli;1;0;0
@@ -253,7 +253,7 @@
 2014;23;-;2;Gustavo Boufleur;2;3;0
 2014;23;-;2;Rafael Muller;2;3;0
 2014;23;-;2;Rafael Nunes;0;3;0
-2014;23;-;2;samuel Weber;2;3;0
+2014;23;-;2;Samuel Weber;2;3;0
 2014;24;-;1;Adriel Zanatta;3;3;0
 2014;24;-;1;Douglas Dias;3;3;0
 2014;24;-;1;Nikolas Weber;2;3;0
@@ -263,7 +263,7 @@
 2014;24;-;2;Alexandre Junges;3;0;0
 2014;24;-;2;Cristian Zaparoli;0;0;0
 2014;24;-;2;Matheus Valle;3;0;0
-2014;24;-;2;samuel Weber;1;0;0
+2014;24;-;2;Samuel Weber;1;0;0
 2014;24;-;2;Vitor Bittencourt;3;0;0
 2014;24;-;2;Werner Hansen;1;0;0
 2014;25;-;1;Alexandre Junges;3;0;0
@@ -271,7 +271,7 @@
 2014;25;-;2;Cristian Zaparoli;1;3;0
 2014;25;-;2;Rafael Muller;1;3;0
 2014;25;-;2;Rafael Nunes;1;3;0
-2014;25;-;2;samuel Weber;3;3;0
+2014;25;-;2;Samuel Weber;3;3;0
 2014;25;-;2;Werner Hansen;1;3;0
 2014;26;-;1;Adriel Zanatta;1;3;0
 2014;26;-;1;Alexandre Junges;3;3;0
@@ -283,7 +283,7 @@
 2014;26;-;2;Gustavo Boufleur;0;0;0
 2014;26;-;2;Nikolas Weber;2;0;0
 2014;26;-;2;Roviel Koch;1;0;0
-2014;26;-;2;samuel Weber;4;0;0
+2014;26;-;2;Samuel Weber;4;0;0
 2014;26;-;2;Werner Hansen;0;0;0
 2014;27;-;1;André Junges;3;3;0
 2014;27;-;1;Gustavo Boufleur;5;3;0
@@ -295,7 +295,7 @@
 2014;27;-;2;Matheus Valle;6;0;0
 2014;27;-;2;Rafael Nunes;2;0;0
 2014;27;-;2;Roviel Koch;0;0;0
-2014;27;-;2;samuel Weber;2;0;0
+2014;27;-;2;Samuel Weber;2;0;0
 2014;28;-;1;André Junges;4;3;0
 2014;28;-;1;Felipe Gomes;2;3;0
 2014;28;-;1;Rafael Nunes;3;3;0
@@ -313,7 +313,7 @@
 2014;29;-;2;Alexandre Junges;0;0;0
 2014;29;-;2;Matheus Valle;3;0;0
 2014;29;-;2;Nikolas Weber;2;0;0
-2014;29;-;2;samuel Weber;2;0;0
+2014;29;-;2;Samuel Weber;2;0;0
 2014;30;-;1;Bruno Edinger;5;0;0
 2014;30;-;1;Cristian Zaparoli;0;0;0
 2014;30;-;1;Nikolas Weber;3;0;0
@@ -324,7 +324,7 @@
 2014;30;-;2;LUÍS HENRIQUE (IKE);2;3;0
 2014;30;-;2;Matheus Valle;1;3;0
 2014;30;-;2;Rafael Muller;2;3;0
-2014;30;-;2;samuel Weber;3;3;0
+2014;30;-;2;Samuel Weber;3;3;0
 2014;31;-;1;Alexandre Junges;2;1;0
 2014;31;-;1;Anderson;0;1;0
 2014;31;-;1;Gustavo Boufleur;0;1;0
@@ -335,7 +335,7 @@
 2014;31;-;2;Matheus Valle;3;1;0
 2014;31;-;2;Rafael Muller;2;1;0
 2014;31;-;2;Roviel Koch;0;1;0
-2014;31;-;2;samuel Weber;0;1;0
+2014;31;-;2;Samuel Weber;0;1;0
 2014;32;-;1;Anderson;0;3;0
 2014;32;-;1;André Junges;3;3;0
 2014;32;-;1;Rafael Muller;3;3;0
@@ -373,7 +373,7 @@
 2014;36;-;1;Bruno Edinger;1;0;0
 2014;36;-;1;Gustavo Boufleur;5;0;0
 2014;36;-;1;Nikolas Weber;4;0;0
-2014;36;-;1;samuel Weber;2;0;0
+2014;36;-;1;Samuel Weber;2;0;0
 2014;36;-;2;Alexandre Junges;5;3;0
 2014;36;-;2;André Junges;4;3;0
 2014;36;-;2;LUÍS HENRIQUE (IKE);2;3;0
@@ -385,7 +385,7 @@
 2014;37;-;1;André Junges;6;1;0
 2014;37;-;1;Gustavo Boufleur;1;1;0
 2014;37;-;1;Nikolas Weber;3;1;0
-2014;37;-;1;samuel Weber;0;1;0
+2014;37;-;1;Samuel Weber;0;1;0
 2014;37;-;2;André Matheus;4;1;0
 2014;37;-;2;Rafael Muller;4;1;0
 2014;37;-;2;Rafael Nunes;1;1;0
@@ -407,13 +407,13 @@
 2014;39;-;2;Rafael Muller;4;0;0
 2014;39;-;2;Rafael Nunes;1;0;0
 2014;39;-;2;Roviel Koch;0;0;0
-2014;39;-;2;samuel Weber;5;0;0
+2014;39;-;2;Samuel Weber;5;0;0
 2014;40;-;1;Adriel Zanatta;1;3;0
 2014;40;-;1;André Junges;3;3;0
 2014;40;-;1;André Matheus;5;3;0
 2014;40;-;1;Cristian Zaparoli;0;3;0
 2014;40;-;1;Douglas Dias;0;3;0
-2014;40;-;1;samuel Weber;0;3;0
+2014;40;-;1;Samuel Weber;0;3;0
 2014;40;-;2;Nikolas Weber;2;0;0
 2014;40;-;2;Rafael Muller;2;0;0
 2014;40;-;2;Rafael Nunes;4;0;0
@@ -431,12 +431,12 @@
 2015;1;-;2;Fernando Stacke;2;3;0
 2015;1;-;2;Marcos Wazlawick;1;3;0
 2015;1;-;2;Rafael Nunes;3;3;0
-2015;1;-;2;samuel Weber;2;3;0
+2015;1;-;2;Samuel Weber;2;3;0
 2015;1;-;2;Vitor Bittencourt;4;3;0
 2015;2;-;1;Alexandre Junges;3;0;0
 2015;2;-;1;André Junges;0;0;0
 2015;2;-;1;Roviel Koch;1;0;0
-2015;2;-;1;samuel Weber;3;0;0
+2015;2;-;1;Samuel Weber;3;0;0
 2015;2;-;2;Fernando Stacke;2;3;0
 2015;2;-;2;Matheus Valle;2;3;0
 2015;2;-;2;Matheus Webler;3;3;0
@@ -456,14 +456,14 @@
 2015;3;-;2;Matheus Valle;1;0;0
 2015;3;-;2;Rafael Muller;2;0;0
 2015;3;-;2;Rafael Nunes;4;0;0
-2015;3;-;2;samuel Weber;1;0;0
+2015;3;-;2;Samuel Weber;1;0;0
 2015;4;-;1;André Matheus;4;0;0
 2015;4;-;1;Douglas Dias;1;0;0
 2015;4;-;1;Marcos Wazlawick;2;0;0
 2015;4;-;1;Matheus Valle;0;0;0
 2015;4;-;1;Rafael Nunes;1;0;0
 2015;4;-;1;Roviel Koch;0;0;0
-2015;4;-;1;samuel Weber;1;0;0
+2015;4;-;1;Samuel Weber;1;0;0
 2015;4;-;2;Adriel Zanatta;0;3;0
 2015;4;-;2;Alexandre Junges;3;3;0
 2015;4;-;2;André Junges;3;3;0
@@ -477,7 +477,7 @@
 2015;5;-;1;Matheus Webler;0;0;0
 2015;5;-;1;Nikolas Weber;0;0;0
 2015;5;-;1;Rafael Nunes;5;0;0
-2015;5;-;1;samuel Weber;0;0;0
+2015;5;-;1;Samuel Weber;0;0;0
 2015;5;-;2;Adriel Zanatta;1;3;0
 2015;5;-;2;Alexandre Junges;0;3;0
 2015;5;-;2;André Matheus;2;3;0
@@ -497,7 +497,7 @@
 2015;6;-;2;Marcos Wazlawick;1;1;0
 2015;6;-;2;Matheus Valle;0;1;0
 2015;6;-;2;Roviel Koch;0;1;0
-2015;6;-;2;samuel Weber;1;1;0
+2015;6;-;2;Samuel Weber;1;1;0
 2015;7;-;1;Adriel Zanatta;1;3;0
 2015;7;-;1;André Junges;0;3;0
 2015;7;-;1;Marcos Wazlawick;2;3;0
@@ -530,14 +530,14 @@
 2015;9;-;2;Matheus Valle;2;0;0
 2015;9;-;2;Rafael Muller;4;0;0
 2015;9;-;2;Roviel Koch;0;0;0
-2015;9;-;2;samuel Weber;1;0;0
+2015;9;-;2;Samuel Weber;1;0;0
 2015;10;-;1;Marcos Wazlawick;1;0;0
 2015;10;-;1;Rafael Nunes;0;0;0
 2015;10;-;2;André Junges;6;3;0
 2015;10;-;2;Matheus Valle;3;3;0
 2015;10;-;2;Nikolas Weber;1;3;0
 2015;10;-;2;Rafael Muller;1;3;0
-2015;10;-;2;samuel Weber;4;3;0
+2015;10;-;2;Samuel Weber;4;3;0
 2015;11;-;1;Marcos Wazlawick;1;0;0
 2015;11;-;1;Matheus Webler;0;0;0
 2015;11;-;1;Nikolas Weber;1;0;0
@@ -547,13 +547,13 @@
 2015;11;-;2;André Junges;8;3;0
 2015;11;-;2;Matheus Valle;2;3;0
 2015;11;-;2;Rafael Nunes;3;3;0
-2015;11;-;2;samuel Weber;1;3;0
+2015;11;-;2;Samuel Weber;1;3;0
 2015;12;-;1;Adriel Zanatta;1;3;0
 2015;12;-;1;Marcos Wazlawick;3;3;0
 2015;12;-;1;Matheus Webler;0;3;0
 2015;12;-;1;Rafael Muller;4;3;0
 2015;12;-;1;Rafael Nunes;4;3;0
-2015;12;-;1;samuel Weber;0;3;0
+2015;12;-;1;Samuel Weber;0;3;0
 2015;12;-;2;André Junges;1;0;0
 2015;12;-;2;Fernando Stacke;1;0;0
 2015;12;-;2;Gustavo Boufleur;1;0;0
@@ -571,7 +571,7 @@
 2015;13;-;2;Matheus Valle;2;0;0
 2015;13;-;2;Rafael Muller;3;0;0
 2015;13;-;2;Rafael Nunes;2;0;0
-2015;13;-;2;samuel Weber;0;0;0
+2015;13;-;2;Samuel Weber;0;0;0
 2015;14;-;1;Bruno Edinger;3;0;0
 2015;14;-;1;Cristian;4;0;0
 2015;14;-;1;Fernando Stacke;2;0;0
@@ -582,13 +582,13 @@
 2015;14;-;2;André Matheus;7;3;0
 2015;14;-;2;Cristian Hanses;3;3;0
 2015;14;-;2;Roviel Koch;0;3;0
-2015;14;-;2;samuel Weber;3;3;0
+2015;14;-;2;Samuel Weber;3;3;0
 2015;14;-;2;Vitor Bittencourt;5;3;0
 2015;15;-;1;Alexandre Junges;4;3;0
 2015;15;-;1;André Junges;4;3;0
 2015;15;-;1;Marcos Wazlawick;4;3;0
 2015;15;-;1;Nikolas Weber;1;3;0
-2015;15;-;1;samuel Weber;2;3;0
+2015;15;-;1;Samuel Weber;2;3;0
 2015;15;-;2;André Matheus;2;0;0
 2015;15;-;2;Fernando Stacke;1;0;0
 2015;15;-;2;Matheus Valle;1;0;0
@@ -604,7 +604,7 @@
 2015;16;-;2;André Matheus;3;3;0
 2015;16;-;2;Fernando Stacke;1;3;0
 2015;16;-;2;Rafael Muller;3;3;0
-2015;16;-;2;samuel Weber;1;3;0
+2015;16;-;2;Samuel Weber;1;3;0
 2015;17;-;1;Adriel Zanatta;2;0;0
 2015;17;-;1;Alexandre Junges;2;0;0
 2015;17;-;1;André Junges;2;0;0
@@ -615,13 +615,13 @@
 2015;17;-;2;Nikolas Weber;2;3;0
 2015;17;-;2;Rafael Nunes;4;3;0
 2015;17;-;2;Roviel Koch;0;3;0
-2015;17;-;2;samuel Weber;3;3;0
+2015;17;-;2;Samuel Weber;3;3;0
 2015;18;-;1;Alexandre Junges;1;0;0
 2015;18;-;1;Anderson;0;0;0
 2015;18;-;1;André Matheus;7;0;0
 2015;18;-;1;Gustavo Boufleur;1;0;0
 2015;18;-;1;Matheus Valle;2;0;0
-2015;18;-;1;samuel Weber;0;0;0
+2015;18;-;1;Samuel Weber;0;0;0
 2015;18;-;2;André Junges;4;3;0
 2015;18;-;2;Fernando Stacke;0;3;0
 2015;18;-;2;Rafael Muller;6;3;0
@@ -630,7 +630,7 @@
 2015;19;-;1;André Junges;4;0;0
 2015;19;-;1;Fernando Stacke;1;0;0
 2015;19;-;1;Roviel Koch;0;0;0
-2015;19;-;1;samuel Weber;2;0;0
+2015;19;-;1;Samuel Weber;2;0;0
 2015;19;-;2;Adriel Zanatta;1;3;0
 2015;19;-;2;André Matheus;5;3;0
 2015;19;-;2;Matheus Webler;0;3;0
@@ -641,7 +641,7 @@
 2015;20;-;1;Fernando Stacke;0;0;0
 2015;20;-;1;Gustavo Boufleur;1;0;0
 2015;20;-;1;Rafael Muller;3;0;0
-2015;20;-;1;samuel Weber;7;0;0
+2015;20;-;1;Samuel Weber;7;0;0
 2015;20;-;2;Adriel Zanatta;3;3;0
 2015;20;-;2;André Junges;2;3;0
 2015;20;-;2;André Matheus;1;3;0
@@ -652,7 +652,7 @@
 2015;21;-;1;Gabriel;1;0;0
 2015;21;-;1;Matheus Borowiski;2;0;0
 2015;21;-;1;Roviel Koch;0;0;0
-2015;21;-;1;samuel Weber;2;0;0
+2015;21;-;1;Samuel Weber;2;0;0
 2015;21;-;2;Adriel Zanatta;0;3;0
 2015;21;-;2;Alexandre Junges;5;3;0
 2015;21;-;2;Borowiski;7;3;0
@@ -667,7 +667,7 @@
 2015;22;-;2;André Junges;3;3;0
 2015;22;-;2;Matheus Valle;1;3;0
 2015;22;-;2;Rafael Muller;5;3;0
-2015;22;-;2;samuel Weber;1;3;0
+2015;22;-;2;Samuel Weber;1;3;0
 2015;22;-;2;Werner Hansen;0;3;0
 2015;23;-;1;André Matheus;7;3;0
 2015;23;-;1;Matheus Webler;5;3;0
@@ -675,19 +675,19 @@
 2015;23;-;1;Roviel Koch;0;3;0
 2015;23;-;2;Fernando Stacke;0;0;0
 2015;23;-;2;Nikolas Weber;2;0;0
-2015;23;-;2;samuel Weber;4;0;0
+2015;23;-;2;Samuel Weber;4;0;0
 2015;24;-;1;Adriel Zanatta;2;0;0
 2015;24;-;1;Alexandre Junges;1;0;0
 2015;24;-;1;Fernando Stacke;1;0;0
 2015;24;-;1;Rafael Nunes;2;0;0
-2015;24;-;1;samuel Weber;0;0;0
+2015;24;-;1;Samuel Weber;0;0;0
 2015;24;-;2;André Junges;0;3;0
 2015;24;-;2;André Matheus;6;3;0
 2015;24;-;2;Matheus Webler;1;3;0
 2015;24;-;2;Rafael Muller;3;3;0
 2015;25;-;1;André Junges;2;3;0
 2015;25;-;1;André Matheus;8;3;0
-2015;25;-;1;samuel Weber;4;3;0
+2015;25;-;1;Samuel Weber;4;3;0
 2015;25;-;1;Vicente;2;3;0
 2015;25;-;2;Marcos Wazlawick;1;0;0
 2015;25;-;2;Matheus Valle;4;0;0
@@ -702,7 +702,7 @@
 2015;26;-;2;Borowiski;0;3;0
 2015;26;-;2;Matheus Webler;0;3;0
 2015;26;-;2;Nikolas Weber;2;3;0
-2015;26;-;2;samuel Weber;1;3;0
+2015;26;-;2;Samuel Weber;1;3;0
 2015;26;-;2;Werner Hansen;0;3;0
 2015;27;-;1;André Matheus;3;0;0
 2015;27;-;1;Matheus Valle;1;0;0
@@ -714,7 +714,7 @@
 2015;27;-;2;Marcos Wazlawick;1;3;0
 2015;27;-;2;Matheus Webler;2;3;0
 2015;27;-;2;Rafael Nunes;4;3;0
-2015;27;-;2;samuel Weber;0;3;0
+2015;27;-;2;Samuel Weber;0;3;0
 2015;28;-;1;Alexandre Junges;6;3;0
 2015;28;-;1;André Junges;4;3;0
 2015;28;-;1;André Matheus;5;3;0
@@ -725,7 +725,7 @@
 2015;28;-;2;Fernando Stacke;2;0;0
 2015;28;-;2;Rafael Muller;4;0;0
 2015;28;-;2;Rafael Nunes;4;0;0
-2015;28;-;2;samuel Weber;3;0;0
+2015;28;-;2;Samuel Weber;3;0;0
 2015;29;-;1;Alexandre Junges;2;3;0
 2015;29;-;1;André Matheus;4;3;0
 2015;29;-;1;Marcos Wazlawick;1;3;0
@@ -737,7 +737,7 @@
 2015;29;-;2;Matheus Webler;0;0;0
 2015;29;-;2;Rafael Nunes;2;0;0
 2015;29;-;2;Roviel Koch;0;0;0
-2015;29;-;2;samuel Weber;0;0;0
+2015;29;-;2;Samuel Weber;0;0;0
 2015;30;-;1;André Junges;2;1;0
 2015;30;-;1;Marcos Wazlawick;1;1;0
 2015;30;-;1;Matheus Valle;1;1;0
@@ -756,7 +756,7 @@
 2015;31;-;2;André Matheus;0;3;0
 2015;31;-;2;Marcos Wazlawick;3;3;0
 2015;31;-;2;Matheus Valle;3;3;0
-2015;31;-;2;samuel Weber;0;3;0
+2015;31;-;2;Samuel Weber;0;3;0
 2015;32;-;1;André Junges;2;0;0
 2015;32;-;1;Matheus Valle;2;0;0
 2015;32;-;1;Matheus Webler;3;0;0
@@ -766,7 +766,7 @@
 2015;32;-;2;André Matheus;3;3;0
 2015;32;-;2;Marcos Wazlawick;2;3;0
 2015;32;-;2;Rafael Muller;4;3;0
-2015;32;-;2;samuel Weber;4;3;0
+2015;32;-;2;Samuel Weber;4;3;0
 2015;33;-;1;Alexandre Junges;2;0;0
 2015;33;-;1;Marcos Wazlawick;4;0;0
 2015;33;-;1;Matheus Webler;1;0;0
@@ -776,12 +776,12 @@
 2015;33;-;2;André Matheus;8;3;0
 2015;33;-;2;Fernando Stacke;0;3;0
 2015;33;-;2;Rafael Muller;4;3;0
-2015;33;-;2;samuel Weber;2;3;0
+2015;33;-;2;Samuel Weber;2;3;0
 2015;34;-;1;André Junges;3;0;0
 2015;34;-;1;Marcos Wazlawick;2;0;0
 2015;34;-;1;Matheus Valle;2;0;0
 2015;34;-;1;Rafael Muller;0;0;0
-2015;34;-;1;samuel Weber;0;0;0
+2015;34;-;1;Samuel Weber;0;0;0
 2015;34;-;2;Adriel Zanatta;2;3;0
 2015;34;-;2;André Matheus;0;3;0
 2015;34;-;2;Nikolas Weber;3;3;0
@@ -795,7 +795,7 @@
 2015;35;-;1;Werner Hansen;1;0;0
 2015;35;-;2;André Junges;0;3;0
 2015;35;-;2;André Matheus;5;3;0
-2015;35;-;2;samuel Weber;3;3;0
+2015;35;-;2;Samuel Weber;3;3;0
 2015;36;-;1;André Junges;5;0;0
 2015;36;-;1;Nikolas Weber;2;0;0
 2015;36;-;1;Rafael Muller;2;0;0
@@ -829,7 +829,7 @@
 2015;39;-;1;Nikolas Weber;2;0;0
 2015;39;-;1;Rafael Muller;3;0;0
 2015;39;-;1;Rafael Nunes;0;0;0
-2015;39;-;1;samuel Weber;6;0;0
+2015;39;-;1;Samuel Weber;6;0;0
 2015;39;-;1;Vitor Bittencourt;2;0;0
 2015;39;-;2;Alexandre Junges;6;3;0
 2015;39;-;2;André Matheus;5;3;0
@@ -840,7 +840,7 @@
 2016;1;-;1;Alexandre Junges;2;3;0
 2016;1;-;1;André Junges;5;3;0
 2016;1;-;1;Fernando Stacke;2;3;0
-2016;1;-;1;samuel Weber;0;3;0
+2016;1;-;1;Samuel Weber;0;3;0
 2016;1;-;1;Cristiano Baumgarten;5;3;0
 2016;1;-;1;Werner Hansen;1;3;0
 2016;1;-;2;Gustavo Boufleur;1;0;0
@@ -859,14 +859,14 @@
 2016;2;-;2;Marcos Wazlawick;1;0;0
 2016;2;-;2;Nikolas Weber;2;0;0
 2016;2;-;2;Rafael Nunes;1;0;0
-2016;2;-;2;samuel Weber;1;0;0
+2016;2;-;2;Samuel Weber;1;0;0
 2016;2;-;2;Werner Hansen;1;0;0
 2016;3;-;1;Adriel Zanatta;3;3;0
 2016;3;-;1;Alexandre Junges;2;3;0
 2016;3;-;1;André Junges;4;3;0
 2016;3;-;1;Fernando Stacke;1;3;0
 2016;3;-;1;Matheus Webler;2;3;0
-2016;3;-;1;samuel Weber;2;3;0
+2016;3;-;1;Samuel Weber;2;3;0
 2016;3;-;2;Marcos Wazlawick;1;0;0
 2016;3;-;2;Matheus Valle;2;0;0
 2016;3;-;2;Nikolas Weber;3;0;0
@@ -886,7 +886,7 @@
 2016;4;-;2;Gustavo Boufleur;1;3;0
 2016;4;-;2;Matheus Valle;4;3;0
 2016;4;-;2;Nikolas Weber;3;3;0
-2016;4;-;2;samuel Weber;2;3;0
+2016;4;-;2;Samuel Weber;2;3;0
 2016;5;-;1;Marcos Wazlawick;6;3;0
 2016;5;-;1;Matheus Webler;4;3;0
 2016;5;-;1;Rafael Muller;6;3;0
@@ -907,7 +907,7 @@
 2016;6;-;2;Marcos Wazlawick;5;1;0
 2016;6;-;2;Matheus Webler;1;1;0
 2016;6;-;2;Nikolas Weber;2;1;0
-2016;6;-;2;samuel Weber;2;1;0
+2016;6;-;2;Samuel Weber;2;1;0
 2016;7;-;1;André Matheus;4;3;0
 2016;7;-;1;Fernando Stacke;2;3;0
 2016;7;-;1;Marcos Wazlawick;6;3;0
@@ -931,7 +931,7 @@
 2016;9;-;1;Marcos Wazlawick;3;0;0
 2016;9;-;1;Matheus Webler;2;0;0
 2016;9;-;1;Roviel Koch;0;0;0
-2016;9;-;1;samuel Weber;2;0;0
+2016;9;-;1;Samuel Weber;2;0;0
 2016;9;-;1;Cristiano Baumgarten;0;0;0
 2016;9;-;1;Werner Hansen;2;0;0
 2016;9;-;2;Adriel Zanatta;1;3;0
@@ -951,12 +951,12 @@
 2016;10;-;2;Matheus Webler;0;0;0
 2016;10;-;2;Rafael Muller;4;0;0
 2016;10;-;2;Rafael Nunes;0;0;0
-2016;10;-;2;samuel Weber;0;0;0
+2016;10;-;2;Samuel Weber;0;0;0
 2016;11;-;1;André Junges;3;3;0
 2016;11;-;1;Fernando Stacke;1;3;0
 2016;11;-;1;Marcos Wazlawick;2;3;0
 2016;11;-;1;Matheus Valle;2;3;0
-2016;11;-;1;samuel Weber;1;3;0
+2016;11;-;1;Samuel Weber;1;3;0
 2016;11;-;1;Cristiano Baumgarten;2;3;0
 2016;11;-;2;Adriel Zanatta;2;0;0
 2016;11;-;2;Alexandre Junges;2;0;0
@@ -970,7 +970,7 @@
 2016;12;-;1;Matheus Valle;2;0;0
 2016;12;-;1;Rafael Muller;2;0;0
 2016;12;-;1;Rafael Nunes;1;0;0
-2016;12;-;1;samuel Weber;0;0;0
+2016;12;-;1;Samuel Weber;0;0;0
 2016;12;-;2;Adriel Zanatta;3;3;0
 2016;12;-;2;André Junges;1;3;0
 2016;12;-;2;Marcos Wazlawick;2;3;0
@@ -981,7 +981,7 @@
 2016;13;-;1;Matheus Webler;1;0;0
 2016;13;-;1;Nikolas Weber;2;0;0
 2016;13;-;1;Rafael Muller;1;0;0
-2016;13;-;1;samuel Weber;1;0;0
+2016;13;-;1;Samuel Weber;1;0;0
 2016;13;-;1;Cristiano Baumgarten;1;0;0
 2016;13;-;2;Adriel Zanatta;1;3;0
 2016;13;-;2;Alexandre Junges;1;3;0
@@ -1009,7 +1009,7 @@
 2016;15;-;2;Matheus Valle;3;3;0
 2016;15;-;2;Nikolas Weber;2;3;0
 2016;15;-;2;Rafael Muller;5;3;0
-2016;15;-;2;samuel Weber;2;3;0
+2016;15;-;2;Samuel Weber;2;3;0
 2016;16;-;1;Adriel Zanatta;5;3;0
 2016;16;-;1;André Junges;4;3;0
 2016;16;-;1;Marcos Wazlawick;4;3;0
@@ -1019,7 +1019,7 @@
 2016;16;-;2;Matheus Webler;1;0;0
 2016;16;-;2;Rafael Muller;2;0;0
 2016;16;-;2;Rafael Nunes;1;0;0
-2016;16;-;2;samuel Weber;5;0;0
+2016;16;-;2;Samuel Weber;5;0;0
 2016;16;-;2;Werner Hansen;1;0;0
 2016;17;-;1;Alexandre Junges;3;0;0
 2016;17;-;1;Matheus Valle;2;0;0
@@ -1030,11 +1030,11 @@
 2016;17;-;2;André Junges;1;3;0
 2016;17;-;2;Marcos Wazlawick;2;3;0
 2016;17;-;2;Rafael Muller;3;3;0
-2016;17;-;2;samuel Weber;2;3;0
+2016;17;-;2;Samuel Weber;2;3;0
 2016;18;-;1;André Junges;2;3;0
 2016;18;-;1;Marcos Wazlawick;2;3;0
 2016;18;-;1;Matheus Valle;4;3;0
-2016;18;-;1;samuel Weber;2;3;0
+2016;18;-;1;Samuel Weber;2;3;0
 2016;18;-;1;Cristiano Baumgarten;2;3;0
 2016;18;-;2;Adriel Zanatta;2;0;0
 2016;18;-;2;Fernando Stacke;1;0;0
@@ -1053,7 +1053,7 @@
 2016;19;-;2;Marcos Wazlawick;2;3;0
 2016;19;-;2;Nikolas Weber;3;3;0
 2016;19;-;2;Rafael Nunes;2;3;0
-2016;19;-;2;samuel Weber;0;3;0
+2016;19;-;2;Samuel Weber;0;3;0
 2016;20;-;1;André Junges;1;1;0
 2016;20;-;1;Fernando Stacke;0;1;0
 2016;20;-;1;Matheus Valle;3;1;0
@@ -1061,7 +1061,7 @@
 2016;20;-;1;Rafael Nunes;3;1;0
 2016;20;-;2;Alexandre Junges;2;1;0
 2016;20;-;2;Marcos Wazlawick;2;1;0
-2016;20;-;2;samuel Weber;2;1;0
+2016;20;-;2;Samuel Weber;2;1;0
 2016;20;-;2;Cristiano Baumgarten;3;1;0
 2016;20;-;2;Werner Hansen;0;1;0
 2016;21;-;1;Alexandre Junges;1;3;0
@@ -1075,7 +1075,7 @@
 2016;21;-;2;André Junges;2;0;0
 2016;21;-;2;Fernando Stacke;1;0;0
 2016;21;-;2;Marcos Wazlawick;1;0;0
-2016;21;-;2;samuel Weber;0;0;0
+2016;21;-;2;Samuel Weber;0;0;0
 2016;21;-;2;Werner Hansen;0;0;0
 2016;22;-;1;Alexandre Junges;3;0;0
 2016;22;-;1;Fernando Stacke;2;0;0
@@ -1085,13 +1085,13 @@
 2016;22;-;2;Matheus Valle;6;3;0
 2016;22;-;2;Nikolas Weber;4;3;0
 2016;22;-;2;Rafael Muller;5;3;0
-2016;22;-;2;samuel Weber;3;3;0
+2016;22;-;2;Samuel Weber;3;3;0
 2016;23;-;1;Adriel Zanatta;0;0;0
 2016;23;-;1;André Junges;3;0;0
 2016;23;-;1;Fernando Stacke;2;0;0
 2016;23;-;1;Rafael Muller;0;0;0
 2016;23;-;1;Rafael Nunes;3;0;0
-2016;23;-;1;samuel Weber;0;0;0
+2016;23;-;1;Samuel Weber;0;0;0
 2016;23;-;1;Cristiano Baumgarten;1;0;0
 2016;23;-;2;Alexandre Junges;2;3;0
 2016;23;-;2;Marcos Wazlawick;3;3;0
@@ -1102,7 +1102,7 @@
 2016;24;-;1;Alexandre Junges;1;3;0
 2016;24;-;1;Marcos Wazlawick;3;3;0
 2016;24;-;1;Matheus Valle;4;3;0
-2016;24;-;1;samuel Weber;0;3;0
+2016;24;-;1;Samuel Weber;0;3;0
 2016;24;-;2;André Junges;1;0;0
 2016;24;-;2;Fernando Stacke;0;0;0
 2016;24;-;2;Matheus Webler;0;0;0
@@ -1113,7 +1113,7 @@
 2016;25;-;1;Adriel Zanatta;0;0;0
 2016;25;-;1;Alexandre Junges;3;0;0
 2016;25;-;1;Rafael Muller;2;0;0
-2016;25;-;1;samuel Weber;2;0;0
+2016;25;-;1;Samuel Weber;2;0;0
 2016;25;-;1;Cristiano Baumgarten;4;0;0
 2016;25;-;2;André Junges;2;3;0
 2016;25;-;2;Fernando Stacke;1;3;0
@@ -1129,7 +1129,7 @@
 2016;26;-;2;André Junges;4;3;0
 2016;26;-;2;Fernando Stacke;1;3;0
 2016;26;-;2;Rafael Muller;5;3;0
-2016;26;-;2;samuel Weber;1;3;0
+2016;26;-;2;Samuel Weber;1;3;0
 2016;27;-;1;Adriel Zanatta;3;3;0
 2016;27;-;1;André Junges;4;3;0
 2016;27;-;1;Gustavo Boufleur;1;3;0
@@ -1139,10 +1139,10 @@
 2016;27;-;2;Alexandre Junges;5;0;0
 2016;27;-;2;Fernando Stacke;1;0;0
 2016;27;-;2;Rafael Muller;2;0;0
-2016;27;-;2;samuel Weber;3;0;0
+2016;27;-;2;Samuel Weber;3;0;0
 2016;28;-;1;André Junges;1;0;0
 2016;28;-;1;Rafael Muller;0;0;0
-2016;28;-;1;samuel Weber;1;0;0
+2016;28;-;1;Samuel Weber;1;0;0
 2016;28;-;1;Cristiano Baumgarten;4;0;0
 2016;28;-;2;Adriel Zanatta;2;3;0
 2016;28;-;2;Alexandre Junges;3;3;0
@@ -1156,7 +1156,7 @@
 2016;29;-;2;André Junges;4;3;0
 2016;29;-;2;Rafael Muller;6;3;0
 2016;29;-;2;Rafael Nunes;2;3;0
-2016;29;-;2;samuel Weber;3;3;0
+2016;29;-;2;Samuel Weber;3;3;0
 2016;30;-;1;Adriel Zanatta;0;3;0
 2016;30;-;1;André Junges;3;3;0
 2016;30;-;1;Gustavo Boufleur;1;3;0
@@ -1171,7 +1171,7 @@
 2016;31;-;1;Fernando Stacke;2;0;0
 2016;31;-;1;Marcos Wazlawick;2;0;0
 2016;31;-;1;Rafael Nunes;1;0;0
-2016;31;-;1;samuel Weber;2;0;0
+2016;31;-;1;Samuel Weber;2;0;0
 2016;31;-;2;Alexandre Junges;3;3;0
 2016;31;-;2;Nikolas Weber;1;3;0
 2016;31;-;2;Rafael Muller;3;3;0
@@ -1181,7 +1181,7 @@
 2016;32;-;1;André Junges;2;0;0
 2016;32;-;1;Gustavo Boufleur;4;0;0
 2016;32;-;1;Rafael Muller;1;0;0
-2016;32;-;1;samuel Weber;0;0;0
+2016;32;-;1;Samuel Weber;0;0;0
 2016;32;-;2;Alexandre Junges;2;3;0
 2016;32;-;2;Nikolas Weber;3;3;0
 2016;32;-;2;Cristiano Baumgarten;2;3;0
@@ -1192,10 +1192,10 @@
 2016;33;-;1;Werner Hansen;0;3;0
 2016;33;-;2;Nikolas Weber;3;0;0
 2016;33;-;2;Rafael Muller;3;0;0
-2016;33;-;2;samuel Weber;0;0;0
+2016;33;-;2;Samuel Weber;0;0;0
 2016;34;-;1;Alexandre Junges;6;0;0
 2016;34;-;1;Marcos Wazlawick;5;0;0
-2016;34;-;1;samuel Weber;2;0;0
+2016;34;-;1;Samuel Weber;2;0;0
 2016;34;-;1;Werner Hansen;1;0;0
 2016;34;-;2;Adriel Zanatta;4;3;0
 2016;34;-;2;André Junges;3;3;0
@@ -1211,10 +1211,10 @@
 2016;35;-;2;André Junges;1;0;0
 2016;35;-;2;Fernando Stacke;2;0;0
 2016;35;-;2;Marcos Wazlawick;3;0;0
-2016;35;-;2;samuel Weber;0;0;0
+2016;35;-;2;Samuel Weber;0;0;0
 2016;36;-;1;André Junges;2;0;0
 2016;36;-;1;Rafael Muller;4;0;0
-2016;36;-;1;samuel Weber;1;0;0
+2016;36;-;1;Samuel Weber;1;0;0
 2016;36;-;2;Adriel Zanatta;2;3;0
 2016;36;-;2;Alexandre Junges;2;3;0
 2016;36;-;2;Matheus Webler;0;3;0
@@ -1235,7 +1235,7 @@
 2016;38;-;2;Gustavo Boufleur;3;3;0
 2016;38;-;2;Rafael Muller;3;3;0
 2016;38;-;2;Roviel Koch;0;3;0
-2016;38;-;2;samuel Weber;2;3;0
+2016;38;-;2;Samuel Weber;2;3;0
 2016;38;-;2;Cristiano Baumgarten;4;3;0
 2017;1;-;1;Bruno Jacobus;1;3;0
 2017;1;-;1;Carlos Soares;1;3;0
@@ -1243,7 +1243,7 @@
 2017;1;-;1;Matheus Webler;0;3;0
 2017;1;-;1;Nikolas Weber;3;3;0
 2017;1;-;1;Rafael Muller;1;3;0
-2017;1;-;1;samuel Weber;1;3;0
+2017;1;-;1;Samuel Weber;1;3;0
 2017;1;-;1;Vitor Bittencourt;1;3;0
 2017;1;-;2;Adriel Zanatta;0;0;0
 2017;1;-;2;Alexandre Junges;3;0;0
@@ -1255,7 +1255,7 @@
 2017;2;-;1;Matheus Webler;1;0;0
 2017;2;-;1;Rafael Klauck;1;0;0
 2017;2;-;1;Rafael Muller;0;0;0
-2017;2;-;1;samuel Weber;1;0;0
+2017;2;-;1;Samuel Weber;1;0;0
 2017;2;-;1;Vitor Bittencourt;1;0;0
 2017;2;-;2;André Junges;0;3;0
 2017;2;-;2;Bruno Jacobus;3;3;0
@@ -1272,7 +1272,7 @@
 2017;3;-;2;Alexandre Junges;4;1;0
 2017;3;-;2;Marcos Wazlawick;4;1;0
 2017;3;-;2;Rafael Klauck;2;1;0
-2017;3;-;2;samuel Weber;0;1;0
+2017;3;-;2;Samuel Weber;0;1;0
 2017;3;-;2;Werner Hansen;1;1;0
 2017;4;-;1;André Junges;4;3;0
 2017;4;-;1;Carlos Soares;2;3;0
@@ -1285,14 +1285,14 @@
 2017;4;-;2;Rafael Klauck;2;0;0
 2017;4;-;2;Rafael Muller;3;0;0
 2017;4;-;2;Roviel Koch;0;0;0
-2017;4;-;2;samuel Weber;0;0;0
+2017;4;-;2;Samuel Weber;0;0;0
 2017;4;-;2;Werner Hansen;1;0;0
 2017;5;-;1;André Junges;2;3;0
 2017;5;-;1;Carlos Soares;0;3;0
 2017;5;-;1;Claudio Klein;0;3;0
 2017;5;-;1;Nikolas Weber;6;3;0
 2017;5;-;1;Rafael Muller;2;3;0
-2017;5;-;1;samuel Weber;3;3;0
+2017;5;-;1;Samuel Weber;3;3;0
 2017;5;-;1;Vitor Bittencourt;3;3;0
 2017;5;-;2;Adriel Zanatta;0;0;0
 2017;5;-;2;Alexandre Junges;1;0;0
@@ -1310,7 +1310,7 @@
 2017;6;-;2;Alexandre Junges;2;0;0
 2017;6;-;2;Cristiano Baumgarten;3;0;0
 2017;6;-;2;Nikolas Weber;2;0;0
-2017;6;-;2;samuel Weber;1;0;0
+2017;6;-;2;Samuel Weber;1;0;0
 2017;6;-;2;Vitor Bittencourt;2;0;0
 2017;6;-;2;Werner Hansen;1;0;0
 2017;7;-;1;Alexandre Junges;1;3;0
@@ -1318,7 +1318,7 @@
 2017;7;-;1;Fernando Stacke;2;3;0
 2017;7;-;1;Marcos Wazlawick;3;3;0
 2017;7;-;1;Nikolas Weber;7;3;0
-2017;7;-;1;samuel Weber;0;3;0
+2017;7;-;1;Samuel Weber;0;3;0
 2017;7;-;2;Adriel Zanatta;1;0;0
 2017;7;-;2;André Junges;2;0;0
 2017;7;-;2;Nilton Ments;0;0;0
@@ -1360,7 +1360,7 @@
 2017;10;-;2;Fernando Stacke;0;0;0
 2017;10;-;2;Marcos Wazlawick;2;0;0
 2017;10;-;2;Rafael Klauck;1;0;0
-2017;10;-;2;samuel Weber;4;0;0
+2017;10;-;2;Samuel Weber;4;0;0
 2017;10;-;2;Werner Hansen;0;0;0
 2017;11;-;1;Alexandre Junges;1;0;0
 2017;11;-;1;Fernando Stacke;1;0;0
@@ -1381,7 +1381,7 @@
 2017;12;-;1;Franklin Henckel;2;0;0
 2017;12;-;1;Nikolas Weber;4;0;0
 2017;12;-;1;Rafael Muller;2;0;0
-2017;12;-;1;samuel Weber;1;0;0
+2017;12;-;1;Samuel Weber;1;0;0
 2017;12;-;1;Werner Hansen;0;0;0
 2017;12;-;2;Alexandre Junges;3;3;0
 2017;12;-;2;Convidado;1;3;0
@@ -1402,7 +1402,7 @@
 2017;13;-;2;Marcos Wazlawick;1;3;0
 2017;13;-;2;Rafael Klauck;0;3;0
 2017;13;-;2;Rafael Muller;2;3;0
-2017;13;-;2;samuel Weber;1;3;0
+2017;13;-;2;Samuel Weber;1;3;0
 2017;14;-;1;André Junges;6;3;0
 2017;14;-;1;Cristiano Kuhn;1;3;0
 2017;14;-;1;Franklin Henckel;0;3;0
@@ -1421,7 +1421,7 @@
 2017;15;-;1;Franklin Henckel;0;0;0
 2017;15;-;1;Marcos Wazlawick;2;0;0
 2017;15;-;1;Rafael Nunes;5;0;0
-2017;15;-;1;samuel Weber;1;0;0
+2017;15;-;1;Samuel Weber;1;0;0
 2017;15;-;2;Adriel Zanatta;4;3;0
 2017;15;-;2;Alexandre Junges;1;3;0
 2017;15;-;2;Nikolas Weber;4;3;0
@@ -1434,7 +1434,7 @@
 2017;16;-;1;Nikolas Weber;4;3;0
 2017;16;-;1;Rafael Klauck;5;3;0
 2017;16;-;1;Rafael Muller;1;3;0
-2017;16;-;1;samuel Weber;1;3;0
+2017;16;-;1;Samuel Weber;1;3;0
 2017;16;-;2;Adriel Zanatta;2;0;0
 2017;16;-;2;Alexandre Junges;4;0;0
 2017;16;-;2;Marcos Wazlawick;3;0;0
@@ -1456,7 +1456,7 @@
 2017;18;-;1;André Junges;6;3;0
 2017;18;-;1;Cristiano Baumgarten;4;3;0
 2017;18;-;1;Rafael Muller;3;3;0
-2017;18;-;1;samuel Weber;1;3;0
+2017;18;-;1;Samuel Weber;1;3;0
 2017;18;-;1;Gustavo Boufleur;1;3;0
 2017;18;-;1;Werner Hansen;1;3;0
 2017;18;-;2;Alexandre Junges;0;0;0
@@ -1470,7 +1470,7 @@
 2017;19;-;1;André Junges;2;0;0
 2017;19;-;1;Bruno Jacobus;4;0;0
 2017;19;-;1;Nikolas Weber;0;0;0
-2017;19;-;1;samuel Weber;1;0;0
+2017;19;-;1;Samuel Weber;1;0;0
 2017;19;-;1;Werner Hansen;2;0;0
 2017;19;-;2;Cristiano Baumgarten;4;3;0
 2017;19;-;2;Fernando Stacke;0;3;0
@@ -1483,7 +1483,7 @@
 2017;20;-;1;Cristiano Baumgarten;1;0;0
 2017;20;-;1;Fernando Stacke;0;0;0
 2017;20;-;1;Nilton Ments;0;0;0
-2017;20;-;1;samuel Weber;3;0;0
+2017;20;-;1;Samuel Weber;3;0;0
 2017;20;-;1;Gustavo Boufleur;2;0;0
 2017;20;-;2;André Junges;2;3;0
 2017;20;-;2;Marcos Wazlawick;4;3;0
@@ -1497,7 +1497,7 @@
 2017;21;-;1;Nilton Ments;0;0;0
 2017;21;-;1;Rafael Muller;2;0;0
 2017;21;-;1;Rafael Nunes;4;0;0
-2017;21;-;1;samuel Weber;2;0;0
+2017;21;-;1;Samuel Weber;2;0;0
 2017;21;-;2;Adriel Zanatta;4;3;0
 2017;21;-;2;Alexandre Junges;4;3;0
 2017;21;-;2;Cristiano Baumgarten;2;3;0
@@ -1535,7 +1535,7 @@
 2017;24;-;1;André Junges;2;3;0
 2017;24;-;1;Carlos Soares;0;3;0
 2017;24;-;1;Rafael Klauck;4;3;0
-2017;24;-;1;samuel Weber;3;3;0
+2017;24;-;1;Samuel Weber;3;3;0
 2017;24;-;1;Werner Hansen;2;3;0
 2017;24;-;2;Cristiano Baumgarten;2;0;0
 2017;24;-;2;Franklin Henckel;0;0;0
@@ -1567,7 +1567,7 @@
 2017;26;-;2;Matheus Valle;3;1;0
 2017;26;-;2;Nikolas Weber;2;1;0
 2017;26;-;2;Roviel Koch;0;1;0
-2017;26;-;2;samuel Weber;0;1;0
+2017;26;-;2;Samuel Weber;0;1;0
 2017;27;-;1;Adriel Zanatta;2;3;0
 2017;27;-;1;André Junges;3;3;0
 2017;27;-;1;Carlos Soares;0;3;0
@@ -1581,7 +1581,7 @@
 2017;27;-;2;Rafael Klauck;0;0;0
 2017;27;-;2;Rafael Muller;4;0;0
 2017;27;-;2;Rafael Nunes;1;0;0
-2017;27;-;2;samuel Weber;3;0;0
+2017;27;-;2;Samuel Weber;3;0;0
 2017;28;-;1;Adriel Zanatta;3;3;0
 2017;28;-;1;André Junges;6;3;0
 2017;28;-;1;Nikolas Weber;3;3;0
@@ -1591,12 +1591,12 @@
 2017;28;-;2;Carlos Soares;1;0;0
 2017;28;-;2;Cristiano Baumgarten;2;0;0
 2017;28;-;2;Matheus Valle;2;0;0
-2017;28;-;2;samuel Weber;4;0;0
+2017;28;-;2;Samuel Weber;4;0;0
 2017;28;-;2;Werner Hansen;1;0;0
 2017;29;-;1;Adriel Zanatta;4;0;0
 2017;29;-;1;Nikolas Weber;4;0;0
 2017;29;-;1;Rafael Muller;4;0;0
-2017;29;-;1;samuel Weber;1;0;0
+2017;29;-;1;Samuel Weber;1;0;0
 2017;29;-;1;Werner Hansen;1;0;0
 2017;29;-;2;Carlos Soares;5;3;0
 2017;29;-;2;Cristiano Baumgarten;5;3;0
@@ -1637,14 +1637,14 @@
 2017;32;-;2;Marcos Wazlawick;1;0;0
 2017;32;-;2;Nikolas Weber;5;0;0
 2017;32;-;2;Rafael Klauck;2;0;0
-2017;32;-;2;samuel Weber;0;0;0
+2017;32;-;2;Samuel Weber;0;0;0
 2017;32;-;2;Gustavo Boufleur;1;0;0
 2017;33;-;1;André Junges;3;1;0
 2017;33;-;1;Matheus Valle;7;1;0
 2017;33;-;1;Nikolas Weber;2;1;0
 2017;33;-;1;Rafael Klauck;0;1;0
 2017;33;-;1;Rafael Muller;2;1;0
-2017;33;-;1;samuel Weber;0;1;0
+2017;33;-;1;Samuel Weber;0;1;0
 2017;33;-;2;Alexandre Junges;5;1;0
 2017;33;-;2;Convidado;2;1;0
 2017;33;-;2;Cristiano Baumgarten;1;1;0
@@ -1679,7 +1679,7 @@
 2017;36;-;1;André Junges;3;3;0
 2017;36;-;1;Marcos Wazlawick;4;3;0
 2017;36;-;1;Rafael Muller;4;3;0
-2017;36;-;1;samuel Weber;3;3;0
+2017;36;-;1;Samuel Weber;3;3;0
 2017;36;-;1;Werner Hansen;0;3;0
 2017;36;-;2;Adriel Zanatta;1;0;0
 2017;36;-;2;Alexandre Junges;3;0;0
@@ -1692,7 +1692,7 @@
 2017;37;-;1;Convidado;1;3;0
 2017;37;-;1;Marcos Wazlawick;7;3;0
 2017;37;-;1;Rafael Muller;3;3;0
-2017;37;-;1;samuel Weber;0;3;0
+2017;37;-;1;Samuel Weber;0;3;0
 2017;37;-;1;Werner Hansen;0;3;0
 2017;37;-;2;André Junges;4;0;0
 2017;37;-;2;Cristiano Baumgarten;1;0;0
@@ -1736,12 +1736,12 @@
 2018;3;-;2;Douglas Dias;2;3;0
 2018;3;-;2;Marcos Wazlawick;4;3;0
 2018;3;-;2;Nilton Ments;0;3;0
-2018;3;-;2;samuel Weber;1;3;0
+2018;3;-;2;Samuel Weber;1;3;0
 2018;4;-;1;André Junges;6;3;0
 2018;4;-;1;Cunhado;2;3;0
 2018;4;-;1;Marcos Wazlawick;6;3;0
 2018;4;-;1;Matheus Valle;2;3;0
-2018;4;-;1;samuel Weber;1;3;0
+2018;4;-;1;Samuel Weber;1;3;0
 2018;4;-;1;Werner Hansen;1;3;0
 2018;4;-;2;Cristiano Baumgarten;1;0;0
 2018;4;-;2;Douglas Dias;2;0;0
@@ -1756,7 +1756,7 @@
 2018;5;-;1;Matheus Valle;5;3;0
 2018;5;-;1;Rafael Muller;3;3;0
 2018;5;-;1;Rafael Nunes;0;3;0
-2018;5;-;1;samuel Weber;2;3;0
+2018;5;-;1;Samuel Weber;2;3;0
 2018;5;-;2;Cristiano Baumgarten;7;0;0
 2018;5;-;2;Cunhado;1;0;0
 2018;5;-;2;Douglas Dias;2;0;0
@@ -1800,7 +1800,7 @@
 2018;8;-;2;Matheus Valle;4;3;0
 2018;8;-;2;Nikolas Weber;2;3;0
 2018;8;-;2;Rafael Muller;3;3;0
-2018;8;-;2;samuel Weber;1;3;0
+2018;8;-;2;Samuel Weber;1;3;0
 2018;8;-;2;Werner Hansen;3;3;0
 2018;9;-;1;Adriel Zanatta;2;3;0
 2018;9;-;1;Cristian Zaparoli;1;3;0
@@ -1826,7 +1826,7 @@
 2018;11;-;1;Nikolas Weber;4;3;0
 2018;11;-;1;Rafael Klauck;6;3;0
 2018;11;-;1;Roviel Koch;0;3;0
-2018;11;-;1;samuel Weber;2;3;0
+2018;11;-;1;Samuel Weber;2;3;0
 2018;11;-;1;Werner Hansen;1;3;0
 2018;11;-;2;Adriel Zanatta;5;0;0
 2018;11;-;2;Fernando Stacke;2;0;0
@@ -1846,7 +1846,7 @@
 2018;12;-;2;Convidado;0;0;0
 2018;12;-;2;Rafael Klauck;2;0;0
 2018;12;-;2;Rafael Muller;3;0;0
-2018;12;-;2;samuel Weber;0;0;0
+2018;12;-;2;Samuel Weber;0;0;0
 2018;13;-;1;Adriel Zanatta;7;3;0
 2018;13;-;1;André Junges;4;3;0
 2018;13;-;1;Fernando Stacke;1;3;0
@@ -1856,7 +1856,7 @@
 2018;13;-;2;Franklin Henckel;4;0;0
 2018;13;-;2;Nilton Ments;0;0;0
 2018;13;-;2;Rafael Klauck;2;0;0
-2018;13;-;2;samuel Weber;2;0;0
+2018;13;-;2;Samuel Weber;2;0;0
 2018;13;-;2;Werner Hansen;1;0;0
 2018;14;-;1;Adriel Zanatta;3;1;0
 2018;14;-;1;Cristiano Baumgarten;4;1;0
@@ -1883,7 +1883,7 @@
 2018;15;-;2;Rafael Klauck;2;3;0
 2018;15;-;2;Rafael Muller;2;3;0
 2018;15;-;2;Rafael Nunes;0;3;0
-2018;15;-;2;samuel Weber;2;3;0
+2018;15;-;2;Samuel Weber;2;3;0
 2018;16;-;1;Adriel Zanatta;4;0;0
 2018;16;-;1;Cristiano Baumgarten;3;0;0
 2018;16;-;1;Cristian Zaparoli;0;0;0
@@ -1893,7 +1893,7 @@
 2018;16;-;2;André Junges;3;3;0
 2018;16;-;2;Fernando Stacke;1;3;0
 2018;16;-;2;Rafael Muller;1;3;0
-2018;16;-;2;samuel Weber;2;3;0
+2018;16;-;2;Samuel Weber;2;3;0
 2018;16;-;2;Werner Hansen;4;3;0
 2018;17;-;1;Adriel Zanatta;0;1;0
 2018;17;-;1;Douglas Dias;0;1;0
@@ -1905,13 +1905,13 @@
 2018;17;-;2;Cristiano Baumgarten;3;1;0
 2018;17;-;2;Fernando Stacke;2;1;0
 2018;17;-;2;Rafael Klauck;6;1;0
-2018;17;-;2;samuel Weber;0;1;0
+2018;17;-;2;Samuel Weber;0;1;0
 2018;18;-;1;Cristiano Baumgarten;5;3;0
 2018;18;-;1;Fernando Stacke;0;3;0
 2018;18;-;1;Marcos Wazlawick;5;3;0
 2018;18;-;1;Nikolas Weber;3;3;0
 2018;18;-;1;Rafael Muller;3;3;0
-2018;18;-;1;samuel Weber;1;3;0
+2018;18;-;1;Samuel Weber;1;3;0
 2018;18;-;2;Adriel Zanatta;0;0;0
 2018;18;-;2;André Junges;4;0;0
 2018;18;-;2;Nilton Ments;0;0;0
@@ -1933,7 +1933,7 @@
 2018;20;-;1;Fernando Stacke;1;0;0
 2018;20;-;1;Cristian Zaparoli;2;0;0
 2018;20;-;1;Rafael Muller;4;0;0
-2018;20;-;1;samuel Weber;0;0;0
+2018;20;-;1;Samuel Weber;0;0;0
 2018;20;-;1;Werner Hansen;1;0;0
 2018;20;-;2;Franklin Henckel;2;3;0
 2018;20;-;2;Marcos Wazlawick;6;3;0
@@ -1944,7 +1944,7 @@
 2018;21;-;1;Fernando Stacke;0;0;0
 2018;21;-;1;Convidado;1;0;0
 2018;21;-;1;Rafael Muller;4;0;0
-2018;21;-;1;samuel Weber;2;0;0
+2018;21;-;1;Samuel Weber;2;0;0
 2018;21;-;1;Gustavo Boufleur;2;0;0
 2018;21;-;2;Marcos Wazlawick;2;3;0
 2018;21;-;2;Nikolas Weber;3;3;0
@@ -1953,7 +1953,7 @@
 2018;21;-;2;Werner Hansen;2;3;0
 2018;22;-;1;Convidado;3;0;0
 2018;22;-;1;Rafael Klauck;1;0;0
-2018;22;-;1;samuel Weber;4;0;0
+2018;22;-;1;Samuel Weber;4;0;0
 2018;22;-;1;Werner Hansen;0;0;0
 2018;22;-;2;Marcos Wazlawick;4;3;0
 2018;22;-;2;Nikolas Weber;3;3;0
@@ -1970,12 +1970,12 @@
 2018;23;-;2;Nilton Ments;0;0;0
 2018;23;-;2;Rafael Muller;5;0;0
 2018;23;-;2;Rafael Nunes;0;0;0
-2018;23;-;2;samuel Weber;2;0;0
+2018;23;-;2;Samuel Weber;2;0;0
 2018;24;-;1;Adriel Zanatta;1;0;0
 2018;24;-;1;Cristiano Baumgarten;4;0;0
 2018;24;-;1;Marcos Wazlawick;3;0;0
 2018;24;-;1;Rafael Muller;2;0;0
-2018;24;-;1;samuel Weber;1;0;0
+2018;24;-;1;Samuel Weber;1;0;0
 2018;24;-;2;Alexandre Junges;6;3;0
 2018;24;-;2;Fernando Stacke;0;3;0
 2018;24;-;2;Nikolas Weber;3;3;0
@@ -2004,7 +2004,7 @@
 2018;26;-;2;Convidado;1;3;0
 2018;26;-;2;Rafael Klauck;4;3;0
 2018;26;-;2;Rafael Muller;6;3;0
-2018;26;-;2;samuel Weber;3;3;0
+2018;26;-;2;Samuel Weber;3;3;0
 2018;27;-;1;André Junges;3;0;0
 2018;27;-;1;Franklin Henckel;1;0;0
 2018;27;-;1;Nilton Ments;0;0;0
@@ -2038,7 +2038,7 @@
 2018;29;-;2;Fernando Stacke;1;3;0
 2018;29;-;2;Marcos Wazlawick;3;3;0
 2018;29;-;2;Rafael Klauck;2;3;0
-2018;29;-;2;samuel Weber;0;3;0
+2018;29;-;2;Samuel Weber;0;3;0
 2018;29;-;2;Werner Hansen;1;3;0
 2018;30;-;1;Adriel Zanatta;2;3;0
 2018;30;-;1;Cristiano Baumgarten;4;3;0
@@ -2069,11 +2069,11 @@
 2018;32;-;2;Carlos Soares;1;0;0
 2018;32;-;2;Cristiano Baumgarten;7;0;0
 2018;32;-;2;Fernando Stacke;1;0;0
-2018;32;-;2;samuel Weber;2;0;0
+2018;32;-;2;Samuel Weber;2;0;0
 2018;33;-;1;Nikolas Weber;2;0;0
 2018;33;-;1;Rafael Klauck;5;0;0
 2018;33;-;1;Rafael Muller;2;0;0
-2018;33;-;1;samuel Weber;2;0;0
+2018;33;-;1;Samuel Weber;2;0;0
 2018;33;-;2;Adriel Zanatta;2;3;0
 2018;33;-;2;Cristiano Baumgarten;8;3;0
 2018;33;-;2;Marcos Wazlawick;5;3;0
@@ -2099,12 +2099,12 @@
 2021;1;Alexandre Junges;2;Fernando Stacke;1;0;0
 2021;1;Alexandre Junges;2;Gustavo Boufleur;1;0;0
 2021;1;Alexandre Junges;2;Rafael Nunes;2;0;0
-2021;1;Alexandre Junges;2;samuel Weber;0;0;0
+2021;1;Alexandre Junges;2;Samuel Weber;0;0;0
 2021;2;Alexandre Junges;1;Alexandre Junges;0;1;0
 2021;2;Alexandre Junges;1;Fernando Stacke;2;1;0
 2021;2;Alexandre Junges;1;Gustavo Boufleur;2;1;0
 2021;2;Alexandre Junges;1;Rafael Muller;2;1;0
-2021;2;Alexandre Junges;1;samuel Weber;0;1;0
+2021;2;Alexandre Junges;1;Samuel Weber;0;1;0
 2021;2;Alexandre Junges;1;Werner Hansen;2;1;0
 2021;2;Alexandre Junges;2;Adriel Zanatta;2;1;0
 2021;2;Alexandre Junges;2;Bruno Jacobus;2;1;0
@@ -2131,7 +2131,7 @@
 2021;4;-;1;Fernando Stacke;2;0;0
 2021;4;-;1;Gustavo (Pequeno);3;0;0
 2021;4;-;1;Jarbas Kochhann;0;0;0
-2021;4;-;1;samuel Weber;1;0;0
+2021;4;-;1;Samuel Weber;1;0;0
 2021;4;-;1;Touma;0;0;0
 2021;4;-;2;Angelo;0;3;0
 2021;4;-;2;Cristiano Baumgarten;2;3;0
@@ -2150,7 +2150,7 @@
 2021;5;Gustavo Boufleur;2;Eduardo Pinto;0;0;0
 2021;5;Gustavo Boufleur;2;Gustavo Boufleur;2;0;0
 2021;5;Gustavo Boufleur;2;Rafael Muller;1;0;0
-2021;5;Gustavo Boufleur;2;samuel Weber;2;0;0
+2021;5;Gustavo Boufleur;2;Samuel Weber;2;0;0
 2021;5;Gustavo Boufleur;2;Vini Rodrigues;4;0;0
 2021;6;Roviel Koch;1;Eduardo Pinto;0;0;0
 2021;6;Roviel Koch;1;Fernando Stacke;0;0;0
@@ -2164,7 +2164,7 @@
 2021;6;Roviel Koch;2;Felipe Rambor;2;3;0
 2021;6;Roviel Koch;2;Jarbas Kochhann;0;3;0
 2021;6;Roviel Koch;2;Mauricio Lopes;2;3;0
-2021;6;Roviel Koch;2;samuel Weber;0;3;0
+2021;6;Roviel Koch;2;Samuel Weber;0;3;0
 2021;6;Roviel Koch;2;Werner Hansen;1;3;0
 2021;7;André Junges;1;Alexandre Junges;0;0;0
 2021;7;André Junges;1;Guto Goleiro;0;0;0
@@ -2177,20 +2177,20 @@
 2021;7;André Junges;2;Fernando Stacke;2;3;0
 2021;7;André Junges;2;Henrique Borgo;0;3;0
 2021;7;André Junges;2;Werner Hansen;0;3;0
-2021;8;samuel Weber;1;André Junges;1;0;0
-2021;8;samuel Weber;1;Guto Goleiro;0;0;0
-2021;8;samuel Weber;1;Nikolas Weber;3;0;0
-2021;8;samuel Weber;1;Rafael Klauck;1;0;0
-2021;8;samuel Weber;1;samuel Weber;0;0;0
-2021;8;samuel Weber;1;Vini Rodrigues;2;0;0
-2021;8;samuel Weber;1;Werner Hansen;0;0;0
-2021;8;samuel Weber;2;Alexandre Junges;5;3;0
-2021;8;samuel Weber;2;Eduardo Pinto;0;3;0
-2021;8;samuel Weber;2;Felipe Rambor;1;3;0
-2021;8;samuel Weber;2;Fernando Stacke;2;3;0
-2021;8;samuel Weber;2;Jarbas Kochhann;0;3;0
-2021;8;samuel Weber;2;Mauricio Lopes;3;3;0
-2021;8;samuel Weber;2;Rafael Muller;1;3;0
+2021;8;Samuel Weber;1;André Junges;1;0;0
+2021;8;Samuel Weber;1;Guto Goleiro;0;0;0
+2021;8;Samuel Weber;1;Nikolas Weber;3;0;0
+2021;8;Samuel Weber;1;Rafael Klauck;1;0;0
+2021;8;Samuel Weber;1;Samuel Weber;0;0;0
+2021;8;Samuel Weber;1;Vini Rodrigues;2;0;0
+2021;8;Samuel Weber;1;Werner Hansen;0;0;0
+2021;8;Samuel Weber;2;Alexandre Junges;5;3;0
+2021;8;Samuel Weber;2;Eduardo Pinto;0;3;0
+2021;8;Samuel Weber;2;Felipe Rambor;1;3;0
+2021;8;Samuel Weber;2;Fernando Stacke;2;3;0
+2021;8;Samuel Weber;2;Jarbas Kochhann;0;3;0
+2021;8;Samuel Weber;2;Mauricio Lopes;3;3;0
+2021;8;Samuel Weber;2;Rafael Muller;1;3;0
 2021;9;Vini Rodrigues;1;Adriel Zanatta;2;3;0
 2021;9;Vini Rodrigues;1;Alexandre Junges;1;3;0
 2021;9;Vini Rodrigues;1;Mauricio Lopes;1;3;0
@@ -2202,14 +2202,14 @@
 2021;9;Vini Rodrigues;2;Felipe Rambor;4;0;0
 2021;9;Vini Rodrigues;2;Fernando Stacke;1;0;0
 2021;9;Vini Rodrigues;2;Jarbas Kochhann;0;0;0
-2021;9;Vini Rodrigues;2;samuel Weber;0;0;0
+2021;9;Vini Rodrigues;2;Samuel Weber;0;0;0
 2021;9;Vini Rodrigues;2;Vini Rodrigues;0;0;0
 2021;9;Vini Rodrigues;2;Werner Hansen;1;0;0
 2021;10;Werner Hansen;1;Alexandre Junges;1;1;0
 2021;10;Werner Hansen;1;André Junges;1;1;0
 2021;10;Werner Hansen;1;Fernando Stacke;1;1;0
 2021;10;Werner Hansen;1;Roviel Koch;0;1;0
-2021;10;Werner Hansen;1;samuel Weber;0;1;0
+2021;10;Werner Hansen;1;Samuel Weber;0;1;0
 2021;10;Werner Hansen;1;Vini Rodrigues;5;1;0
 2021;10;Werner Hansen;2;Cristiano Baumgarten;0;1;0
 2021;10;Werner Hansen;2;Felipe Rambor;0;1;0
@@ -2223,7 +2223,7 @@
 2021;11;Adriel Zanatta;1;Rafael Klauck;3;3;0
 2021;11;Adriel Zanatta;1;Rafael Muller;3;3;0
 2021;11;Adriel Zanatta;1;Roviel Koch;0;3;0
-2021;11;Adriel Zanatta;1;samuel Weber;0;3;0
+2021;11;Adriel Zanatta;1;Samuel Weber;0;3;0
 2021;11;Adriel Zanatta;1;Vini Rodrigues;1;3;0
 2021;11;Adriel Zanatta;2;Felipe Rambor;3;0;0
 2021;11;Adriel Zanatta;2;Gustavo Boufleur;1;0;0
@@ -2279,14 +2279,14 @@
 2021;15;Felipe Rambor;2;Henrique Borgo;3;0;0
 2021;15;Felipe Rambor;2;Ismael Ferreira;0;0;0
 2021;15;Felipe Rambor;2;Rafael Muller;0;0;0
-2021;15;Felipe Rambor;2;samuel Weber;2;0;0
+2021;15;Felipe Rambor;2;Samuel Weber;2;0;0
 2021;15;Felipe Rambor;2;Werner Hansen;0;0;0
 2021;16;Fernando Stacke;1;Alexandre Junges;1;3;0
 2021;16;Fernando Stacke;1;Eduardo Pinto;1;3;0
 2021;16;Fernando Stacke;1;Fernando Stacke;3;3;0
 2021;16;Fernando Stacke;1;Rafael Klauck;0;3;0
 2021;16;Fernando Stacke;1;Rafael Muller;1;3;0
-2021;16;Fernando Stacke;1;samuel Weber;3;3;0
+2021;16;Fernando Stacke;1;Samuel Weber;3;3;0
 2021;16;Fernando Stacke;1;Werner Hansen;1;3;0
 2021;16;Fernando Stacke;2;Adriel Zanatta;0;0;0
 2021;16;Fernando Stacke;2;Felipe Rambor;3;0;0
@@ -2301,7 +2301,7 @@
 2022;1;André Junges;1;Felipe Amaral;0;1;0
 2022;1;André Junges;1;Marcelo Vizinho;0;1;0
 2022;1;André Junges;1;Osvaldo;2;1;0
-2022;1;André Junges;1;samuel Weber;0;1;0
+2022;1;André Junges;1;Samuel Weber;0;1;0
 2022;1;André Junges;1;Werner Hansen;0;1;0
 2022;1;André Junges;2;Gustavo (Pequeno);4;1;0
 2022;1;André Junges;2;Henrique Borgo;0;1;0
@@ -2334,7 +2334,7 @@
 2022;3;Gustavo Boufleur;2;Fernando Stacke;1;0;0
 2022;3;Gustavo Boufleur;2;Gustavo Boufleur;2;0;0
 2022;3;Gustavo Boufleur;2;Roviel Koch;0;0;0
-2022;3;Gustavo Boufleur;2;samuel Weber;2;0;0
+2022;3;Gustavo Boufleur;2;Samuel Weber;2;0;0
 2022;4;Rafael Muller;1;André Junges;2;3;4
 2022;4;Rafael Muller;1;Felipe Rambor;1;3;0
 2022;4;Rafael Muller;1;Fernando Stacke;2;3;2
@@ -2346,7 +2346,7 @@
 2022;4;Rafael Muller;2;Guto Goleiro;0;0;0
 2022;4;Rafael Muller;2;Marcelo Vizinho;0;0;0
 2022;4;Rafael Muller;2;Osvaldo;0;0;0
-2022;4;Rafael Muller;2;samuel Weber;4;0;3
+2022;4;Rafael Muller;2;Samuel Weber;4;0;3
 2022;4;Rafael Muller;2;Werner Hansen;0;0;0
 2022;5;Rafael Klauck;1;Adriel Zanatta;0;1;0
 2022;5;Rafael Klauck;1;Alexandre Junges;5;1;4
@@ -2354,7 +2354,7 @@
 2022;5;Rafael Klauck;1;Felipe Rambor;1;1;0
 2022;5;Rafael Klauck;1;Guto Goleiro;0;1;0
 2022;5;Rafael Klauck;1;Osvaldo;0;1;0
-2022;5;Rafael Klauck;1;samuel Weber;1;1;1
+2022;5;Rafael Klauck;1;Samuel Weber;1;1;1
 2022;5;Rafael Klauck;2;Eduardo Pinto;0;1;0
 2022;5;Rafael Klauck;2;Fernando Stacke;0;1;0
 2022;5;Rafael Klauck;2;Gustavo Boufleur;1;1;0
@@ -2388,7 +2388,7 @@
 2022;7;Fernando Stacke;2;Mauricio Lopes;2;3;0
 2022;7;Fernando Stacke;2;Rafael Muller;3;3;0
 2022;7;Fernando Stacke;2;Rafael Nunes;2;3;0
-2022;7;Fernando Stacke;2;samuel Weber;1;3;0
+2022;7;Fernando Stacke;2;Samuel Weber;1;3;0
 2022;7;Fernando Stacke;2;Vini Rodrigues;4;3;5
 2022;8;Nikolas Weber;1;Adriel Zanatta;1;3;0
 2022;8;Nikolas Weber;1;Alexandre Junges;1;3;0
@@ -2401,24 +2401,24 @@
 2022;8;Nikolas Weber;2;Norman;2;0;2
 2022;8;Nikolas Weber;2;Rafael Muller;0;0;0
 2022;8;Nikolas Weber;2;Rafael Klauck;0;0;1
-2022;8;Nikolas Weber;2;samuel Weber;0;0;0
+2022;8;Nikolas Weber;2;Samuel Weber;0;0;0
 2022;8;Nikolas Weber;2;Vini Rodrigues;1;0;1
-2022;9;samuel Weber;1;André Junges;5;1;6
-2022;9;samuel Weber;1;Fernando Stacke;2;1;0
-2022;9;samuel Weber;1;Gustavo Boufleur;0;1;0
-2022;9;samuel Weber;1;Henrique Borgo;0;1;0
-2022;9;samuel Weber;1;Paulo Goleiro;0;1;1
-2022;9;samuel Weber;1;Rafael Muller;1;1;0
-2022;9;samuel Weber;1;samuel Weber;1;1;0
-2022;9;samuel Weber;1;Werner Hansen;0;1;0
-2022;9;samuel Weber;2;Adriel Zanatta;1;1;0
-2022;9;samuel Weber;2;Alexandre Junges;3;1;0
-2022;9;samuel Weber;2;Felipe Rambor;3;1;0
-2022;9;samuel Weber;2;Jarbas Kochhann;0;1;0
-2022;9;samuel Weber;2;Mauricio Lopes;1;1;1
-2022;9;samuel Weber;2;Osvaldo;0;1;0
-2022;9;samuel Weber;2;Rafael Klauck;1;1;0
-2022;9;samuel Weber;2;Roviel Koch;0;1;7
+2022;9;Samuel Weber;1;André Junges;5;1;6
+2022;9;Samuel Weber;1;Fernando Stacke;2;1;0
+2022;9;Samuel Weber;1;Gustavo Boufleur;0;1;0
+2022;9;Samuel Weber;1;Henrique Borgo;0;1;0
+2022;9;Samuel Weber;1;Paulo Goleiro;0;1;1
+2022;9;Samuel Weber;1;Rafael Muller;1;1;0
+2022;9;Samuel Weber;1;Samuel Weber;1;1;0
+2022;9;Samuel Weber;1;Werner Hansen;0;1;0
+2022;9;Samuel Weber;2;Adriel Zanatta;1;1;0
+2022;9;Samuel Weber;2;Alexandre Junges;3;1;0
+2022;9;Samuel Weber;2;Felipe Rambor;3;1;0
+2022;9;Samuel Weber;2;Jarbas Kochhann;0;1;0
+2022;9;Samuel Weber;2;Mauricio Lopes;1;1;1
+2022;9;Samuel Weber;2;Osvaldo;0;1;0
+2022;9;Samuel Weber;2;Rafael Klauck;1;1;0
+2022;9;Samuel Weber;2;Roviel Koch;0;1;7
 2022;10;Matheus Valle;1;André Junges;2;3;0
 2022;10;Matheus Valle;1;Felipe Rambor;2;3;1
 2022;10;Matheus Valle;1;Fernando Stacke;1;3;0
@@ -2430,7 +2430,7 @@
 2022;10;Matheus Valle;2;Ismael Ferreira;0;0;0
 2022;10;Matheus Valle;2;Mauricio Lopes;0;0;1
 2022;10;Matheus Valle;2;Rafael Klauck;2;0;1
-2022;10;Matheus Valle;2;samuel Weber;1;0;0
+2022;10;Matheus Valle;2;Samuel Weber;1;0;0
 2022;11;Alexandre Junges;1;Adriel Zanatta;1;0;1
 2022;11;Alexandre Junges;1;Fernando Stacke;0;0;0
 2022;11;Alexandre Junges;1;Gordão (motoboy);0;0;0
@@ -2442,14 +2442,14 @@
 2022;11;Alexandre Junges;2;Mauricio Lopes;2;3;0
 2022;11;Alexandre Junges;2;Rafael Nunes;2;3;1
 2022;11;Alexandre Junges;2;Rafael Klauck;4;3;2
-2022;11;Alexandre Junges;2;samuel Weber;0;3;0
+2022;11;Alexandre Junges;2;Samuel Weber;0;3;0
 2022;11;Alexandre Junges;2;André Matheus;3;3;3
 2022;11;Alexandre Junges;2;Werner Hansen;1;3;0
 2022;12;Cristiano Baumgarten;1;Adriel Zanatta;2;3;0
 2022;12;Cristiano Baumgarten;1;Alexandre Junges;1;3;1
 2022;12;Cristiano Baumgarten;1;Bruno Jacobus;2;3;0
 2022;12;Cristiano Baumgarten;1;Lucas Mano;2;3;2
-2022;12;Cristiano Baumgarten;1;samuel Weber;1;3;0
+2022;12;Cristiano Baumgarten;1;Samuel Weber;1;3;0
 2022;12;Cristiano Baumgarten;1;André Matheus;3;3;2
 2022;12;Cristiano Baumgarten;1;Werner Hansen;0;3;0
 2022;12;Cristiano Baumgarten;2;Eduardo Pinto;0;0;0
@@ -2463,7 +2463,7 @@
 2022;13;Vini Rodrigues;1;Alexandre Junges;2;3;2
 2022;13;Vini Rodrigues;1;Felipe Amaral;1;3;0
 2022;13;Vini Rodrigues;1;Rafael Klauck;1;3;2
-2022;13;Vini Rodrigues;1;samuel Weber;5;3;1
+2022;13;Vini Rodrigues;1;Samuel Weber;5;3;1
 2022;13;Vini Rodrigues;1;André Matheus;4;3;1
 2022;13;Vini Rodrigues;2;Fernando Stacke;2;0;0
 2022;13;Vini Rodrigues;2;Ismael Ferreira;0;0;1
@@ -2476,7 +2476,7 @@
 2022;14;Fernando Stacke;1;Mauricio Lopes;1;3;5
 2022;14;Fernando Stacke;1;Mou;0;3;0
 2022;14;Fernando Stacke;1;Rafael Klauck;2;3;1
-2022;14;Fernando Stacke;1;samuel Weber;0;3;1
+2022;14;Fernando Stacke;1;Samuel Weber;0;3;1
 2022;14;Fernando Stacke;1;Werner Hansen;1;3;1
 2022;14;Fernando Stacke;2;Adriel Zanatta;0;0;0
 2022;14;Fernando Stacke;2;Carlos Miguel;0;0;0
@@ -2515,7 +2515,7 @@
 2022;17;Rafael Muller;1;Pedrinho;0;0;4
 2022;17;Rafael Muller;1;Rafael Muller;3;0;0
 2022;17;Rafael Muller;1;Rafael Klauck;2;0;0
-2022;17;Rafael Muller;1;samuel Weber;1;0;0
+2022;17;Rafael Muller;1;Samuel Weber;1;0;0
 2022;17;Rafael Muller;1;Werner Hansen;1;0;0
 2022;17;Rafael Muller;2;Felipe Rambor;4;3;1
 2022;17;Rafael Muller;2;Gustavo Boufleur;1;3;0
@@ -2543,7 +2543,7 @@
 2022;19;Rafael Klauck;1;Cristiano Baumgarten;2;3;0
 2022;19;Rafael Klauck;1;Gustavo Boufleur;2;3;0
 2022;19;Rafael Klauck;1;Mauricio Goleiro;0;3;6
-2022;19;Rafael Klauck;1;samuel Weber;1;3;0
+2022;19;Rafael Klauck;1;Samuel Weber;1;3;0
 2022;19;Rafael Klauck;1;Werner Hansen;3;3;1
 2022;19;Rafael Klauck;2;Eduardo Pinto;0;0;0
 2022;19;Rafael Klauck;2;Felipe Rambor;2;0;0
@@ -2585,7 +2585,7 @@
 2022;22;Matheus Valle;1;Nikolas Weber;1;3;1
 2022;22;Matheus Valle;1;Pedrinho;0;3;0
 2022;22;Matheus Valle;1;Rafael Klauck;4;3;5
-2022;22;Matheus Valle;1;samuel Weber;0;3;0
+2022;22;Matheus Valle;1;Samuel Weber;0;3;0
 2022;22;Matheus Valle;1;Vini Rodrigues;2;3;0
 2022;22;Matheus Valle;2;Alexandre Junges;5;0;5
 2022;22;Matheus Valle;2;Cristiano Baumgarten;0;0;0
@@ -2599,7 +2599,7 @@
 2022;23;Mauricio Lopes;1;Ismael Ferreira;0;0;0
 2022;23;Mauricio Lopes;1;Mauricio Lopes;3;0;1
 2022;23;Mauricio Lopes;1;Rafael Muller;1;0;2
-2022;23;Mauricio Lopes;1;samuel Weber;1;0;1
+2022;23;Mauricio Lopes;1;Samuel Weber;1;0;1
 2022;23;Mauricio Lopes;1;Matheus Valle;2;0;2
 2022;23;Mauricio Lopes;1;Werner Hansen;1;0;0
 2022;23;Mauricio Lopes;2;Adriel Zanatta;1;3;0
@@ -2621,7 +2621,7 @@
 2022;24;Cristiano Baumgarten;2;Felipe Rambor;0;0;0
 2022;24;Cristiano Baumgarten;2;Fernando Stacke;1;0;3
 2022;24;Cristiano Baumgarten;2;Rafael Nunes;3;0;1
-2022;24;Cristiano Baumgarten;2;samuel Weber;2;0;0
+2022;24;Cristiano Baumgarten;2;Samuel Weber;2;0;0
 2022;24;Cristiano Baumgarten;2;Vini Rodrigues;0;0;0
 2022;24;Cristiano Baumgarten;2;Werner Hansen;0;0;0
 2022;25;Rafael Klauck;1;Alexandre Junges;4;3;0
@@ -2650,7 +2650,7 @@
 2022;26;Felipe Rambor;2;Gustavo Boufleur;2;3;1
 2022;26;Felipe Rambor;2;Mauricio Goleiro;0;3;1
 2022;26;Felipe Rambor;2;Mauricio Lopes;3;3;0
-2022;26;Felipe Rambor;2;samuel Weber;1;3;1
+2022;26;Felipe Rambor;2;Samuel Weber;1;3;1
 2022;27;Gustavo Boufleur;1;Alexandre Junges;3;3;1
 2022;27;Gustavo Boufleur;1;André Junges;2;3;4
 2022;27;Gustavo Boufleur;1;Cristiano Baumgarten;0;3;0
@@ -2662,7 +2662,7 @@
 2022;27;Gustavo Boufleur;2;Mauricio Lopes;1;0;1
 2022;27;Gustavo Boufleur;2;Rafael Muller;1;0;0
 2022;27;Gustavo Boufleur;2;Rafael Nunes;3;0;4
-2022;27;Gustavo Boufleur;2;samuel Weber;0;0;0
+2022;27;Gustavo Boufleur;2;Samuel Weber;0;0;0
 2022;27;Gustavo Boufleur;2;Vini Rodrigues;3;0;1
 2022;28;Ismael Ferreira;1;Adriel Zanatta;0;3;0
 2022;28;Ismael Ferreira;1;Alexandre Junges;2;3;2
@@ -2670,7 +2670,7 @@
 2022;28;Ismael Ferreira;1;Cristiano Baumgarten;1;3;0
 2022;28;Ismael Ferreira;1;Pedrinho;0;3;2
 2022;28;Ismael Ferreira;1;Rafael Nunes;0;3;0
-2022;28;Ismael Ferreira;1;samuel Weber;1;3;0
+2022;28;Ismael Ferreira;1;Samuel Weber;1;3;0
 2022;28;Ismael Ferreira;1;Werner Hansen;2;3;0
 2022;28;Ismael Ferreira;2;Eduardo Pinto;0;0;0
 2022;28;Ismael Ferreira;2;Felipe Rambor;1;0;0
@@ -2715,7 +2715,7 @@
 2022;31;Nikolas Weber;2;Mauricio Lopes;4;3;2
 2022;31;Nikolas Weber;2;Nikolas Weber;1;3;0
 2022;31;Nikolas Weber;2;Rafael Klauck;1;3;1
-2022;31;Nikolas Weber;2;samuel Weber;2;3;0
+2022;31;Nikolas Weber;2;Samuel Weber;2;3;0
 2022;31;Nikolas Weber;2;Werner Hansen;1;3;0
 2022;32;Rafael Muller;1;Adriel Zanatta;1;0;0
 2022;32;Rafael Muller;1;Alexandre Junges;2;0;2
@@ -2723,7 +2723,7 @@
 2022;32;Rafael Muller;1;Ismael Ferreira;0;0;0
 2022;32;Rafael Muller;1;Mauricio Lopes;1;0;2
 2022;32;Rafael Muller;1;Rafael Klauck;0;0;2
-2022;32;Rafael Muller;1;samuel Weber;0;0;0
+2022;32;Rafael Muller;1;Samuel Weber;0;0;0
 2022;32;Rafael Muller;2;André Junges;1;3;0
 2022;32;Rafael Muller;2;Eduardo Pinto;1;3;2
 2022;32;Rafael Muller;2;Henrique Borgo;4;3;0
@@ -2742,21 +2742,21 @@
 2022;33;Rafael Klauck;2;Mauricio Lopes;2;1;2
 2022;33;Rafael Klauck;2;Rafael Muller;0;1;0
 2022;33;Rafael Klauck;2;Rafael Nunes;1;1;2
-2022;33;Rafael Klauck;2;samuel Weber;1;1;0
+2022;33;Rafael Klauck;2;Samuel Weber;1;1;0
 2022;33;Rafael Klauck;2;Werner Hansen;1;1;0
-2022;34;samuel Weber;1;Adriel Zanatta;0;0;0
-2022;34;samuel Weber;1;Alexandre Junges;2;0;1
-2022;34;samuel Weber;1;Cristian (goleiro);0;0;2
-2022;34;samuel Weber;1;Felipe Rambor;3;0;1
-2022;34;samuel Weber;1;Rafael Klauck;1;0;1
-2022;34;samuel Weber;1;Vini Rodrigues;2;0;1
-2022;34;samuel Weber;2;André Junges;3;3;4
-2022;34;samuel Weber;2;Fernando Stacke;0;3;0
-2022;34;samuel Weber;2;Henrique Borgo;2;3;0
-2022;34;samuel Weber;2;Mauricio Lopes;3;3;2
-2022;34;samuel Weber;2;Rafael Muller;2;3;0
-2022;34;samuel Weber;2;samuel Weber;0;3;0
-2022;34;samuel Weber;2;Werner Hansen;0;3;0
+2022;34;Samuel Weber;1;Adriel Zanatta;0;0;0
+2022;34;Samuel Weber;1;Alexandre Junges;2;0;1
+2022;34;Samuel Weber;1;Cristian (goleiro);0;0;2
+2022;34;Samuel Weber;1;Felipe Rambor;3;0;1
+2022;34;Samuel Weber;1;Rafael Klauck;1;0;1
+2022;34;Samuel Weber;1;Vini Rodrigues;2;0;1
+2022;34;Samuel Weber;2;André Junges;3;3;4
+2022;34;Samuel Weber;2;Fernando Stacke;0;3;0
+2022;34;Samuel Weber;2;Henrique Borgo;2;3;0
+2022;34;Samuel Weber;2;Mauricio Lopes;3;3;2
+2022;34;Samuel Weber;2;Rafael Muller;2;3;0
+2022;34;Samuel Weber;2;Samuel Weber;0;3;0
+2022;34;Samuel Weber;2;Werner Hansen;0;3;0
 2022;35;Gustavo Boufleur;1;Alexandre Junges;2;1;1
 2022;35;Gustavo Boufleur;1;Ismael Ferreira;0;1;2
 2022;35;Gustavo Boufleur;1;Rafael Muller;1;1;2
@@ -2774,7 +2774,7 @@
 2022;36;Vini Rodrigues;1;Cristiano Baumgarten;1;1;0
 2022;36;Vini Rodrigues;1;Fernando Stacke;2;1;0
 2022;36;Vini Rodrigues;1;Rafael Klauck;2;1;1
-2022;36;Vini Rodrigues;1;samuel Weber;0;1;0
+2022;36;Vini Rodrigues;1;Samuel Weber;0;1;0
 2022;36;Vini Rodrigues;1;Vini Rodrigues;4;1;0
 2022;36;Vini Rodrigues;2;Felipe Rambor;2;1;0
 2022;36;Vini Rodrigues;2;Henrique Borgo;4;1;0
@@ -2873,12 +2873,12 @@
 2022;43;Alexandre Junges;2;Douglas Dias;2;0;0
 2022;43;Alexandre Junges;2;Mou;0;0;0
 2022;43;Alexandre Junges;2;Rafael Muller;1;0;1
-2022;43;Alexandre Junges;2;samuel Weber;0;0;0
+2022;43;Alexandre Junges;2;Samuel Weber;0;0;0
 2022;44;Fernando Stacke;1;Adriel Zanatta;1;0;0
 2022;44;Fernando Stacke;1;Alexandre Junges;0;0;0
 2022;44;Fernando Stacke;1;Felipe Rambor;3;0;2
 2022;44;Fernando Stacke;1;Gustavo Boufleur;3;0;4
-2022;44;Fernando Stacke;1;samuel Weber;0;0;0
+2022;44;Fernando Stacke;1;Samuel Weber;0;0;0
 2022;44;Fernando Stacke;1;Tiago Amoretti;0;0;0
 2022;44;Fernando Stacke;1;Werner Hansen;1;0;0
 2022;44;Fernando Stacke;2;André Junges;5;3;4
@@ -2904,7 +2904,7 @@
 2022;46;Mauricio Lopes;1;Gustavo Boufleur;2;3;1
 2022;46;Mauricio Lopes;1;Mauricio Lopes;2;3;1
 2022;46;Mauricio Lopes;1;Rafael Muller;1;3;0
-2022;46;Mauricio Lopes;1;samuel Weber;0;3;0
+2022;46;Mauricio Lopes;1;Samuel Weber;0;3;0
 2022;46;Mauricio Lopes;1;Werner Hansen;0;3;0
 2022;46;Mauricio Lopes;2;André Junges;2;0;0
 2022;46;Mauricio Lopes;2;Eduardo Pinto;0;0;0

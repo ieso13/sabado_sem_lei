@@ -1,16 +1,19 @@
-import pandas as pd
-import numpy as np
-import plotly.express as px
-from dash import Dash, dcc, html, Input, Output, callback
-import dash_bootstrap_components as dbc
-from dfs.lista_jogos import lista_jogos_df
-import dash_ag_grid as dag
 import dash
 
-dash.register_page(__name__)
+dash.register_page(__name__, name="Gráfico de Classificação")
+
+import pandas as pd
+import plotly.express as px
+from dash import dcc, html, Input, Output, callback
+import dash_bootstrap_components as dbc
+
 
 grafico_classificação = html.Div(
-    dcc.Graph(figure={}, style={"height": "80vh"}, id="gráfico_classificação"),
+    dcc.Graph(
+        figure={},
+        style={"height": "90vh"},
+        id="gráfico_classificação",
+    ),
 )
 
 slicer_rodadas_selecionadas = dcc.RangeSlider(
@@ -24,8 +27,9 @@ slicer_rodadas_selecionadas = dcc.RangeSlider(
 layout = dbc.Container(
     [
         dbc.Row(dbc.Col(slicer_rodadas_selecionadas)),
-        dbc.Row(dbc.Col(grafico_classificação)),
-    ]
+        dbc.Row(dbc.Col(grafico_classificação, width=12)),
+    ],
+    fluid=True,
 )
 
 

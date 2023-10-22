@@ -1,7 +1,3 @@
-import dash
-
-dash.register_page(__name__, name="Dados Histórico")
-
 import pandas as pd
 import plotly.express as px
 from dash import dcc, html, Input, Output, callback
@@ -10,6 +6,9 @@ from dfs.lista_jogos import lista_jogos_df
 import dash_ag_grid as dag
 from PIL import Image
 from tools.criar_df_classificação import criar_df_classificação
+import dash
+
+dash.register_page(__name__, name="Dados Histórico", order=4)
 
 
 slicer_temporadas = html.Div(
@@ -43,6 +42,8 @@ check_filtro_jogadores = html.Div(
             options=["Sim", "Não"],
             value="Não",
             id="ativar_filtro_jogadores",
+            persistence=True,
+            persistence_type="memory",
         ),
     ]
 )

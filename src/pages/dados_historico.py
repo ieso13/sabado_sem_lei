@@ -37,7 +37,7 @@ slicer_temporadas = html.Div(
 
 check_filtro_jogadores = html.Div(
     [
-        html.H6("Filtrar Conforme Filtro da Temporada"),
+        html.H6("Ativar Filtros Laterais"),
         dcc.Dropdown(
             options=["Sim", "Não"],
             value="Não",
@@ -56,8 +56,14 @@ tabela_historica = dag.AgGrid(
             "field": "#",
             "type": "numericColumn",
             "width": 30,
+            "pinned": True,
         },
-        {"field": "JOGADOR", "width": 200, "sortable": False},
+        {
+            "field": "JOGADOR",
+            "width": 200,
+            "sortable": False,
+            "pinned": True,
+        },
         {
             "field": "PTS",
             "width": 75,

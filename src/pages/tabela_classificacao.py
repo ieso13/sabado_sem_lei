@@ -10,40 +10,6 @@ import dash
 dash.register_page(__name__, name="Tabela de Classificação", order=2)
 
 
-filtro_temporada = dbc.Card(
-    dbc.CardBody(
-        [
-            html.H6("Temporada"),
-            dcc.Dropdown(
-                [{"label": c, "value": c} for c in lista_jogos_df["Ano"].unique()],
-                value=lista_jogos_df["Ano"].unique().max(),
-                id="temporada_dpdn",
-                persistence=True,
-                persistence_type="memory",
-            ),
-        ],
-    ),
-    class_name="text-center mx-1 my-1",
-)
-
-frequencia_minima = dbc.Card(
-    dbc.CardBody(
-        [
-            html.H6("Presença Mínima"),
-            dcc.Input(
-                id="min_pj",
-                type="number",
-                placeholder="Número Mínimo de Rodadas",
-                value=0,
-                persistence=True,
-                persistence_type="memory",
-            ),
-        ],
-    ),
-    id="frequencia_minima",
-    class_name="mx-1 my-1",
-)
-
 tabela_classificação = dag.AgGrid(
     id="tabela_classificação",
     defaultColDef={"sortable": True, "rezisable": True},
@@ -53,13 +19,20 @@ tabela_classificação = dag.AgGrid(
             "checkboxSelection": True,
             "headerCheckboxSelection": True,
             "width": 5,
+            "pinned": True,
         },
         {
             "field": "#",
             "type": "numericColumn",
             "width": 45,
+            "pinned": True,
         },
-        {"field": "JOGADOR", "width": 200, "sortable": False},
+        {
+            "field": "JOGADOR",
+            "width": 200,
+            "sortable": False,
+            "pinned": True,
+        },
         {
             "field": "PTS",
             "width": 75,
@@ -113,15 +86,6 @@ layout = dbc.Container(
     [
         dbc.Row(
             [
-                dbc.Col(
-                    [
-                        dbc.Row(
-                            filtro_temporada,
-                        ),
-                        dbc.Row(frequencia_minima),
-                    ],
-                    width=3,
-                ),
                 dbc.Col(tabela_classificação),
             ]
         ),
@@ -129,41 +93,3 @@ layout = dbc.Container(
     ],
     # fluid=True,
 )
-
-
-@callback(
-    Output("df_filtrado_temporada_selecionada", "data"),
-    Input("temporada_dpdn", "value"),
-)
-def filtrar_lista_jogos(temporada):
-    df = lista_jogos_df
-    df = df.loc[df["Ano"] == temporada]
-    return df.to_dict("records")
-
-
-@callback(
-    [
-        Output("tabela_classificação", "rowData"),
-        Output("linhas_filtradas_tabela_classificação", "data"),
-        Output("tabela_classificação", "selectedRows"),
-        Input("min_pj", "value"),
-        Input("df_filtrado_temporada_selecionada", "data"),
-        State("linhas_selecionadas_temporada_classificação", "data"),
-    ],
-)
-def create_table1(pj_min, linhas_temporada_selecionada, linhas_ja_selecionadas):
-    df = pd.DataFrame(linhas_temporada_selecionada)
-    tabela_df = criar_df_classificação(df)
-    tabela_df = tabela_df.loc[tabela_df["PJ"] >= pj_min]
-    rowData = tabela_df.to_dict("records")
-    selectedRows = linhas_ja_selecionadas
-
-    return (rowData, rowData, selectedRows)
-
-
-@callback(
-    Output("linhas_selecionadas_temporada_classificação", "data"),
-    Input("tabela_classificação", "selectedRows"),
-)
-def selecionar_linhas_tabela(selectedRows):
-    return selectedRows

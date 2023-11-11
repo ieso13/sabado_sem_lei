@@ -8,7 +8,7 @@ from PIL import Image
 from tools.criar_df_classificação import criar_df_classificação
 import dash
 
-dash.register_page(__name__, name="Dados Histórico", order=4)
+dash.register_page(__name__, name="Classificação Histórica", order=10)
 
 
 slicer_temporadas = html.Div(
@@ -132,7 +132,6 @@ layout = dbc.Container(
         ),
     ],
     fluid=True,
-    class_name="gx-2",
 )
 
 

@@ -5,7 +5,7 @@ import dash_bootstrap_components as dbc
 import dash
 
 
-dash.register_page(__name__, name="Gráfico de Classificação", order=3)
+dash.register_page(__name__, name="Gráfico de Classificação", order=9)
 
 grafico_classificação = html.Div(
     dcc.Graph(

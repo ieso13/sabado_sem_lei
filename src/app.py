@@ -68,7 +68,7 @@ SIDEBAR_STYLE = {
     "left": 0,
     "bottom": 0,
     "padding": "2rem 1rem",
-    "background-color": "primary",
+    "background-color": "Gainsboro",
 }
 
 sidebar = html.Div(

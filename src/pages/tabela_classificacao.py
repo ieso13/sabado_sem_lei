@@ -7,7 +7,7 @@ from tools.criar_df_classificação import criar_df_classificação
 import dash
 
 
-dash.register_page(__name__, name="Tabela de Classificação", order=2)
+dash.register_page(__name__, name="Tabela de Classificação", order=3)
 
 
 tabela_classificação = dag.AgGrid(

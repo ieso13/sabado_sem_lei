@@ -198,22 +198,25 @@ def criar_graph2(temporadas, ativar_filtro_jogadores, jogadores_tabela):
         textposition="middle right", marker_color="rgba(0,0,0,0)"
     )
 
-    for i, row in dff.iterrows():
-        jogador = i.replace(" ", "-")
-        grafico_gols_pontos.add_layout_image(
-            dict(
-                source=Image.open(f"src/assets/fotos/{jogador}.png"),
-                xref="x",
-                yref="y",
-                xanchor="center",
-                yanchor="middle",
-                x=row["Pontos"],
-                y=row["Gols"],
-                sizex=int(row["PJ"] * 0.35),
-                sizey=int(row["PJ"] * 0.35),
-                sizing="contain",
-                layer="above",
+    try:
+        for i, row in dff.iterrows():
+            jogador = i.replace(" ", "-")
+            grafico_gols_pontos.add_layout_image(
+                dict(
+                    source=Image.open(f"src/assets/fotos/{jogador}.png"),
+                    xref="x",
+                    yref="y",
+                    xanchor="center",
+                    yanchor="middle",
+                    x=row["Pontos"],
+                    y=row["Gols"],
+                    sizex=int(row["PJ"] * 0.35),
+                    sizey=int(row["PJ"] * 0.35),
+                    sizing="contain",
+                    layer="above",
+                )
             )
-        )
+    except:
+        pass
 
     return grafico_gols_pontos

@@ -22,7 +22,12 @@ slicer_rodadas_selecionadas = dcc.RangeSlider(
 dropdown_tipo_gráfico = html.Div(
     [
         dcc.Dropdown(
-            options=["Rodadas x Pontuação", "Rodadas x Posição"],
+            options=[
+                "Rodadas x Pontuação",
+                "Rodadas x Posição",
+                "Pontuação - Barras",
+                "Gols - Barras",
+            ],
             value="Rodadas x Pontuação",
             id="tipo_gráfico",
             persistence=True,
@@ -117,13 +122,13 @@ def criar_gráfico_classificação(
         jog_selecionados = [s["JOGADOR"] for s in jogadores_selecionados]
         df = df[df["Jogador"].isin(jog_selecionados)]
 
-    if "Pontuação" in tipo_gráfico:
+    if "Rodadas x Pontuação" in tipo_gráfico:
         df = df.sort_values(by=["Rodada", "Pontos Acc"], ascending=False)
         line_classificação = px.line(
             df,
             x="Rodada",
             y="Pontos Acc",
-            range_y=[0, 66],
+            range_y=[0, 70],
             range_x=[1, 50],
             color="Jogador",
             template="none",
@@ -134,13 +139,43 @@ def criar_gráfico_classificação(
                 x=[d.x[0]],
                 y=[d.y[0]],
                 mode="markers+text",
-                text=str(d.y[0]),
+                text=str(d.y[0]) + "-" + d.name,
                 textfont=dict(color=d.line.color, size=11),
                 textposition="middle right",
                 marker=dict(color=d.line.color, size=8),
                 legendgroup=d.name,
                 showlegend=False,
             )
+
+    elif "Pontuação - Barras" in tipo_gráfico:
+        df = df.sort_values(by=["Rodada", "Pontos Acc"], ascending=[True, False])
+        df["text"] = df["Jogador"] + " - " + df["Pontos Acc"].astype(str) + " Pontos"
+        line_classificação = px.bar(
+            df,
+            x="Pontos Acc",
+            y="Posição",
+            orientation="h",
+            animation_frame="Rodada",
+            range_x=[0, 70],
+            range_y=[20, 0],
+            color="Jogador",
+            text="text",
+        )
+
+    elif "Gols - Barras" in tipo_gráfico:
+        df = df.sort_values(by=["Rodada", "Gols Acc"], ascending=[True, True])
+        df["text"] = df["Jogador"] + " - " + df["Gols Acc"].astype(str) + " Gols"
+        line_classificação = px.bar(
+            df,
+            x="Gols Acc",
+            y="Jogador",
+            orientation="h",
+            animation_frame="Rodada",
+            range_x=[0, 100],
+            range_y=[20, 0],
+            color="Jogador",
+            text="text",
+        )
 
     else:
         df = df.sort_values(by=["Rodada", "Posição"], ascending=[False, True])

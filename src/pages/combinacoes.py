@@ -65,36 +65,36 @@ tabela_junto = dag.AgGrid(
     columnDefs=[
         {
             "field": "JOGADOR",
-            "width": 200,
+            "width": 175,
             "pinned": True,
-        },
-        {
-            "field": "PTS",
-            "width": 75,
-        },
-        {
-            "field": "APRV",
-            "width": 90,
-            "valueFormatter": {"function": 'd3.format(".1%")(params.value)'},
-        },
-        {
-            "field": "GOLS",
-            "width": 75,
-        },
-        {
-            "field": "MÉDIA",
-            "width": 90,
-            "valueFormatter": {"function": 'd3.format(".2f")(params.value)'},
         },
         {
             "field": "PJ",
             "width": 50,
         },
+        # {
+        #     "field": "PTS",
+        #     "width": 75,
+        # },
         {
-            "field": "FREQ",
+            "field": "APRV",
             "width": 90,
             "valueFormatter": {"function": 'd3.format(".1%")(params.value)'},
         },
+        # {
+        #     "field": "GOLS",
+        #     "width": 75,
+        # },
+        {
+            "field": "MÉDIA",
+            "width": 90,
+            "valueFormatter": {"function": 'd3.format(".2f")(params.value)'},
+        },
+        # {
+        #     "field": "FREQ",
+        #     "width": 90,
+        #     "valueFormatter": {"function": 'd3.format(".1%")(params.value)'},
+        # },
         {
             "field": "S+",
             "width": 50,
@@ -113,7 +113,8 @@ tabela_junto = dag.AgGrid(
         },
     ],
     dashGridOptions={"animateRows": True},
-    style={"height": 775, "width": "100%"},
+    style={"height": 750},
+    columnSize="sizeToFit",
 )
 
 tabela_contra = dag.AgGrid(
@@ -122,36 +123,36 @@ tabela_contra = dag.AgGrid(
     columnDefs=[
         {
             "field": "JOGADOR",
-            "width": 200,
+            "width": 175,
             "pinned": True,
-        },
-        {
-            "field": "PTS",
-            "width": 75,
-        },
-        {
-            "field": "APRV",
-            "width": 90,
-            "valueFormatter": {"function": 'd3.format(".1%")(params.value)'},
-        },
-        {
-            "field": "GOLS",
-            "width": 75,
-        },
-        {
-            "field": "MÉDIA",
-            "width": 90,
-            "valueFormatter": {"function": 'd3.format(".2f")(params.value)'},
         },
         {
             "field": "PJ",
             "width": 50,
         },
+        # {
+        #     "field": "PTS",
+        #     "width": 75,
+        # },
         {
-            "field": "FREQ",
+            "field": "APRV",
             "width": 90,
             "valueFormatter": {"function": 'd3.format(".1%")(params.value)'},
         },
+        # {
+        #     "field": "GOLS",
+        #     "width": 75,
+        # },
+        {
+            "field": "MÉDIA",
+            "width": 90,
+            "valueFormatter": {"function": 'd3.format(".2f")(params.value)'},
+        },
+        # {
+        #     "field": "FREQ",
+        #     "width": 90,
+        #     "valueFormatter": {"function": 'd3.format(".1%")(params.value)'},
+        # },
         {
             "field": "S+",
             "width": 50,
@@ -170,7 +171,8 @@ tabela_contra = dag.AgGrid(
         },
     ],
     dashGridOptions={"animateRows": True},
-    style={"height": 775, "width": "100%"},
+    style={"height": 750},
+    columnSize="sizeToFit",
 )
 
 layout = dbc.Container(

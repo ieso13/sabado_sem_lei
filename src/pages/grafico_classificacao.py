@@ -26,7 +26,6 @@ dropdown_tipo_gráfico = html.Div(
                 "Rodadas x Pontuação",
                 "Rodadas x Posição",
                 "Pontuação - Barras",
-                "Gols - Barras",
             ],
             value="Rodadas x Pontuação",
             id="tipo_gráfico",
@@ -161,21 +160,7 @@ def criar_gráfico_classificação(
             color="Jogador",
             text="text",
         )
-
-    elif "Gols - Barras" in tipo_gráfico:
-        df = df.sort_values(by=["Rodada", "Gols Acc"], ascending=[True, True])
-        df["text"] = df["Jogador"] + " - " + df["Gols Acc"].astype(str) + " Gols"
-        line_classificação = px.bar(
-            df,
-            x="Gols Acc",
-            y="Jogador",
-            orientation="h",
-            animation_frame="Rodada",
-            range_x=[0, 100],
-            range_y=[20, 0],
-            color="Jogador",
-            text="text",
-        )
+        line_classificação.update_layout(showlegend=False)
 
     else:
         df = df.sort_values(by=["Rodada", "Posição"], ascending=[False, True])

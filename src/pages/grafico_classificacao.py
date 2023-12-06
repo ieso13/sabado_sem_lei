@@ -3,6 +3,7 @@ import plotly.express as px
 from dash import dcc, html, Input, Output, callback
 import dash_bootstrap_components as dbc
 import dash
+from PIL import Image
 
 
 dash.register_page(__name__, name="Gráfico de Classificação", order=9)
@@ -133,6 +134,7 @@ def criar_gráfico_classificação(
             template="none",
         )
         line_classificação.update_traces(line_width=5, opacity=0.3)
+
         for i, d in enumerate(line_classificação.data):
             line_classificação.add_scatter(
                 x=[d.x[0]],
@@ -145,6 +147,23 @@ def criar_gráfico_classificação(
                 legendgroup=d.name,
                 showlegend=False,
             )
+        # for i, row in df.iterrows():
+        #     jogador = row["Jogador"].replace(" ", "-")
+        #     line_classificação.add_layout_image(
+        #         dict(
+        #             source=Image.open(f"src/assets/fotos/{jogador}.png"),
+        #             xref="x",
+        #             yref="y",
+        #             xanchor="center",
+        #             yanchor="middle",
+        #             x=row["Rodada"],
+        #             y=row["Pontos Acc"],
+        #             sizex=2,
+        #             sizey=2,
+        #             sizing="contain",
+        #             layer="above",
+        #         )
+        #     )
 
     elif "Pontuação - Barras" in tipo_gráfico:
         df = df.sort_values(by=["Rodada", "Pontos Acc"], ascending=[True, False])
@@ -163,30 +182,68 @@ def criar_gráfico_classificação(
         line_classificação.update_layout(showlegend=False)
 
     else:
-        df = df.sort_values(by=["Rodada", "Posição"], ascending=[False, True])
+        df = df.sort_values(by=["Rodada", "Posição"], ascending=[True, True])
+
+        menor_pos_df = df.groupby("Rodada")["Posição"].max().reset_index()
+
+        menor_pos = menor_pos_df.loc[menor_pos_df["Rodada"].idxmax(), "Posição"] + 1
+
+        size_fig = 20 / menor_pos
+
         line_classificação = px.line(
             df,
             x="Rodada",
             y="Posição",
-            range_y=[20, 0],
+            range_y=[menor_pos, 0],
             range_x=[0, 47],
             color="Jogador",
             template="none",
         )
-        line_classificação.update_traces(line_width=5, opacity=0.3)
-        for i, d in enumerate(line_classificação.data):
-            line_classificação.add_scatter(
-                x=[d.x[0]],
-                y=[d.y[0]],
-                mode="markers+text",
-                text=str(d.y[0]),
-                textfont=dict(color=d.line.color, size=11),
-                textposition="middle right",
-                marker=dict(color=d.line.color, size=8),
-                legendgroup=d.name,
-                showlegend=False,
-            )
+        line_classificação.update_traces(line_width=1, opacity=1)
 
+        for i, d in enumerate(line_classificação.data):
+            for idx in range(len(d.y)):
+                if d.y[idx] == d.y[idx - 1]:
+                    continue
+                else:
+                    try:
+                        jogador = d.name.replace(" ", "-")
+                        line_classificação.add_layout_image(
+                            dict(
+                                source=Image.open(f"src/assets/fotos/{jogador}.png"),
+                                xref="x",
+                                yref="y",
+                                xanchor="center",
+                                yanchor="middle",
+                                x=d.x[idx],
+                                y=d.y[idx],
+                                sizex=size_fig,
+                                sizey=size_fig,
+                                sizing="contain",
+                                layer="above",
+                            )
+                        )
+                    except:
+                        continue
+            try:
+                jogador = d.name.replace(" ", "-")
+                line_classificação.add_layout_image(
+                    dict(
+                        source=Image.open(f"src/assets/fotos/{jogador}.png"),
+                        xref="x",
+                        yref="y",
+                        xanchor="center",
+                        yanchor="middle",
+                        x=d.x[idx],
+                        y=d.y[idx],
+                        sizex=size_fig,
+                        sizey=size_fig,
+                        sizing="contain",
+                        layer="above",
+                    )
+                )
+            except:
+                continue
     line_classificação.update_layout(
         template="none", yaxis={"title": ""}, xaxis={"title": ""}
     )

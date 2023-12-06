@@ -2,13 +2,13 @@ import os
 from PIL import Image, ImageDraw
 import numpy as np
 
-directory_in_str = "C:/Users/zanat/OneDrive/Área de Trabalho/fotos"
+directory_in_str = "C:/Code/sabado_sem_lei/src/assets/fotos"
 
 directory = os.fsencode(directory_in_str)
 
 for file in os.listdir(directory):
     filename = os.fsdecode(file)
-    img = Image.open(f"C:/Users/zanat/OneDrive/Área de Trabalho/fotos/{filename}")
+    img = Image.open(f"C:/Code/sabado_sem_lei/src/assets/fotos/{filename}")
     img = img.resize((255, 255))
     filename = filename.replace(" ", "-")
     img = img.convert("RGB")

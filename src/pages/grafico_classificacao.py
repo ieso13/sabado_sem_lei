@@ -73,6 +73,23 @@ def slicer_rodadas(df_filtrado_temporada_selecionada):
     return min_value, max_value, value
 
 
+def images_on_data_points(scale, index_img, name):
+    jogador = d.name.replace(" ", "-")
+    return dict(
+        source=Image.open(f"src/assets/fotos/{jogador}.png"),
+        xref="x",
+        yref="y",
+        xanchor="center",
+        yanchor="middle",
+        x=d.x[index_img],
+        y=d.y[index_img],
+        sizex=size_fig * scale,
+        sizey=size_fig * scale,
+        sizing="contain",
+        layer="above",
+    )
+
+
 @callback(
     Output("gráfico_classificação", "figure"),
     Input("linhas_selecionadas_temporada_classificação", "data"),
@@ -147,23 +164,6 @@ def criar_gráfico_classificação(
                 legendgroup=d.name,
                 showlegend=False,
             )
-        # for i, row in df.iterrows():
-        #     jogador = row["Jogador"].replace(" ", "-")
-        #     line_classificação.add_layout_image(
-        #         dict(
-        #             source=Image.open(f"src/assets/fotos/{jogador}.png"),
-        #             xref="x",
-        #             yref="y",
-        #             xanchor="center",
-        #             yanchor="middle",
-        #             x=row["Rodada"],
-        #             y=row["Pontos Acc"],
-        #             sizex=2,
-        #             sizey=2,
-        #             sizing="contain",
-        #             layer="above",
-        #         )
-        #     )
 
     elif "Pontuação - Barras" in tipo_gráfico:
         df = df.sort_values(by=["Rodada", "Pontos Acc"], ascending=[True, False])
@@ -188,7 +188,7 @@ def criar_gráfico_classificação(
 
         menor_pos = menor_pos_df.loc[menor_pos_df["Rodada"].idxmax(), "Posição"] + 1
 
-        size_fig = 20 / menor_pos
+        size_fig = min(20 / menor_pos, 1)
 
         line_classificação = px.line(
             df,
@@ -202,8 +202,9 @@ def criar_gráfico_classificação(
         line_classificação.update_traces(line_width=1, opacity=1)
 
         for i, d in enumerate(line_classificação.data):
+            last_pos = 0
             for idx in range(len(d.y)):
-                if d.y[idx] == d.y[idx - 1]:
+                if d.y[idx] == last_pos:
                     continue
                 else:
                     try:
@@ -217,12 +218,13 @@ def criar_gráfico_classificação(
                                 yanchor="middle",
                                 x=d.x[idx],
                                 y=d.y[idx],
-                                sizex=size_fig,
-                                sizey=size_fig,
+                                sizex=size_fig * 0.75,
+                                sizey=size_fig * 0.75,
                                 sizing="contain",
                                 layer="above",
                             )
                         )
+                        last_pos = d.y[idx]
                     except:
                         continue
             try:
@@ -234,8 +236,8 @@ def criar_gráfico_classificação(
                         yref="y",
                         xanchor="center",
                         yanchor="middle",
-                        x=d.x[idx],
-                        y=d.y[idx],
+                        x=d.x[-1],
+                        y=d.y[-1],
                         sizex=size_fig,
                         sizey=size_fig,
                         sizing="contain",
@@ -244,6 +246,7 @@ def criar_gráfico_classificação(
                 )
             except:
                 continue
+
     line_classificação.update_layout(
         template="none", yaxis={"title": ""}, xaxis={"title": ""}
     )

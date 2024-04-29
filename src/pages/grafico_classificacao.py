@@ -211,7 +211,9 @@ def criar_gráfico_classificação(
                         jogador = d.name.replace(" ", "-")
                         line_classificação.add_layout_image(
                             dict(
-                                source=Image.open(f"src/assets/fotos/{jogador}.png"),
+                                source=Image.open(
+                                    f"sabado_sem_lei/src/assets/fotos/{jogador}.png"
+                                ),
                                 xref="x",
                                 yref="y",
                                 xanchor="center",
@@ -231,7 +233,9 @@ def criar_gráfico_classificação(
                 jogador = d.name.replace(" ", "-")
                 line_classificação.add_layout_image(
                     dict(
-                        source=Image.open(f"src/assets/fotos/{jogador}.png"),
+                        source=Image.open(
+                            f"sabado_sem_lei/src/assets/fotos/{jogador}.png"
+                        ),
                         xref="x",
                         yref="y",
                         xanchor="center",

@@ -1,7 +1,7 @@
 import pandas as pd
 
 lista_jogos_df = pd.read_csv(
-    "src/assets/historico-completo-jogos.csv",
+    "sabado_sem_lei/src/assets/historico-completo-jogos.csv",
     encoding="UTF-8",
     sep="\;",
     engine="python",
